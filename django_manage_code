@@ -2,5 +2,5 @@ django-admin startproject mysite 建立项目
 python manage.py runserver 开启服务器
 python manage.py startapp polls 创建APP
 python manage.py migrate 根据model创建数据库表
-python manage.py makemigrations polls 修改model之后创建数据库表生成语句
+python manage.py makemigrations partsInfo 修改model之后创建数据库表生成语句
 python manage.py createsuperuser 创建管理员用户

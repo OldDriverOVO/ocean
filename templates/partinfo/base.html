@@ -18,6 +18,8 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{% static 'css/_all-skins.min.css'%}">
+  <link rel="stylesheet" href="{% static 'css/select2.min.css'%}">
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,7 +34,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.html" class="logo">
+    <a href="{% url 'partsinfo:index' %}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>O</b>c</span>
       <!-- logo for regular state and mobile devices -->
@@ -202,7 +204,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../../index.html"><i class="fa fa-circle-o"></i>商品</a></li>
+            <li><a href="{% url 'partsinfo:part_list'%}"><i class="fa fa-circle-o"></i>商品</a></li>
             <li><a href="../../index2.html"><i class="fa fa-circle-o"></i>客户</a></li>
             <li><a href="../../index2.html"><i class="fa fa-circle-o"></i>工厂</a></li>
           </ul>
@@ -487,6 +489,7 @@
 
 <!-- jQuery 3 -->
 <script src="{% static 'js/jquery.min.js'%}"></script>
+<script src="{% static 'js/select2.min.js'%}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{% static 'js/bootstrap.min.js'%}"></script>
 <!-- SlimScroll -->
@@ -500,7 +503,9 @@
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()
+    $('.select2').select2()
   })
+
 </script>
 </body>
 </html>

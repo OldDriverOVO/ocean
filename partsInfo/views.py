@@ -6,3 +6,7 @@ from django.http import HttpResponse
 def index(request):
 
     return render(request, 'partinfo/index.html')
+
+def parts(request):
+
+    return render(request, 'partinfo/parts_list.html')
