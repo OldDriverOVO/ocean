@@ -2,86 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e98eb129-8d38-41ad-abab-8f74a7530bce" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/435d10f8-5b32-4ba6-a1b3-a20698cf9082.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/435d10f8-5b32-4ba6-a1b3-a20698cf9082/storage_v2/_src_/database/ocean_build.7auHRQ.meta" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/435d10f8-5b32-4ba6-a1b3-a20698cf9082/storage_v2/_src_/database/ocean_build.7auHRQ/schema/public.abK9xQ.meta" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/46e5778e-7b86-4940-be8d-92764732abec.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/46e5778e-7b86-4940-be8d-92764732abec/storage_v2/_src_/database/ocean._rhKBg.meta" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/46e5778e-7b86-4940-be8d-92764732abec/storage_v2/_src_/database/ocean._rhKBg/schema/public.abK9xQ.meta" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/ocean.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/OCEAN/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/OCEAN/settings.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/OCEAN/urls.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/OCEAN/wsgi.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/django_manage_code" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/manage.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/admin.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/apps.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/migrations/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/models.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/css/AdminLTE.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/css/_all-skins.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/css/bootstrap.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/css/ionicons.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/.bower.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/.npmignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/HELP-US-OUT.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/bower.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/css/font-awesome.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/css/font-awesome.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/css/font-awesome.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/fonts/FontAwesome.otf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/fonts/fontawesome-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/fonts/fontawesome-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/fonts/fontawesome-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/fonts/fontawesome-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/animated.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/bordered-pulled.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/core.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/fixed-width.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/font-awesome.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/icons.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/larger.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/list.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/mixins.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/path.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/rotated-flipped.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/screen-reader.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/stacked.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/less/variables.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_animated.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_bordered-pulled.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_core.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_fixed-width.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_icons.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_larger.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_list.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_mixins.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_path.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_rotated-flipped.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_screen-reader.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_stacked.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/_variables.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/font-awesome/scss/font-awesome.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/js/adminlte.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/js/bootstrap.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/js/demo.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/js/fastclick.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/js/jquery.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/js/jquery.slimscroll.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/tests.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/urls.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/views.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/partinfo/base.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/partinfo/index.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -143,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/partsInfo/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -330,7 +251,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="7" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -338,7 +258,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17322835" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10783262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10783262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.048819743" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -584,7 +504,7 @@
     <entry file="file://$PROJECT_DIR$/partsInfo/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
