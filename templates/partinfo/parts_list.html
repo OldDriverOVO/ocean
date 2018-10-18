@@ -11,13 +11,13 @@
 
             <div class="box box-widget">
                 <div class="box-body box-profile">
-                    <div class="col-md-1 "><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#model_parts_add" ><i class="fa fa-plus">  添加</i></button></div>
+                    <div class="col-md-1 "><button type="button" class="btn btn-default" data-toggle="modal" data-target="#model_parts_add" ><i class="fa fa-plus">  添加</i></button></div>
                     <div class="col-md-6 pull-right">
                         <form action="#" method="post">
                            <div class="input-group">
                            <input type="text" name="message" placeholder="查询条件....." class="form-control">
                               <span class="input-group-btn">
-                              <button type="submit" class="btn btn-primary btn-flat"><i class="fa fa-search"></i> </button>
+                              <button type="submit" class="btn btn-default btn-flat"><i class="fa fa-search"></i> </button>
                               </span>
                            </div>
                         </form>
@@ -25,29 +25,26 @@
                 </div>
                 <!-- /.box-body -->
             </div>
-            <div class="row">
-                {% for parts in contacts.object_list %}
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="info-box">
-             <span class="info-box-icon">
-                 {% if parts.img != '' %}
-                     <img src="../../media/{{ parts.img }}">
-                 {% else %}
-                     <i class="fa fa-file-photo-o"></i>
-                 {% endif %}
-                 </span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-number">{{ parts.oem }}</span>
-                                <span class="info-box-text">{{ parts.cn_name }}</span>
-                                <span class="info-box-text">{{ parts.en_name }}</span>
-
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                        <!-- /.info-box -->
-                    </div>
-                {% endfor %}
+            <div id = 'part_list' class="row">
+{#                {% for parts in contacts.object_list %}#}
+{#                    <div class="col-md-3 col-sm-6 col-xs-12">#}
+{#                        <div class="info-box">#}
+{#                           <span class="info-box-icon">#}
+{#                               {% if parts.img != '' %}#}
+{#                               <img src="../../media/{{ parts.img }}" width="100%" height="90%">#}
+{#                               {% else %}#}
+{#                               <i class="fa fa-file-photo-o"></i>#}
+{#                               {% endif %}#}
+{#                           </span>#}
+{##}
+{#                            <div class="info-box-content">#}
+{#                                <span class="info-box-number">{{ parts.oem }}</span>#}
+{#                                <span class="info-box-text">{{ parts.cn_name }}</span>#}
+{#                                <span class="info-box-text">{{ parts.en_name }}</span>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endfor %}#}
 
             </div>
             <div class="row">
@@ -108,40 +105,40 @@
               </div>
               <div class="modal-body">
 
-                  <form action="#" method="post">
-                      {% csrf_token %}
+                  <form action="#" method="post" id="add_parts_form">
+                    {% csrf_token %}
                     <div class="col-md-12">
                         <div class="form-group">
 
                             <label>OEM</label>
-                            <input type="text"  class="form-control" id="txt_OEM" placeholder="">
+                            <input type="text"  class="form-control" name="txt_OEM" id="txt_OEM" placeholder="">
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                            <label >中文品名</label>
-                           <input type="text" class="form-control" id="txt_cn_name" placeholder="">
+                           <input type="text" class="form-control" name="txt_cn_name" id="txt_cn_name" placeholder="">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                            <label >英文品名</label>
-                           <input type="text" class="form-control" id="txt_en_name" placeholder="">
+                           <input type="text" class="form-control" name="txt_en_name" id="txt_en_name" placeholder="">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                            <label >描述</label>
-                        <textarea class="form-control" rows="4" id="txt_area_desc" placeholder="....."></textarea>
+                        <textarea class="form-control" rows="4" name="txt_area_desc" id="txt_area_desc" placeholder="....."></textarea>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                         <label >上传图片</label>
-                        <input type="file" id="file_img">
+                        <input type="file" name="file_img" id="file_img">
 
-                        <p class="help-block">Example block-level help text here.</p>
+                        <p class="help-block">图片格式BMP、JPG、JPEG、PNG、GIF</p>
                         </div>
                     </div>
                 </form>
@@ -161,7 +158,106 @@
 <script>
   $(document).ready(function () {
 
+    toastr.options.positionClass = 'toast-top-center';
+    $.ajax({
+            type:"GET",
+            {#headers:{ "X-CSRFtoken":$("[name='csrfmiddlewaretoken']").val()},#}
+            url:"{% url 'partsinfo:part_list' %}?page=1",
+            {#dataType:'',#}
+            {#data:{"page":1},#}
+            async: false,
+            contentType: false,
+            processData: false,
+            success:function (data) {
 
+                console.log(data)
+                showPartInfo(data);
+                {#console.log(data.parts_list)#}
+
+            }
+
+        });
+
+
+    $("#btn_parts_save").click(function () {
+        var add_oem = $("#txt_OEM");
+        if(add_oem.val() == ""){
+            add_oem.parent().addClass("has-error")
+            toastr.error('OEM 不能为空！');
+            return;
+        }
+        var file_img =$("#file_img");
+        if(file_img.val()!=''&&check_file_name_img(file_img.val())){
+            toastr.error('请检查图片格式（格式BMP、JPG、JPEG、PNG、GIF等）!');
+            file_img.parent().addClass("has-error")
+            return;
+        }
+        var parts_form_data = new FormData($("#add_parts_form")[0])
+
+        $.ajax({
+            type:"POST",
+            {#headers:{ "X-CSRFtoken":$("[name='csrfmiddlewaretoken']").val()},#}
+            url:"{% url 'partsinfo:add_parts_info' %}",
+            {#dataType:'',#}
+            data:parts_form_data,
+            async: false,
+            contentType: false,
+            processData: false,
+            success:function (data) {
+                alert(data)
+                $('#model_parts_add').modal('hide');
+
+                if(data=="success"){
+                    toastr.success('添加成功！2333');
+                }else {
+                    toastr.error('添加失败');
+                }
+
+            }
+
+        });
+
+
+    });
+    $('#model_parts_add').on('hide.bs.modal', function () {
+           toastr.info('model close');
+           var add_oem = $("#txt_OEM");
+           if(add_oem.parent().hasClass("has-error")){
+               add_oem.parent().removeClass("has-error");
+
+           }
+           var file_img =$("#file_img");
+
+           if(file_img.parent().hasClass("has-error")){
+               file_img.parent().removeClass("has-error");
+
+           }
+
+   });
+
+    function showPartInfo(data) {
+        var info_box = $('#part_list')
+
+        for( var parts in data.parts_list){
+            console.log(parts);
+            return;
+           var html = ' <div class="col-md-3 col-sm-6 col-xs-12">\
+                               <div class="info-box">\
+                                     <span class="info-box-icon">\
+                                           <img src="../../media/'+ parts["fields"]["img"]+'" width="100%" height="90%">\
+                                            <i class="fa fa-file-photo-o"></i>\
+                                     </span>\
+                                     <div class="info-box-content">\
+                                            <span class="info-box-number">'+ parts.pk +'</span>\
+                                            <span class="info-box-text">'+ parts.fields.img+'</span>\
+                                            <span class="info-box-text">'+ parts.fields.img+'</span>\
+                                          </div>\
+                                </div>\
+                         </div>';
+           info_box.append(html)
+        }
+
+    }
   })
 
 </script>

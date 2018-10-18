@@ -26,6 +26,9 @@ class Parts(models.Model):
     last_change_user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     car_model = models.ForeignKey(CarModels,on_delete=models.SET_NULL,null=True)
 
+    class META:
+        ordering = ['last_change_date']
+
     def __str__(self):
         return self.oem
 
