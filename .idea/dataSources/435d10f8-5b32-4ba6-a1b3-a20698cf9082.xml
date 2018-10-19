@@ -51,8 +51,8 @@
     </role>
     <schema id="11" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-10-16.14:20:01.988</IntrospectionTimestamp>
-      <IntrospectionStateNumber>693</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-10-19.16:20:33.536</IntrospectionTimestamp>
+      <IntrospectionStateNumber>897</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -237,19 +237,19 @@
     </table>
     <table id="43" parent="11" name="partsInfo_customer">
       <ObjectId>24755</ObjectId>
-      <StateNumber>674</StateNumber>
+      <StateNumber>886</StateNumber>
     </table>
     <table id="44" parent="11" name="partsInfo_customerpartsprice">
       <ObjectId>24766</ObjectId>
-      <StateNumber>674</StateNumber>
+      <StateNumber>886</StateNumber>
     </table>
     <table id="45" parent="11" name="partsInfo_factory">
       <ObjectId>24777</ObjectId>
-      <StateNumber>674</StateNumber>
+      <StateNumber>897</StateNumber>
     </table>
     <table id="46" parent="11" name="partsInfo_factorypartsprice">
       <ObjectId>24788</ObjectId>
-      <StateNumber>674</StateNumber>
+      <StateNumber>897</StateNumber>
     </table>
     <table id="47" parent="11" name="partsInfo_oemexchange">
       <ObjectId>24899</ObjectId>
@@ -257,11 +257,11 @@
     </table>
     <table id="48" parent="11" name="partsInfo_parts">
       <ObjectId>24797</ObjectId>
-      <StateNumber>693</StateNumber>
+      <StateNumber>886</StateNumber>
     </table>
     <table id="49" parent="11" name="partsInfo_volumeweightdata">
       <ObjectId>24807</ObjectId>
-      <StateNumber>674</StateNumber>
+      <StateNumber>886</StateNumber>
     </table>
     <column id="50" parent="32" name="id">
       <Position>1</Position>
@@ -1033,10 +1033,10 @@ model</ColNames>
     </column>
     <column id="165" parent="43" name="last_change_date">
       <Position>4</Position>
-      <DataType>date|0</DataType>
+      <DataType>timestamp with time zone|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>674</StateNumber>
-      <TypeId>1082</TypeId>
+      <StateNumber>886</StateNumber>
+      <TypeId>1184</TypeId>
     </column>
     <column id="166" parent="43" name="last_change_user_id">
       <Position>5</Position>
@@ -1095,10 +1095,10 @@ model</ColNames>
     </column>
     <column id="174" parent="44" name="last_change_date">
       <Position>4</Position>
-      <DataType>date|0</DataType>
+      <DataType>timestamp with time zone|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>674</StateNumber>
-      <TypeId>1082</TypeId>
+      <StateNumber>886</StateNumber>
+      <TypeId>1184</TypeId>
     </column>
     <column id="175" parent="44" name="customer_id_id">
       <Position>5</Position>
@@ -1212,10 +1212,10 @@ model</ColNames>
     </column>
     <column id="191" parent="45" name="last_change_date">
       <Position>5</Position>
-      <DataType>date|0</DataType>
+      <DataType>timestamp with time zone|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>674</StateNumber>
-      <TypeId>1082</TypeId>
+      <StateNumber>886</StateNumber>
+      <TypeId>1184</TypeId>
     </column>
     <column id="192" parent="45" name="last_change_user_id">
       <Position>6</Position>
@@ -1272,32 +1272,32 @@ model</ColNames>
       <StateNumber>674</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="200" parent="46" name="last_change_date">
-      <Position>4</Position>
-      <DataType>date|0</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>674</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="201" parent="46" name="factory_id_id">
+    <column id="200" parent="46" name="factory_id_id">
       <Position>5</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>674</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="202" parent="46" name="last_change_user_id">
+    <column id="201" parent="46" name="last_change_user_id">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <StateNumber>674</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="203" parent="46" name="oem_id">
+    <column id="202" parent="46" name="oem_id">
       <Position>7</Position>
       <DataType>varchar(128)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>674</StateNumber>
       <TypeId>1043</TypeId>
+    </column>
+    <column id="203" parent="46" name="llast_change_date">
+      <Position>8</Position>
+      <DataType>timestamp with time zone|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>886</StateNumber>
+      <TypeId>1184</TypeId>
     </column>
     <index id="204" parent="46" name="partsInfo_factorypartsprice_pkey">
       <ObjectId>24795</ObjectId>
@@ -1444,10 +1444,10 @@ model</ColNames>
     </column>
     <column id="226" parent="48" name="last_change_date">
       <Position>6</Position>
-      <DataType>date|0</DataType>
+      <DataType>timestamp with time zone|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>674</StateNumber>
-      <TypeId>1082</TypeId>
+      <StateNumber>886</StateNumber>
+      <TypeId>1184</TypeId>
     </column>
     <column id="227" parent="48" name="car_model_id">
       <Position>7</Position>
@@ -1566,10 +1566,10 @@ model</ColNames>
     </column>
     <column id="244" parent="49" name="last_change_date">
       <Position>9</Position>
-      <DataType>date|0</DataType>
+      <DataType>timestamp with time zone|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>674</StateNumber>
-      <TypeId>1082</TypeId>
+      <StateNumber>886</StateNumber>
+      <TypeId>1184</TypeId>
     </column>
     <column id="245" parent="49" name="last_change_user_id">
       <Position>10</Position>

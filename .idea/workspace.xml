@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e98eb129-8d38-41ad-abab-8f74a7530bce" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/css/toastr.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/js/shared.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/js/toastr.js.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/js/toastr.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/partinfo/factory_list.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/435d10f8-5b32-4ba6-a1b3-a20698cf9082.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/435d10f8-5b32-4ba6-a1b3-a20698cf9082.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/435d10f8-5b32-4ba6-a1b3-a20698cf9082/storage_v2/_src_/database/ocean_build.7auHRQ/schema/public.abK9xQ.meta" afterPath="$PROJECT_DIR$/.idea/dataSources/435d10f8-5b32-4ba6-a1b3-a20698cf9082/storage_v2/_src_/database/ocean_build.7auHRQ/schema/public.abK9xQ.meta" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/partsInfo/models.py" afterPath="$PROJECT_DIR$/partsInfo/models.py" />
       <change beforePath="$PROJECT_DIR$/partsInfo/urls.py" afterPath="$PROJECT_DIR$/partsInfo/urls.py" />
@@ -70,23 +69,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partsInfo/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="54" column="88" lean-forward="false" selection-start-line="54" selection-start-column="88" selection-end-line="54" selection-end-column="88" />
+            <state relative-caret-position="428">
+              <caret line="101" column="53" lean-forward="false" selection-start-line="101" selection-start-column="53" selection-end-line="101" selection-end-column="53" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#384#2368#0" expanded="false" />
+                <element signature="e#2404#3355#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="partsInfo_parts" pinned="false" current-in-tab="false">
-        <entry file="das://table:/bb6921a/435d10f8-5b32-4ba6-a1b3-a20698cf9082/ocean_build.public.partsInfo_parts">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="factory_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="549">
+              <caret line="271" column="22" lean-forward="false" selection-start-line="271" selection-start-column="22" selection-end-line="271" selection-end-column="22" />
+              <folding>
+                <element signature="e#229#1282#0#HTML" expanded="false" />
+                <element signature="e#1329#2800#0#HTML" expanded="false" />
+                <element signature="e#1539#1562#0#HTML" expanded="true" />
+                <element signature="e#2240#2321#0#HTML" expanded="true" />
+                <element signature="e#2817#4288#0#HTML" expanded="false" />
+                <element signature="e#3027#3050#0#HTML" expanded="true" />
+                <element signature="e#3728#3809#0#HTML" expanded="true" />
+                <element signature="e#4305#5776#0#HTML" expanded="false" />
+                <element signature="e#4515#4538#0#HTML" expanded="true" />
+                <element signature="e#5216#5297#0#HTML" expanded="true" />
+                <element signature="e#5793#7264#0#HTML" expanded="false" />
+                <element signature="e#6003#6026#0#HTML" expanded="true" />
+                <element signature="e#6704#6785#0#HTML" expanded="true" />
+                <element signature="e#7281#8752#0#HTML" expanded="false" />
+                <element signature="e#7491#7514#0#HTML" expanded="true" />
+                <element signature="e#8192#8273#0#HTML" expanded="true" />
+                <element signature="e#8769#10240#0#HTML" expanded="false" />
+                <element signature="e#8979#9002#0#HTML" expanded="true" />
+                <element signature="e#9680#9761#0#HTML" expanded="true" />
+                <element signature="e#10257#11728#0#HTML" expanded="false" />
+                <element signature="e#10467#10490#0#HTML" expanded="true" />
+                <element signature="e#11168#11249#0#HTML" expanded="true" />
+                <element signature="e#11745#13216#0#HTML" expanded="false" />
+                <element signature="e#11955#11978#0#HTML" expanded="true" />
+                <element signature="e#12656#12737#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,31 +122,19 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partsInfo/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+            <state relative-caret-position="270">
+              <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="django_manage_code" pinned="false" current-in-tab="false">
+      <file leaf-file-name="django_manage_code" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/django_manage_code">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="41" />
+            <state relative-caret-position="180">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OCEAN/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <element signature="e#629#661#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -126,8 +142,8 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/partinfo/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15090">
-              <caret line="503" column="36" lean-forward="false" selection-start-line="503" selection-start-column="36" selection-end-line="503" selection-end-column="36" />
+            <state relative-caret-position="368">
+              <caret line="208" column="55" lean-forward="false" selection-start-line="208" selection-start-column="55" selection-end-line="208" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -136,8 +152,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partsInfo/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="20" />
+            <state relative-caret-position="351">
+              <caret line="65" column="60" lean-forward="false" selection-start-line="65" selection-start-column="60" selection-end-line="65" selection-end-column="60" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -148,11 +164,12 @@
       <file leaf-file-name="parts_list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/partinfo/parts_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="172" column="32" lean-forward="false" selection-start-line="172" selection-start-column="32" selection-end-line="172" selection-end-column="32" />
+            <state relative-caret-position="-1412">
+              <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="30" selection-end-column="18" />
               <folding>
-                <element signature="e#7758#8929#0#HTML" expanded="false" />
-                <element signature="e#8990#9374#0#HTML" expanded="false" />
+                <element signature="e#229#1282#0#HTML" expanded="false" />
+                <element signature="e#10384#10782#0#HTML" expanded="false" />
+                <element signature="e#10816#13868#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -165,8 +182,8 @@
       <list>
         <option value="Jupyter Notebook" />
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -174,6 +191,7 @@
     <findStrings>
       <find>logo-mini</find>
       <find>商品</find>
+      <find>工厂</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -192,15 +210,17 @@
         <option value="$PROJECT_DIR$/templates/views/index.html" />
         <option value="$PROJECT_DIR$/templates/partinfo/index.html" />
         <option value="$PROJECT_DIR$/partsInfo/admin.py" />
-        <option value="$PROJECT_DIR$/django_manage_code" />
         <option value="$PROJECT_DIR$/OCEAN/settings.py" />
         <option value="$PROJECT_DIR$/OCEAN/urls.py" />
-        <option value="$PROJECT_DIR$/templates/partinfo/base.html" />
         <option value="$PROJECT_DIR$/partsInfo/static/js/shared.js" />
-        <option value="$PROJECT_DIR$/partsInfo/urls.py" />
-        <option value="$PROJECT_DIR$/partsInfo/models.py" />
         <option value="$PROJECT_DIR$/templates/partinfo/parts_list.html" />
+        <option value="$PROJECT_DIR$/partsInfo/urls.py" />
         <option value="$PROJECT_DIR$/partsInfo/views.py" />
+        <option value="$PROJECT_DIR$/templates/partinfo/base.html" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/435d10f8-5b32-4ba6-a1b3-a20698cf9082/console.sql" />
+        <option value="$PROJECT_DIR$/templates/partinfo/factory_list.html" />
+        <option value="$PROJECT_DIR$/partsInfo/models.py" />
+        <option value="$PROJECT_DIR$/django_manage_code" />
       </list>
     </option>
   </component>
@@ -365,16 +385,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2654668" sideWeight="0.14055794" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5253093" sideWeight="0.17006437" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.49785408" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2654668" sideWeight="0.85944206" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5253093" sideWeight="0.8299356" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.59730035" sideWeight="0.79023606" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19098713" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.053111587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -457,18 +479,13 @@
           <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#384#2368#0" expanded="false" />
+            <element signature="e#2404#3355#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/46e5778e-7b86-4940-be8d-92764732abec/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/435d10f8-5b32-4ba6-a1b3-a20698cf9082/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -515,6 +532,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -529,13 +547,6 @@
     <entry file="file://$PROJECT_DIR$/partsInfo/static/css/ionicons.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/static/css/AdminLTE.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1140">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -626,14 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/static/css/toastr.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/partsInfo/static/js/toastr.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -674,29 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/bb6921a/435d10f8-5b32-4ba6-a1b3-a20698cf9082/ocean_build.public.partsInfo_parts">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/django_manage_code">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OCEAN/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -707,42 +687,133 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/base.html">
+    <entry file="das://table:/bb6921a/435d10f8-5b32-4ba6-a1b3-a20698cf9082/ocean_build.public.partsInfo_parts">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partsInfo/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15090">
-          <caret line="503" column="36" lean-forward="false" selection-start-line="503" selection-start-column="36" selection-end-line="503" selection-end-column="36" />
+        <state relative-caret-position="270">
+          <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/models.py">
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="20" />
+        <state relative-caret-position="368">
+          <caret line="208" column="55" lean-forward="false" selection-start-line="208" selection-start-column="55" selection-end-line="208" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partsInfo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="101" column="53" lean-forward="false" selection-start-line="101" selection-start-column="53" selection-end-line="101" selection-end-column="53" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#384#2368#0" expanded="false" />
+            <element signature="e#2404#3355#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/partinfo/parts_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="172" column="32" lean-forward="false" selection-start-line="172" selection-start-column="32" selection-end-line="172" selection-end-column="32" />
+        <state relative-caret-position="-1412">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="30" selection-end-column="18" />
           <folding>
-            <element signature="e#7758#8929#0#HTML" expanded="false" />
-            <element signature="e#8990#9374#0#HTML" expanded="false" />
+            <element signature="e#229#1282#0#HTML" expanded="false" />
+            <element signature="e#10384#10782#0#HTML" expanded="false" />
+            <element signature="e#10816#13868#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/views.py">
+    <entry file="file://$PROJECT_DIR$/partsInfo/static/css/AdminLTE.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="54" column="88" lean-forward="false" selection-start-line="54" selection-start-column="88" selection-end-line="54" selection-end-column="88" />
+        <state relative-caret-position="257">
+          <caret line="6" column="40545" lean-forward="false" selection-start-line="6" selection-start-column="40459" selection-end-line="6" selection-end-column="40545" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/bb6921a/435d10f8-5b32-4ba6-a1b3-a20698cf9082/ocean_build.public.partsInfo_factory">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/435d10f8-5b32-4ba6-a1b3-a20698cf9082/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="44" lean-forward="false" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partsInfo/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="65" column="60" lean-forward="false" selection-start-line="65" selection-start-column="60" selection-end-line="65" selection-end-column="60" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partsInfo/static/css/toastr.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3510">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="271" column="22" lean-forward="false" selection-start-line="271" selection-start-column="22" selection-end-line="271" selection-end-column="22" />
+          <folding>
+            <element signature="e#229#1282#0#HTML" expanded="false" />
+            <element signature="e#1329#2800#0#HTML" expanded="false" />
+            <element signature="e#1539#1562#0#HTML" expanded="true" />
+            <element signature="e#2240#2321#0#HTML" expanded="true" />
+            <element signature="e#2817#4288#0#HTML" expanded="false" />
+            <element signature="e#3027#3050#0#HTML" expanded="true" />
+            <element signature="e#3728#3809#0#HTML" expanded="true" />
+            <element signature="e#4305#5776#0#HTML" expanded="false" />
+            <element signature="e#4515#4538#0#HTML" expanded="true" />
+            <element signature="e#5216#5297#0#HTML" expanded="true" />
+            <element signature="e#5793#7264#0#HTML" expanded="false" />
+            <element signature="e#6003#6026#0#HTML" expanded="true" />
+            <element signature="e#6704#6785#0#HTML" expanded="true" />
+            <element signature="e#7281#8752#0#HTML" expanded="false" />
+            <element signature="e#7491#7514#0#HTML" expanded="true" />
+            <element signature="e#8192#8273#0#HTML" expanded="true" />
+            <element signature="e#8769#10240#0#HTML" expanded="false" />
+            <element signature="e#8979#9002#0#HTML" expanded="true" />
+            <element signature="e#9680#9761#0#HTML" expanded="true" />
+            <element signature="e#10257#11728#0#HTML" expanded="false" />
+            <element signature="e#10467#10490#0#HTML" expanded="true" />
+            <element signature="e#11168#11249#0#HTML" expanded="true" />
+            <element signature="e#11745#13216#0#HTML" expanded="false" />
+            <element signature="e#11955#11978#0#HTML" expanded="true" />
+            <element signature="e#12656#12737#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_manage_code">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
