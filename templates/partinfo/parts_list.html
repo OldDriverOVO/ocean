@@ -51,48 +51,7 @@
                 {#                {% endfor %}#}
 
             </div>
-            <div class="row">
-                <div class="col-sm-5">
-                    <div class="dataTables_info" id="page_info">
-{#                        当前第{{ contacts.number }}页 共{{ contacts.paginator.num_pages }}页.#}
-                    </div>
-                </div>
-                <div class="col-sm-7">
-                    <div class="paging_simple_numbers pull-right">
-                        <ul class="pagination" id="page_list">
-{#                            {% if contacts.has_previous %}#}
-{#                                <li class="paginate_button previous">#}
-{#                                    <a  href="?page={{ contacts.previous_page_number }}">上一页</a>#}
-{#                                </li>#}
-{#                            {% else %}#}
-{#                                <li class="paginate_button previous disabled"><a href="#">上一页</a></li>#}
-{#                            {% endif %}#}
-{##}
-{#                            {% for current in pageRange %}#}
-{#                                {% if contacts.number == current %}#}
-{#                                    <li class="paginate_button active "><a href="#">{{ current }}</a></li>#}
-{#                                {% else %}#}
-{#                                    <li class="paginate_button "><a href="?page={{ current }}">{{ current }}</a></li>#}
-{##}
-{#                                {% endif %}#}
-{##}
-{#                            {% endfor %}#}
-{##}
-{#                            {% if contacts.has_next %}#}
-{#                                <li class="paginate_button next">#}
-{#                                    <a href="?page={{ contacts.next_page_number }}">下一页</a>#}
-{#                                </li>#}
-{#                            {% else %}#}
-{#                                <li class="paginate_button next disabled">#}
-{#                                    <a href="#">下一页</a>#}
-{#                                </li>#}
-{#                            {% endif %}#}
-
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            {% include 'partinfo/page_bar.html' %}
         </div>
         <!-- /.col -->
     </div>
@@ -165,8 +124,10 @@
     <script>
         $(document).ready(function () {
 
-            toastr.options.positionClass = 'toast-top-center';
+
+
             getPageInfo(1);
+
 
 
             $("#btn_parts_save").click(function () {
@@ -196,12 +157,11 @@
                     success: function (data) {
 
 
-
                         if (data == "success") {
                             $('#model_parts_add').modal('hide');
                             toastr.success('添加成功！2333');
                             getPageInfo(1);
-                        }else if (data == 'info_exist'){
+                        } else if (data == 'info_exist') {
 
                             toastr.error('商品信息重复');
                             $("#txt_OEM").parent().addClass("has-error");
@@ -236,87 +196,61 @@
 
 
         })
-     function getPageInfo(page) {
-                $.ajax({
-                    type: "GET",
 
-                    url: "{% url 'partsinfo:part_list' %}?page=" + page,
+        function getPageInfo(page) {
+            console.log(new Date().getMilliseconds());
+            $.ajax({
+                type: "GET",
 
-                    async: false,
-                    contentType: false,
-                    processData: false,
-                    success: function (data) {
+                url: "{% url 'partsinfo:part_list' %}?page=" + page,
 
-                        showPartInfo(data);
+                async: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    console.log(new Date().getMilliseconds());
+                    showPartInfo(data.parts_list);
+                    initPageBar(data.page_info);
+                    console.log(new Date().getMilliseconds());
 
-                    }
 
-                });
-            }
-     function showPartInfo(data) {
+                }
 
-                var info_box = $('#part_list');
-                info_box.empty();
-                for (var index in data.parts_list) {
+            });
+        }
 
-                    var html = ' <div class="col-md-3 col-sm-6 col-xs-12">\
+        function showPartInfo(data) {
+
+            var info_box = $('#part_list');
+            info_box.empty();
+            for (var index in data) {
+
+                var html = ' <div class="col-md-3 col-sm-6 col-xs-12">\
                                <div class="info-box">\
                                      <span class="info-box-icon">';
 
-                    var html2 = '<img src="../../media/' + data.parts_list[index].fields.img + '" width="100%" height="90%">'
+                var html2 = '<img src="../../media/' + data[index].fields.img + '" width="100%" height="90%">'
 
-                    var img = '<i class="fa fa-file-photo-o"></i>'
-                    var end = '</span>\
+                var img = '<i class="fa fa-file-photo-o"></i>'
+                var end = '</span>\
                                      <div class="info-box-content">\
-                                            <span class="info-box-number">' + data.parts_list[index].pk + '</span>\
-                                            <span class="info-box-text">' + data.parts_list[index].fields.cn_name + '</span>\
-                                            <span class="info-box-text">' + data.parts_list[index].fields.en_name + '</span>\
+                                            <span class="info-box-number">' + data[index].pk + '</span>\
+                                            <span class="info-box-text">' + data[index].fields.cn_name + '</span>\
+                                            <span class="info-box-text">' + data[index].fields.en_name + '</span>\
                                           </div>\
                                 </div>\
                          </div>';
-                    if (data.parts_list[index].fields.img == '') {
-                        info_box.append(html + img + end);
-                    } else {
-                        info_box.append(html + html2 + end);
-                    }
-
+                if (data[index].fields.img == '') {
+                    info_box.append(html + img + end);
+                } else {
+                    info_box.append(html + html2 + end);
                 }
-                var page_info = $('#page_info');
-                page_info.empty();
-                var pageinfo = '当前第' + data.current_page + '页 共' + data.pages + '页';
-                page_info.append(pageinfo);
-                var page_list= $('#page_list');
-                page_list.empty();
-                var previous='';
-                if (data.has_previous) {
-                     previous = '<li class="paginate_button previous"><a onclick="getPageInfo('+(data.current_page-1)+')">上一页</a></li>';
-                }
-                else {
-                     previous = '<li class="paginate_button previous disabled"><a>上一页</a></li>';
-                }
-                page_list.append(previous);
-
-                for(var page in data.pageRange){
-                    var onePage ='';
-                    if( data.pageRange[page] == data.current_page){
-                         onePage = '<li class="paginate_button active "><a >'+data.pageRange[page]+'</a></li>';
-                    }
-                    else {
-                         onePage = '<li class="paginate_button "><a onclick="getPageInfo('+data.pageRange[page]+')">'+data.pageRange[page]+'</a></li>';
-                    }
-                    page_list.append(onePage);
-                }
-                var next ='';
-                if (data.has_next) {
-                     next = '<li class="paginate_button next"><a onclick="getPageInfo('+(data.current_page+1)+')">下一页</a></li>';
-                }
-                else {
-                     next = '<li class="paginate_button next disabled"><a>下一页</a></li>';
-                }
-                page_list.append(next);
-
 
             }
+
+
+        }
+
 
     </script>
 {% endblock %}

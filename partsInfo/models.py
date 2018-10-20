@@ -35,8 +35,10 @@ class Parts(models.Model):
 
 class Customer(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=128)
+    name = models.CharField(max_length=128,blank=True)
+    nick_name = models.CharField(max_length=128,default='XXXXX')
     description = models.TextField(blank=True)
+    icon_img = models.ImageField(upload_to='customer/%Y/%m/%d/', blank=True)
     last_change_date = models.DateTimeField(auto_now=True)
     last_change_user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     parts = models.ManyToManyField(Parts,through='CustomerPartsPrice')
