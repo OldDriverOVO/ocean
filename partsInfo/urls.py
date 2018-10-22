@@ -12,5 +12,6 @@ urlpatterns = [
     path('add_factory_info/',views.add_factory_info,name='add_factory_info'),
     path('customer_list/',views.customer_list,name='customer_list'),
     path('add_customer_info/',views.add_customer_info,name='add_customer_info'),
+    path('factory_price_list/',views.factory_price_list,name='factory_price_list'),
 
 ]

@@ -48,6 +48,7 @@ class Customer(models.Model):
         return self.name
 
 class CustomerPartsPrice(models.Model):
+    id = models.AutoField(primary_key=True)
     oem = models.ForeignKey(Parts, on_delete=models.CASCADE)
     customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
     price = models.FloatField(max_length=11)
@@ -76,6 +77,7 @@ class Factory(models.Model):
         return self.name
 
 class FactoryPartsPrice(models.Model):
+    id=models.AutoField(primary_key=True)
     oem = models.ForeignKey(Parts,on_delete=models.CASCADE)
     factory_id =  models.ForeignKey(Factory,on_delete=models.CASCADE)
     price = models.FloatField(max_length=11)

@@ -1,0 +1,121 @@
+{% extends 'partinfo/base.html' %}
+
+{% load staticfiles %}
+{% block title %}list{% endblock %}
+{% block content-header %}工厂价格{% endblock %}
+{% block content %}
+    <div class="row">
+
+        <div class="col-md-12">
+
+
+            <div class="box box-widget">
+                <div class="box-header">
+                    <div class="col-md-1 ">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                 data-target="#model_customer_add"><i class="fa fa-plus"></i> 添加
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover" id="factory_price_list">
+                        <tbody >
+                        <tr>
+                            <th>OEM</th>
+                            <th>品名</th>
+                            <th>工厂</th>
+                            <th>价格</th>
+                            <th>操作</th>
+                            <th>备注</th>
+                            <th>修改时间</th>
+                            <th>修改人</th>
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(document).ready(function () {
+         getPageInfo(1);
+        })
+
+
+        function getPageInfo(page) {
+            console.log(new Date().getMilliseconds());
+            $.ajax({
+                type: "GET",
+
+                url: "{% url 'partsinfo:factory_price_list' %}?page=" + page,
+
+                async: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    console.log(new Date().getMilliseconds());
+                    console.log(data)
+                    showPartInfo(data.factory_price_list);
+                    {#initPageBar(data.page_info);#}
+                    console.log(new Date().getMilliseconds());
+
+
+                }
+
+            });
+        }
+
+        function showPartInfo(data) {
+
+            var factory_price_list = $('#factory_price_list');
+            $('#factory_price_list tr:not(:first)').empty();
+
+            for (var index in data) {
+                var html = '<tr>\n' +
+                    '                            <td>'+data[index][0]+'</td>\n' +
+                    '                            <td>'+data[index][1]+'</td>\n' +
+                    '                            <td>'+data[index][2]+'</td>\n' +
+                    '                            <td>'+data[index][3]+'</td>\n' +
+                    '                            <td>\n' +
+                    '                                <div class="btn-group">\n' +
+                    '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-info">修改</div>\n' +
+                    '                                    <div style="float: left" class="btn-xs btn-danger">删除</div>\n' +
+                    '                                </div>\n' +
+                    '                            </td>\n' +
+                    '                            <td>'+data[index][4]+'</td>\n' +
+                    '                            <td>'+data[index][5]+'</td>\n' +
+                    '                            <td>'+data[index][6]+'</td>\n' +
+                    '                        </tr>';
+
+                factory_price_list.append(html);
+
+            }
+
+
+        }
+    </script>
+
+
+{% endblock %}
