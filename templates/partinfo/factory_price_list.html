@@ -14,7 +14,7 @@
                     <div class="col-md-1 ">
                         <div class="btn-group">
                             <button type="button" class="btn btn-default" data-toggle="modal"
-                                 data-target="#model_customer_add"><i class="fa fa-plus"></i> 添加
+                                    data-target="#model_customer_add"><i class="fa fa-plus"></i> 添加
                             </button>
                         </div>
 
@@ -24,7 +24,7 @@
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover" id="factory_price_list">
-                        <tbody >
+                        <tbody>
                         <tr>
                             <th>OEM</th>
                             <th>品名</th>
@@ -60,7 +60,27 @@
 {% block javascript %}
     <script>
         $(document).ready(function () {
-         getPageInfo(1);
+             $.confirm({
+                title: '提示',
+                content: '确定删除？',
+                buttons: {
+                    cancel:{
+                        text:'取消',
+                        action:function () {
+                            $.alert('取消');
+                        }
+                    },
+                    confirm:{
+                        text:'删除',
+                        btnClass:'btn-danger',
+                        action:function () {
+                           deletePriceInfo(3)
+                        }
+                    }
+
+                }
+            });
+            getPageInfo(1);
         })
 
 
@@ -77,7 +97,7 @@
                 success: function (data) {
                     console.log(new Date().getMilliseconds());
                     console.log(data)
-                    showPartInfo(data.factory_price_list);
+                    showInfo(data.factory_price_list);
                     {#initPageBar(data.page_info);#}
                     console.log(new Date().getMilliseconds());
 
@@ -87,32 +107,36 @@
             });
         }
 
-        function showPartInfo(data) {
+        function showInfo(data) {
 
             var factory_price_list = $('#factory_price_list');
             $('#factory_price_list tr:not(:first)').empty();
 
             for (var index in data) {
                 var html = '<tr>\n' +
-                    '                            <td>'+data[index][0]+'</td>\n' +
-                    '                            <td>'+data[index][1]+'</td>\n' +
-                    '                            <td>'+data[index][2]+'</td>\n' +
-                    '                            <td>'+data[index][3]+'</td>\n' +
+                    '                            <td>' + data[index][0] + '</td>\n' +
+                    '                            <td>' + data[index][1] + '</td>\n' +
+                    '                            <td>' + data[index][2] + '</td>\n' +
+                    '                            <td>' + data[index][3] + '</td>\n' +
                     '                            <td>\n' +
                     '                                <div class="btn-group">\n' +
                     '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-info">修改</div>\n' +
                     '                                    <div style="float: left" class="btn-xs btn-danger">删除</div>\n' +
                     '                                </div>\n' +
                     '                            </td>\n' +
-                    '                            <td>'+data[index][4]+'</td>\n' +
-                    '                            <td>'+data[index][5]+'</td>\n' +
-                    '                            <td>'+data[index][6]+'</td>\n' +
+                    '                            <td>' + data[index][4] + '</td>\n' +
+                    '                            <td>' + data[index][5] + '</td>\n' +
+                    '                            <td>' + data[index][6] + '</td>\n' +
                     '                        </tr>';
 
                 factory_price_list.append(html);
 
             }
 
+
+        }
+
+        function deletePriceInfo(id) {
 
         }
     </script>

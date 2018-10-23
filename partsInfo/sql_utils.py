@@ -7,7 +7,7 @@ class SqlUtils():
 
     @classmethod
     def get_factory_parts_price(cls):
-        sql = 'SELECT "parts".oem,"parts".cn_name,"pif".name,"partsInfo_factorypartsprice".price,\
+        sql = 'SELECT "parts".oem,"parts".cn_name,"pif".name,"partsInfo_factorypartsprice".price,"partsInfo_factorypartsprice".id,\
                "partsInfo_factorypartsprice".description,"partsInfo_factorypartsprice".llast_change_date,"a".username\
                FROM "partsInfo_factorypartsprice"\
                JOIN "partsInfo_parts" parts ON "partsInfo_factorypartsprice".oem_id = parts.oem\

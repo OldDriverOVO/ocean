@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{% static 'css/_all-skins.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/select2.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/toastr.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-confirm.min.css' %}">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -142,7 +143,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs">{{ user.first_name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -175,7 +176,7 @@
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="{% url 'partsinfo:logout' %}" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -507,6 +508,8 @@
 <script src="{% static 'js/adminlte.min.js' %}"></script>
 <script src="{% static 'js/toastr.min.js' %}"></script>
 <script src="{% static 'js/shared.js' %}"></script>
+<script src="{% static 'js/jquery-confirm.min.js' %}"></script>
+
 <!-- AdminLTE for demo purposes -->
 {% block javascript %}{% endblock %}
 <script>

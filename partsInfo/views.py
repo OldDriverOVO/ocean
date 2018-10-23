@@ -1,17 +1,45 @@
 from django.shortcuts import render
-from django.http import HttpResponse,JsonResponse
+from django.http import HttpResponse,JsonResponse,HttpResponseRedirect
 from .models import Parts,Factory,Customer,FactoryPartsPrice
 import win32timezone
 import json
+from django.urls import reverse
+from django.contrib import auth
 from django.core import serializers
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 from partsInfo.sql_utils import SqlUtils
+from django.contrib.auth.decorators import login_required,permission_required
 # Create your partinfo here.
 
+def login(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('partsinfo:index'))
+
+    state = ''
+    if request.method=='POST':
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return HttpResponseRedirect(reverse('partsinfo:index'))
+        else:
+            state = '账号或密码错误！'
+
+
+    return render(request,'partinfo/login.html',context={'state':state})
+
+def logout(request):
+
+    auth.logout(request)
+
+    return HttpResponseRedirect(reverse('partsinfo:login'))
+
+@login_required
 def index(request):
+    return render(request, 'partinfo/index.html',context={'user':request.user})
 
-    return render(request, 'partinfo/index.html')
-
+@login_required
 def parts_list(request):
 
     # for i in range(31,150):
@@ -68,13 +96,14 @@ def parts_list(request):
         )
 
 
-    return render(request, 'partinfo/parts_list.html')
+    return render(request, 'partinfo/parts_list.html',context={'user':request.user})
 
+@login_required
 def add_parts_info(request):
 
     if request.is_ajax():
         state = None
-
+        user = request.user
         try:
             if (Parts.objects.filter(oem=request.POST.get("txt_OEM"))):
                 state = 'info_exist'
@@ -88,7 +117,7 @@ def add_parts_info(request):
                     description=request.POST.get("txt_area_desc"),
                     img=request.FILES.get("file_img"),
                     last_change_date=win32timezone.now(),
-                    last_change_user_id=1,
+                    last_change_user_id=user.id,
                     car_model_id=1
 
                 )
@@ -103,7 +132,9 @@ def add_parts_info(request):
     else:
         return HttpResponse("")
 
+@login_required
 def factory_list(request):
+
     # for i in range(21,100):
     #     new = Factory(name='测试数据'+str(i),
     #                   Contact='曾大姐',
@@ -161,8 +192,9 @@ def factory_list(request):
 
         )
 
-    return render(request, 'partinfo/factory_list.html')
+    return render(request, 'partinfo/factory_list.html',context={'user':request.user})
 
+@login_required
 def add_factory_info(request):
 
     if request.is_ajax():
@@ -180,7 +212,7 @@ def add_factory_info(request):
                     address=request.POST.get('txt_factory_address'),
                     description=request.POST.get('txt_area_factory_desc'),
                     last_change_date=win32timezone.now(),
-                    last_change_user_id=1
+                    last_change_user_id=request.user.id
 
                 )
                 new.save()
@@ -194,6 +226,8 @@ def add_factory_info(request):
     else:
         return HttpResponse("")
 
+
+@login_required
 def customer_list(request):
 
     if request.is_ajax():
@@ -244,8 +278,9 @@ def customer_list(request):
 
         )
 
-    return render(request,'partinfo/customer_list.html')
+    return render(request,'partinfo/customer_list.html',context={'user':request.user})
 
+@login_required
 def add_customer_info(request):
     if request.is_ajax():
 
@@ -261,7 +296,7 @@ def add_customer_info(request):
                     icon_img=request.FILES.get('file_customer_icon'),
                     description=request.POST.get('txt_area_customer_desc'),
                     last_change_date=win32timezone.now(),
-                    last_change_user_id=1
+                    last_change_user_id=request.user.id
 
                 )
                 new.save()
@@ -274,6 +309,7 @@ def add_customer_info(request):
     else:
         return HttpResponse('')
 
+@login_required
 def factory_price_list(request):
 
     if request.is_ajax():
@@ -326,4 +362,5 @@ def factory_price_list(request):
 
         )
 
-    return render(request,'partinfo/factory_price_list.html')
+    return render(request,'partinfo/factory_price_list.html',context={'user':request.user})
+
