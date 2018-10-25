@@ -16,29 +16,29 @@ function initPageBar(data) {
     page_list.empty();
     var previous = '';
     if (data.has_previous) {
-        previous = '<li class="paginate_button previous"><a onclick="getPageInfo(' + (data.current_page - 1) + ')">上一页</a></li>';
+        previous = '<li ><a onclick="getPageInfo(' + (data.current_page - 1) + ')">«</a></li>';
     }
     else {
-        previous = '<li class="paginate_button previous disabled"><a>上一页</a></li>';
+        previous = '<li class="disabled"><a>«</a></li>';
     }
     page_list.append(previous);
 
     for (var page in data.pageRange) {
         var onePage = '';
         if (data.pageRange[page] == data.current_page) {
-            onePage = '<li class="paginate_button active "><a >' + data.pageRange[page] + '</a></li>';
+            onePage = '<li class="active"><a >' + data.pageRange[page] + '</a></li>';
         }
         else {
-            onePage = '<li class="paginate_button "><a onclick="getPageInfo(' + data.pageRange[page] + ')">' + data.pageRange[page] + '</a></li>';
+            onePage = '<li ><a onclick="getPageInfo(' + data.pageRange[page] + ')">' + data.pageRange[page] + '</a></li>';
         }
         page_list.append(onePage);
     }
     var next = '';
     if (data.has_next) {
-        next = '<li class="paginate_button next"><a onclick="getPageInfo(' + (data.current_page + 1) + ')">下一页</a></li>';
+        next = '<li><a onclick="getPageInfo(' + (data.current_page + 1) + ')">»</a></li>';
     }
     else {
-        next = '<li class="paginate_button next disabled"><a>下一页</a></li>';
+        next = '<li class="disabled"><a>»</a></li>';
     }
     page_list.append(next);
 

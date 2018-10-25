@@ -5,7 +5,7 @@
 {% block content-header %}工厂价格{% endblock %}
 {% block content %}
     <div class="row">
-
+        {% csrf_token %}
         <div class="col-md-12">
 
 
@@ -40,15 +40,8 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="box-footer clearfix">
-                    <ul class="pagination pagination-sm no-margin pull-right">
-                        <li><a href="#">«</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                </div>
+
+                {% include 'partinfo/page_bar.html' %}
                 <!-- /.box-body -->
             </div>
         </div>
@@ -60,27 +53,22 @@
 {% block javascript %}
     <script>
         $(document).ready(function () {
-             $.confirm({
-                title: '提示',
-                content: '确定删除？',
-                buttons: {
-                    cancel:{
-                        text:'取消',
-                        action:function () {
-                            $.alert('取消');
-                        }
-                    },
-                    confirm:{
-                        text:'删除',
-                        btnClass:'btn-danger',
-                        action:function () {
-                           deletePriceInfo(3)
-                        }
-                    }
 
-                }
-            });
             getPageInfo(1);
+            $('#factory_price_list').delegate('.factory_price_delete', 'click', function () {
+                deletePriceInfo($(this).parent().find('input').val());
+            });
+
+            $('#factory_price_list').delegate('.factory_price_update', 'click', function () {
+                var td = $(this).parents('.price_td');
+                var price = td.prev().text();
+                var desc = td.next().text();
+                var id = td.find('input').val();
+                updatePriceInfo(id, price, desc);
+
+            });
+
+
         })
 
 
@@ -98,7 +86,7 @@
                     console.log(new Date().getMilliseconds());
                     console.log(data)
                     showInfo(data.factory_price_list);
-                    {#initPageBar(data.page_info);#}
+                    initPageBar(data.page_info);
                     console.log(new Date().getMilliseconds());
 
 
@@ -106,27 +94,28 @@
 
             });
         }
-
+        
         function showInfo(data) {
 
             var factory_price_list = $('#factory_price_list');
             $('#factory_price_list tr:not(:first)').empty();
 
             for (var index in data) {
-                var html = '<tr>\n' +
+                var html = '<tr class = "info_tr">\n' +
                     '                            <td>' + data[index][0] + '</td>\n' +
                     '                            <td>' + data[index][1] + '</td>\n' +
                     '                            <td>' + data[index][2] + '</td>\n' +
-                    '                            <td>' + data[index][3] + '</td>\n' +
-                    '                            <td>\n' +
+                    '                            <td class="price_td_pr">' + data[index][3] + '</td>\n' +
+                    '                            <td class="price_td">\n' +
                     '                                <div class="btn-group">\n' +
-                    '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-info">修改</div>\n' +
-                    '                                    <div style="float: left" class="btn-xs btn-danger">删除</div>\n' +
+                    '<input type="hidden" value="' + data[index][4] + '">\n' +
+                    '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-info factory_price_update" >修改</div>\n' +
+                    '                                    <div style="float: left" class="btn-xs btn-danger factory_price_delete" >删除</div>\n' +
                     '                                </div>\n' +
                     '                            </td>\n' +
-                    '                            <td>' + data[index][4] + '</td>\n' +
-                    '                            <td>' + data[index][5] + '</td>\n' +
+                    '                            <td class="price_td_ne">' + data[index][5] + '</td>\n' +
                     '                            <td>' + data[index][6] + '</td>\n' +
+                    '                            <td>' + data[index][7] + '</td>\n' +
                     '                        </tr>';
 
                 factory_price_list.append(html);
@@ -137,8 +126,130 @@
         }
 
         function deletePriceInfo(id) {
+            {#onclick="deletePriceInfo(' + data[index][4] + ')"#}
+            $.confirm({
+                title: '提示',
+                content: '确定删除？',
+                animation: 'top',
+                closeAnimation: 'top',
+                animateFromElement: false,
+                buttons: {
+                    cancel: {
+                        text: '取消',
+                    },
+                    confirm: {
+                        text: '删除',
+                        btnClass: 'btn-danger',
+                        action: function () {
+                            $.ajax({
+                                type: "POST",
+                                headers: {"X-CSRFtoken": $("[name='csrfmiddlewaretoken']").val()},
+                                url: "{% url 'partsinfo:delete_factory_price' %}",
+                                {#dataType:'',#}
+                                data: {'id': id},
+
+                                success: function (data) {
+
+
+                                    if (data == "success") {
+
+                                        toastr.success('删除成功！2333');
+                                        getPageInfo(1);
+                                    }
+                                    else if (data == "object_not_found") {
+
+                                        toastr.error('失败 没有找到删除对象');
+                                    }
+                                    else {
+                                        toastr.error('没有权限');
+                                    }
+
+                                }
+
+                            });
+                        }
+                    }
+
+                }
+            });
+
 
         }
+
+        function updatePriceInfo(id, price, desc) {
+
+            $.confirm({
+                title: '修改',
+                animation: 'top',
+                closeAnimation: 'top',
+                animateFromElement: false,
+                content: '' +
+                '<form action="" class="formName">' +
+                '<div class="form-group">' +
+                '<label>价格</label>' +
+                '<input type="number" min="0.0" step="0.1" value="' + price + '" name="txt_price" id="txt_price"  class="name form-control" required />' +
+                '<label>备注</label>' +
+                '<textarea class="form-control" rows="4" name="txt_area_desc" id="txt_area_desc" > ' + desc + '\n' +
+                '</textarea>' +
+                '</div>' +
+                '</form>',
+                buttons: {
+                    formSubmit: {
+                        text: '保存',
+                        btnClass: 'btn-blue',
+                        action: function () {
+                            var new_price = this.$content.find('#txt_price').val();
+                            var new_desc = this.$content.find('#txt_area_desc').val();
+
+                            $.ajax({
+                                type: "POST",
+                                headers: {"X-CSRFtoken": $("[name='csrfmiddlewaretoken']").val()},
+                                url: "{% url 'partsinfo:update_factory_price' %}",
+                                {#dataType:'',#}
+                                data: {
+                                    'id': id,
+                                    'price': new_price,
+                                    'desc': new_desc,
+                                },
+
+                                success: function (data) {
+
+
+                                    if (data == "success") {
+
+                                        toastr.success('修改成功');
+                                        getPageInfo(1);
+                                    }
+                                    else if (data == "object_not_found") {
+
+                                        toastr.error('修改失败 没有找到修改对象');
+                                    }
+                                    else if (data == "data_error") {
+                                        toastr.error('数据库错误');
+                                    }
+                                    else {
+                                        toastr.error('没有权限');
+                                    }
+
+                                }
+
+                            });
+
+
+                        }
+
+                    },
+                    cancel: {
+                        text: '取消',
+
+                    },
+                },
+
+            });
+        }
+
+
+
     </script>
 
 

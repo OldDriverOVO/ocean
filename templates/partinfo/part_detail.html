@@ -1,0 +1,259 @@
+{% extends 'partinfo/base.html' %}
+
+{% load staticfiles %}
+{% block title %}list{% endblock %}
+{% block content-header %}{% endblock %}
+{% block content %}
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="box box-widget">
+                <div class="box-header with-border">
+
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="col-lg-5 col-sm-12 col-xs-12">
+                        <div class="box-body">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+{#                                <ol class="carousel-indicators">#}
+{#                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>#}
+{#                                    <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>#}
+{#                                    <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>#}
+{#                                </ol>#}
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <img src="../../../media/{{ part.img }}"
+                                             alt="First slide">
+
+                                        <div class="carousel-caption">
+
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img src="../../../media/{{ part.img }}"
+                                             alt="Second slide">
+
+                                        <div class="carousel-caption">
+
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img src="../../../media/{{ part.img }}"
+                                             alt="Third slide">
+
+                                        <div class="carousel-caption">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                    <span class="fa fa-angle-left"></span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                    <span class="fa fa-angle-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-xs-6">
+                        <div class="box-body">
+
+
+                            <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-book margin-r-5"></i>OEM
+                            </p>
+                            <strong>
+                                {{ part.oem }}
+
+                            </strong>
+
+                            <hr>
+
+                            <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-tags margin-r-5"></i>中文品名
+                            </p>
+                            <strong>
+                                {{ part.cn_name }}
+
+                            </strong>
+
+                            <hr>
+
+
+                            <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-tags margin-r-5"></i>英文品名
+                            </p>
+                            <strong>
+                                {{ part.en_name }}
+
+                            </strong>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-6">
+                        <div class="box-body">
+                            <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-car margin-r-5"></i>车型
+                            </p>
+                            <strong>
+                                {{ part.car_model.cn_name }}
+
+                            </strong>
+
+
+                            <hr>
+
+                            <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-commenting-o margin-r-5"></i>描述
+                            </p>
+                            <strong>
+                                {{ part.description }}
+
+                            </strong>
+
+                            <hr>
+
+
+                            <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-calendar margin-r-5"></i>上一次修改日期
+                            </p>
+                            <strong>
+                                {{ part.last_change_user.first_name }}--{{ part.last_change_date|date:"Y-m-d H:i:s" }}
+                            </strong>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!-- /.box-body -->
+                <!-- /.box-footer -->
+                <div class="box-footer">
+                    <div class="col-md-12 col-xs-12 col-lg-12">
+                        <div class="box box-widget">
+                            <div class="box-header">
+                                <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-truck margin-r-5"></i>工厂价格
+                                </p>
+                            </div>
+
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-hover">
+                                    <tbody>
+                                    <tr>
+                                        <th>工厂</th>
+                                        <th>价格</th>
+                                        <th>操作</th>
+                                        <th>备注</th>
+                                        <th>修改日期</th>
+                                        <th>修改人</th>
+                                    </tr>
+                                    <tr>
+                                        <td>183</td>
+                                        <td>John Doe</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="label label-success">Approved</span></td>
+                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>219</td>
+                                        <td>Alexander Pierce</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="label label-warning">Pending</span></td>
+                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>657</td>
+                                        <td>Bob Doe</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="label label-primary">Approved</span></td>
+                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>175</td>
+                                        <td>Mike Doe</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="label label-danger">Denied</span></td>
+                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="box-footer clearfix">
+                                <ul class="pagination pagination-sm no-margin pull-right">
+                                    <li><a href="#">«</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">»</a></li>
+                                </ul>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 col-xs-12 col-lg-12">
+                        <div class="box box-widget">
+                            <div class="box-header">
+                                <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-ship margin-r-5"></i>客户价格
+                                </p>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-hover">
+                                    <tbody>
+                                    <tr>
+                                        <th>客户</th>
+                                        <th>价格</th>
+                                        <th>操作</th>
+                                        <th>备注</th>
+                                        <th>修改日期</th>
+                                        <th>修改人</th>
+                                    </tr>
+                                    <tr>
+                                        <td>183</td>
+                                        <td>John Doe</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="label label-success">Approved</span></td>
+                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>219</td>
+                                        <td>Alexander Pierce</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="label label-warning">Pending</span></td>
+                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>657</td>
+                                        <td>Bob Doe</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="label label-primary">Approved</span></td>
+                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>175</td>
+                                        <td>Mike Doe</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="label label-danger">Denied</span></td>
+                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="box-footer clearfix">
+                                <ul class="pagination pagination-sm no-margin pull-right">
+                                    <li><a href="#">«</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">»</a></li>
+                                </ul>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- /.box-footer -->
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

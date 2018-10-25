@@ -15,5 +15,7 @@ urlpatterns = [
     path('customer_list/',views.customer_list,name='customer_list'),
     path('add_customer_info/',views.add_customer_info,name='add_customer_info'),
     path('factory_price_list/',views.factory_price_list,name='factory_price_list'),
-
+    path('delete_factory_price/',views.delete_factory_price,name='delete_factory_price'),
+    path('update_factory_price/',views.update_factory_price,name='update_factory_price'),
+    path('part_detail/<pk>/',views.part_detail,name='part_detail'),
 ]

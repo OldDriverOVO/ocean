@@ -30,6 +30,7 @@
                 <!-- /.box-body -->
             </div>
             <div id='part_list' class="row">
+
                 {#                {% for parts in contacts.object_list %}#}
                 {#                    <div class="col-md-3 col-sm-6 col-xs-12">#}
                 {#                        <div class="info-box">#}
@@ -56,7 +57,7 @@
         <!-- /.col -->
     </div>
 
-    <div class="modal fade" id="model_parts_add" style="display: none;">
+    <div  class="modal fade" id="model_parts_add" style="display: none;">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -227,14 +228,14 @@
 
                 var html = ' <div class="col-md-3 col-sm-6 col-xs-12">\
                                <div class="info-box">\
-                                     <span class="info-box-icon">';
+                                     ';
 
-                var html2 = '<img src="../../media/' + data[index].fields.img + '" width="100%" height="90%">'
+                var html2 = '<a style="color: #444;"  href="/baseinfo/part_detail/'+ data[index].pk +'"><span class="info-box-icon" style="line-height: 0px"><img src="../../media/' + data[index].fields.img + '" width="100%" height="100%">'
 
-                var img = '<i class="fa fa-file-photo-o"></i>'
-                var end = '</span>\
+                var img = '<a style="color: #444;"  href="/baseinfo/part_detail/'+ data[index].pk +'"><span class="info-box-icon"><i class="fa fa-file-photo-o"></i>'
+                var end = '</a></span>\
                                      <div class="info-box-content">\
-                                            <span class="info-box-number">' + data[index].pk + '</span>\
+                                            <a style="color: #444;"  href="/baseinfo/part_detail/'+ data[index].pk +'"><span class="info-box-number">' + data[index].pk + '</span></a>\
                                             <span class="info-box-text">' + data[index].fields.cn_name + '</span>\
                                             <span class="info-box-text">' + data[index].fields.en_name + '</span>\
                                           </div>\

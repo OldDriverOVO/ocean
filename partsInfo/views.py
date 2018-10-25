@@ -1,14 +1,16 @@
 from django.shortcuts import render
-from django.http import HttpResponse,JsonResponse,HttpResponseRedirect
-from .models import Parts,Factory,Customer,FactoryPartsPrice
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
+from .models import Parts, Factory, Customer, FactoryPartsPrice
 import win32timezone
 import json
 from django.urls import reverse
 from django.contrib import auth
 from django.core import serializers
-from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from partsInfo.sql_utils import SqlUtils
-from django.contrib.auth.decorators import login_required,permission_required
+from django.contrib.auth.decorators import login_required, permission_required
+
+
 # Create your partinfo here.
 
 def login(request):
@@ -16,7 +18,7 @@ def login(request):
         return HttpResponseRedirect(reverse('partsinfo:index'))
 
     state = ''
-    if request.method=='POST':
+    if request.method == 'POST':
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         user = auth.authenticate(username=username, password=password)
@@ -26,22 +28,22 @@ def login(request):
         else:
             state = '账号或密码错误！'
 
+    return render(request, 'partinfo/login.html', context={'state': state})
 
-    return render(request,'partinfo/login.html',context={'state':state})
 
 def logout(request):
-
     auth.logout(request)
 
     return HttpResponseRedirect(reverse('partsinfo:login'))
 
+
 @login_required
 def index(request):
-    return render(request, 'partinfo/index.html',context={'user':request.user})
+    return render(request, 'partinfo/index.html', context={'user': request.user})
+
 
 @login_required
 def parts_list(request):
-
     # for i in range(31,150):
     #     new = Parts(oem='909612'+str(i),cn_name='测试数据'+str(i),en_name='Test Data',last_change_date=win32timezone.now(),last_change_user_id=1)
     #     new.save()
@@ -79,28 +81,26 @@ def parts_list(request):
             contacts = paginator.page(paginator.num_pages)
             pageRange = paginator.page_range
 
-
         return JsonResponse(
             {
-              'parts_list':json.loads(serializers.serialize('json',contacts.object_list)),
-              'page_info':{
-                  'current_page': contacts.number,
-                  'has_next': contacts.has_next(),
-                  'has_previous': contacts.has_previous(),
-                  'pageRange': list(pageRange),
-                  'pages': contacts.paginator.num_pages
-              },
+                'parts_list': json.loads(serializers.serialize('json', contacts.object_list)),
+                'page_info': {
+                    'current_page': contacts.number,
+                    'has_next': contacts.has_next(),
+                    'has_previous': contacts.has_previous(),
+                    'pageRange': list(pageRange),
+                    'pages': contacts.paginator.num_pages
+                },
 
-             },safe=False
+            }, safe=False
 
         )
 
+    return render(request, 'partinfo/parts_list.html', context={'user': request.user})
 
-    return render(request, 'partinfo/parts_list.html',context={'user':request.user})
 
 @login_required
 def add_parts_info(request):
-
     if request.is_ajax():
         state = None
         user = request.user
@@ -132,9 +132,9 @@ def add_parts_info(request):
     else:
         return HttpResponse("")
 
+
 @login_required
 def factory_list(request):
-
     # for i in range(21,100):
     #     new = Factory(name='测试数据'+str(i),
     #                   Contact='曾大姐',
@@ -192,11 +192,11 @@ def factory_list(request):
 
         )
 
-    return render(request, 'partinfo/factory_list.html',context={'user':request.user})
+    return render(request, 'partinfo/factory_list.html', context={'user': request.user})
+
 
 @login_required
 def add_factory_info(request):
-
     if request.is_ajax():
         state = None
         try:
@@ -220,7 +220,7 @@ def add_factory_info(request):
                 return HttpResponse(state)
 
         except:
-            state="error"
+            state = "error"
             return HttpResponse(state)
 
     else:
@@ -229,7 +229,6 @@ def add_factory_info(request):
 
 @login_required
 def customer_list(request):
-
     if request.is_ajax():
 
         contact_list = Customer.objects.all().order_by('-last_change_date')
@@ -278,7 +277,8 @@ def customer_list(request):
 
         )
 
-    return render(request,'partinfo/customer_list.html',context={'user':request.user})
+    return render(request, 'partinfo/customer_list.html', context={'user': request.user})
+
 
 @login_required
 def add_customer_info(request):
@@ -309,13 +309,14 @@ def add_customer_info(request):
     else:
         return HttpResponse('')
 
+
 @login_required
+# @permission_required(perm='partsInfo.view_factorypartsprice')
 def factory_price_list(request):
 
     if request.is_ajax():
 
-
-        contact_list= SqlUtils.get_factory_parts_price()
+        contact_list = SqlUtils.get_factory_parts_price()
 
         paginator = Paginator(contact_list, 40)  # Show 25 contacts per page
 
@@ -362,5 +363,66 @@ def factory_price_list(request):
 
         )
 
-    return render(request,'partinfo/factory_price_list.html',context={'user':request.user})
+
+    return render(request, 'partinfo/factory_price_list.html', context={'user': request.user})
+
+
+@login_required
+@permission_required(perm='partsInfo.delete_factorypartsprice')
+def delete_factory_price(request):
+    state = None
+    if request.is_ajax():
+        target = FactoryPartsPrice.objects.filter(id=request.POST.get("id"))
+        if target:
+            target.delete()
+            state = 'success'
+            return HttpResponse(state)
+        else:
+            state = 'object_not_found'
+            return HttpResponse(state)
+
+    else:
+        return HttpResponse("")
+
+
+@login_required
+@permission_required(perm='partsInfo.change_factorypartsprice')
+def update_factory_price(request):
+    state = None
+    if request.is_ajax():
+        target = FactoryPartsPrice.objects.get(id=request.POST.get("id"))
+        if target:
+            try:
+                target.price=request.POST.get('price')
+                target.description=request.POST.get('desc').strip()
+                target.last_change_user_id=request.user.id
+                target.save()
+            except:
+                state = 'data_error'
+                return HttpResponse(state)
+
+            state = 'success'
+            return HttpResponse(state)
+
+        else:
+            state = 'object_not_found'
+            return HttpResponse(state)
+
+    else:
+        return HttpResponse('')
+
+
+@login_required
+def part_detail(request,pk):
+
+
+    target = Parts.objects.get(oem=pk)
+    if target:
+        return render(request, 'partinfo/part_detail.html', context={'user': request.user,
+                                                                     'part':target
+                                                                     })
+    else:
+        return HttpResponseRedirect(reverse("partsinfo:part_list"))
+
+
 
