@@ -17,11 +17,11 @@
                     <div class="col-lg-5 col-sm-12 col-xs-12">
                         <div class="box-body">
                             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-{#                                <ol class="carousel-indicators">#}
-{#                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>#}
-{#                                    <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>#}
-{#                                    <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>#}
-{#                                </ol>#}
+                                {#                                <ol class="carousel-indicators">#}
+                                {#                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>#}
+                                {#                                    <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>#}
+                                {#                                    <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>#}
+                                {#                                </ol>#}
                                 <div class="carousel-inner">
                                     <div class="item active">
                                         <img src="../../../media/{{ part.img }}"
@@ -120,7 +120,6 @@
                     </div>
 
 
-
                 </div>
                 <!-- /.box-body -->
                 <!-- /.box-footer -->
@@ -133,7 +132,7 @@
                             </div>
 
                             <div class="box-body table-responsive no-padding">
-                                <table class="table table-hover">
+                                <table class="table table-hover" id="factory_price_list">
                                     <tbody>
                                     <tr>
                                         <th>工厂</th>
@@ -143,45 +142,12 @@
                                         <th>修改日期</th>
                                         <th>修改人</th>
                                     </tr>
-                                    <tr>
-                                        <td>183</td>
-                                        <td>John Doe</td>
-                                        <td>11-7-2014</td>
-                                        <td><span class="label label-success">Approved</span></td>
-                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>219</td>
-                                        <td>Alexander Pierce</td>
-                                        <td>11-7-2014</td>
-                                        <td><span class="label label-warning">Pending</span></td>
-                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>657</td>
-                                        <td>Bob Doe</td>
-                                        <td>11-7-2014</td>
-                                        <td><span class="label label-primary">Approved</span></td>
-                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>175</td>
-                                        <td>Mike Doe</td>
-                                        <td>11-7-2014</td>
-                                        <td><span class="label label-danger">Denied</span></td>
-                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    </tr>
+
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="box-footer clearfix">
-                                <ul class="pagination pagination-sm no-margin pull-right">
-                                    <li><a href="#">«</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">»</a></li>
-                                </ul>
+                            <div id="factory_price_list_bar">
+                                {% include "partinfo/page_bar.html" %}
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -195,7 +161,7 @@
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body table-responsive no-padding">
-                                <table class="table table-hover">
+                                <table class="table table-hover" id="customer_price_list">
                                     <tbody>
                                     <tr>
                                         <th>客户</th>
@@ -204,46 +170,12 @@
                                         <th>备注</th>
                                         <th>修改日期</th>
                                         <th>修改人</th>
-                                    </tr>
-                                    <tr>
-                                        <td>183</td>
-                                        <td>John Doe</td>
-                                        <td>11-7-2014</td>
-                                        <td><span class="label label-success">Approved</span></td>
-                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>219</td>
-                                        <td>Alexander Pierce</td>
-                                        <td>11-7-2014</td>
-                                        <td><span class="label label-warning">Pending</span></td>
-                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>657</td>
-                                        <td>Bob Doe</td>
-                                        <td>11-7-2014</td>
-                                        <td><span class="label label-primary">Approved</span></td>
-                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>175</td>
-                                        <td>Mike Doe</td>
-                                        <td>11-7-2014</td>
-                                        <td><span class="label label-danger">Denied</span></td>
-                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    </tr>
+
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="box-footer clearfix">
-                                <ul class="pagination pagination-sm no-margin pull-right">
-                                    <li><a href="#">«</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">»</a></li>
-                                </ul>
+                            <div id="customer_price_list_bar">
+                                {% include "partinfo/page_bar.html" %}
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -256,4 +188,131 @@
 
         </div>
     </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(document).ready(function () {
+            getFactoryPriceInfo(1);
+            getCustomerPriceInfo(1);
+            $('#factory_price_list').delegate('.factory_price_delete', 'click', function () {
+                deleteFactoryPriceInfo($(this).parent().find('input').val());
+            });
+
+            $('#factory_price_list').delegate('.factory_price_update', 'click', function () {
+                var td = $(this).parents('.price_td');
+                var price = td.prev().text();
+                var desc = td.next().text();
+                var id = td.find('input').val();
+                updateFactoryPriceInfo(id, price, desc);
+
+            });
+
+            $('#customer_price_list').delegate('.customer_price_delete', 'click', function () {
+                deleteCustomerPriceInfo($(this).parent().find('input').val());
+            });
+
+            $('#customer_price_list').delegate('.customer_price_update', 'click', function () {
+                var td = $(this).parents('.price_td');
+                var price = td.prev().text();
+                var desc = td.next().text();
+                var id = td.find('input').val();
+                updateCustomerPriceInfo(id, price, desc);
+
+            });
+
+        })
+
+        function getFactoryPriceInfo(page) {
+            $.ajax({
+                type: "GET",
+
+                url: "{% url 'partsinfo:factory_price_list' %}?page=" + page + "&oem=" +{{ part.oem }},
+
+                async: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    showFactoryPriceList(data.factory_price_list);
+                    initPageBar(data.page_info,"factory_price_list_bar");
+
+                }
+
+            });
+        }
+
+        function showFactoryPriceList(data) {
+            var factory_price_list = $('#factory_price_list');
+            $('#factory_price_list tr:not(:first)').empty();
+
+            for (var index in data) {
+                var html = '<tr class = "info_tr">\n' +
+
+                    '                            <td>' + data[index][2] + '</td>\n' +
+                    '                            <td class="price_td_pr"><i class="fa  fa-cny margin-r-5"></i>' + data[index][3] + '</td>\n' +
+                    '                            <td class="price_td">\n' +
+                    '                                <div class="btn-group">\n' +
+                    '<input type="hidden" value="' + data[index][4] + '">\n' +
+                    '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-info factory_price_update" >修改</div>\n' +
+                    '                                    <div style="float: left" class="btn-xs btn-danger factory_price_delete" >删除</div>\n' +
+                    '                                </div>\n' +
+                    '                            </td>\n' +
+                    '                            <td class="price_td_ne">' + data[index][5] + '</td>\n' +
+                    '                            <td>' + data[index][6] + '</td>\n' +
+                    '                            <td>' + data[index][7] + '</td>\n' +
+                    '                        </tr>';
+
+                factory_price_list.append(html);
+
+            }
+        }
+
+
+        function getCustomerPriceInfo(page) {
+            $.ajax({
+                type: "GET",
+
+                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page + "&oem=" +{{ part.oem }},
+
+                async: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    showCustomerPriceList(data.customer_price_list);
+                    initPageBar(data.page_info,"customer_price_list_bar");
+
+
+                }
+
+            });
+        }
+
+        function showCustomerPriceList(data) {
+
+            var customer_price_list = $('#customer_price_list');
+            $('#customer_price_list tr:not(:first)').empty();
+
+            for (var index in data) {
+                var html = '<tr class = "info_tr">\n' +
+                    '                            <td>' + data[index][2] + '</td>\n' +
+                    '                            <td class="price_td_pr"><i class="fa fa-dollar margin-r-5"></i>' + data[index][3] + '</td>\n' +
+                    '                            <td class="price_td">\n' +
+                    '                                <div class="btn-group">\n' +
+                    '<input type="hidden" value="' + data[index][4] + '">\n' +
+                    '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-info customer_price_update" >修改</div>\n' +
+                    '                                    <div style="float: left" class="btn-xs btn-danger customer_price_delete" >删除</div>\n' +
+                    '                                </div>\n' +
+                    '                            </td>\n' +
+                    '                            <td class="price_td_ne">' + data[index][5] + '</td>\n' +
+                    '                            <td>' + data[index][6] + '</td>\n' +
+                    '                            <td>' + data[index][7] + '</td>\n' +
+                    '                        </tr>';
+
+                customer_price_list.append(html);
+
+            }
+
+
+        }
+    </script>
 {% endblock %}

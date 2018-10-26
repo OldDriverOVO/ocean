@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 {% block title %}list{% endblock %}
-{% block content-header %}工厂价格{% endblock %}
+{% block content-header %}客户价格{% endblock %}
 {% block content %}
     <div class="row">
         {% csrf_token %}
@@ -23,12 +23,12 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover" id="factory_price_list">
+                    <table class="table table-hover" id="customer_price_list">
                         <tbody>
                         <tr>
                             <th>OEM</th>
                             <th>品名</th>
-                            <th>工厂</th>
+                            <th>客户</th>
                             <th>价格</th>
                             <th>操作</th>
                             <th>备注</th>
@@ -41,7 +41,7 @@
                     </table>
                 </div>
 
-                <div id="factory_price_list_bar">
+                <div id="customer_price_list_bar">
                     {% include 'partinfo/page_bar.html' %}
                 </div>
                 <!-- /.box-body -->
@@ -56,17 +56,18 @@
     <script>
         $(document).ready(function () {
 
-            getFactoryPriceInfo(1);
-            $('#factory_price_list').delegate('.factory_price_delete', 'click', function () {
-                deleteFactoryPriceInfo($(this).parent().find('input').val());
+            getCustomerPriceInfo(1);
+
+            $('#customer_price_list').delegate('.customer_price_delete', 'click', function () {
+                deleteCustomerPriceInfo($(this).parent().find('input').val());
             });
 
-            $('#factory_price_list').delegate('.factory_price_update', 'click', function () {
+            $('#customer_price_list').delegate('.customer_price_update', 'click', function () {
                 var td = $(this).parents('.price_td');
                 var price = td.prev().text();
                 var desc = td.next().text();
                 var id = td.find('input').val();
-                updateFactoryPriceInfo(id, price, desc);
+                updateCustomerPriceInfo(id, price, desc);
 
             });
 
@@ -74,18 +75,18 @@
         })
 
 
-        function getFactoryPriceInfo(page) {
+        function getCustomerPriceInfo(page) {
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:factory_price_list' %}?page=" + page,
+                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page,
 
                 async: false,
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    showInfo(data.factory_price_list);
-                    initPageBar(data.page_info,"factory_price_list_bar");
+                    showInfo(data.customer_price_list);
+                    initPageBar(data.page_info,"customer_price_list_bar");
 
 
                 }
@@ -95,20 +96,20 @@
 
         function showInfo(data) {
 
-            var factory_price_list = $('#factory_price_list');
-            $('#factory_price_list tr:not(:first)').empty();
+            var customer_price_list = $('#customer_price_list');
+            $('#customer_price_list tr:not(:first)').empty();
 
             for (var index in data) {
                 var html = '<tr class = "info_tr">\n' +
                     '                            <td>' + data[index][0] + '</td>\n' +
                     '                            <td>' + data[index][1] + '</td>\n' +
                     '                            <td>' + data[index][2] + '</td>\n' +
-                    '                            <td class="price_td_pr"><i class="fa  fa-cny margin-r-5"></i>' + data[index][3] + '</td>\n' +
+                    '                            <td class="price_td_pr"><i class="fa fa-dollar margin-r-5"></i>' + data[index][3] + '</td>\n' +
                     '                            <td class="price_td">\n' +
                     '                                <div class="btn-group">\n' +
                     '<input type="hidden" value="' + data[index][4] + '">\n' +
-                    '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-info factory_price_update" >修改</div>\n' +
-                    '                                    <div style="float: left" class="btn-xs btn-danger factory_price_delete" >删除</div>\n' +
+                    '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-info customer_price_update" >修改</div>\n' +
+                    '                                    <div style="float: left" class="btn-xs btn-danger customer_price_delete" >删除</div>\n' +
                     '                                </div>\n' +
                     '                            </td>\n' +
                     '                            <td class="price_td_ne">' + data[index][5] + '</td>\n' +
@@ -116,7 +117,7 @@
                     '                            <td>' + data[index][7] + '</td>\n' +
                     '                        </tr>';
 
-                factory_price_list.append(html);
+                customer_price_list.append(html);
 
             }
 

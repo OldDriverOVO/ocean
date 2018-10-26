@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
-from .models import Parts, Factory, Customer, FactoryPartsPrice
+from .models import Parts, Factory, Customer, FactoryPartsPrice,CustomerPartsPrice
 import win32timezone
 import json
 from django.urls import reverse
@@ -316,9 +316,13 @@ def factory_price_list(request):
 
     if request.is_ajax():
 
-        contact_list = SqlUtils.get_factory_parts_price()
+        if request.GET.get("oem"):
+            contact_list = SqlUtils.get_factory_parts_price(request.GET.get("oem"))
+        else:
+            contact_list = SqlUtils.get_factory_parts_price()
 
-        paginator = Paginator(contact_list, 40)  # Show 25 contacts per page
+
+        paginator = Paginator(contact_list, 25)  # Show 25 contacts per page
 
         try:
             currentPage = int(request.GET.get('page'))
@@ -368,7 +372,7 @@ def factory_price_list(request):
 
 
 @login_required
-@permission_required(perm='partsInfo.delete_factorypartsprice')
+# @permission_required(perm='partsInfo.delete_factorypartsprice')
 def delete_factory_price(request):
     state = None
     if request.is_ajax():
@@ -386,7 +390,7 @@ def delete_factory_price(request):
 
 
 @login_required
-@permission_required(perm='partsInfo.change_factorypartsprice')
+# @permission_required(perm='partsInfo.change_factorypartsprice')
 def update_factory_price(request):
     state = None
     if request.is_ajax():
@@ -411,6 +415,106 @@ def update_factory_price(request):
     else:
         return HttpResponse('')
 
+@login_required
+# @permission_required(perm='partsInfo.view_factorypartsprice')
+def customer_price_list(request):
+
+    if request.is_ajax():
+
+        if request.GET.get("oem"):
+            contact_list = SqlUtils.get_customer_parts_price(request.GET.get("oem"))
+        else:
+            contact_list = SqlUtils.get_customer_parts_price()
+
+
+        paginator = Paginator(contact_list, 25)  # Show 25 contacts per page
+
+        try:
+            currentPage = int(request.GET.get('page'))
+            contacts = paginator.page(currentPage)
+            if paginator.num_pages > 10:
+                if currentPage - 5 < 1:
+                    pageRange = range(1, 11)
+                elif currentPage + 5 > paginator.num_pages:
+                    pageRange = range(currentPage - 5, paginator.num_pages + 1)
+
+                else:
+                    pageRange = range(currentPage - 5, currentPage + 5)
+
+            else:
+                pageRange = paginator.page_range
+
+        except ValueError:
+            # If page is not an integer, deliver first page.
+            contacts = paginator.page(1)
+            pageRange = paginator.page_range
+        except TypeError:
+            # If page is not an integer, deliver first page.
+            contacts = paginator.page(1)
+            pageRange = paginator.page_range
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            contacts = paginator.page(paginator.num_pages)
+            pageRange = paginator.page_range
+
+        return JsonResponse(
+            {
+                'customer_price_list': contacts.object_list,
+                'page_info': {
+                    'current_page': contacts.number,
+                    'has_next': contacts.has_next(),
+                    'has_previous': contacts.has_previous(),
+                    'pageRange': list(pageRange),
+                    'pages': contacts.paginator.num_pages
+                },
+
+            }, safe=False
+
+        )
+
+
+    return render(request, 'partinfo/customer_price_list.html', context={'user': request.user})
+
+@login_required
+def update_customer_price(request):
+    state = None
+    if request.is_ajax():
+        target = CustomerPartsPrice.objects.get(id=request.POST.get("id"))
+        if target:
+            try:
+                target.price=request.POST.get('price')
+                target.description=request.POST.get('desc').strip()
+                target.last_change_user_id=request.user.id
+                target.save()
+            except:
+                state = 'data_error'
+                return HttpResponse(state)
+
+            state = 'success'
+            return HttpResponse(state)
+
+        else:
+            state = 'object_not_found'
+            return HttpResponse(state)
+
+    else:
+        return HttpResponse('')
+
+@login_required
+def delete_customer_price(request):
+    state = None
+    if request.is_ajax():
+        target = CustomerPartsPrice.objects.filter(id=request.POST.get("id"))
+        if target:
+            target.delete()
+            state = 'success'
+            return HttpResponse(state)
+        else:
+            state = 'object_not_found'
+            return HttpResponse(state)
+
+    else:
+        return HttpResponse("")
 
 @login_required
 def part_detail(request,pk):

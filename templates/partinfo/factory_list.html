@@ -59,7 +59,10 @@
 
 
             </div>
-            {% include 'partinfo/page_bar.html' %}
+            <div id="factory_list_bar">
+                {% include 'partinfo/page_bar.html' %}
+            </div>
+
             <div class="modal fade" id="model_factory_add" style="display: none;">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -177,7 +180,6 @@
                 }
 
 
-
                 var factory_form_data = new FormData($("#add_factory_form")[0])
 
                 $.ajax({
@@ -226,7 +228,6 @@
 
         function getPageInfo(page) {
 
-            console.log(new Date().getMilliseconds());
             $.ajax({
                 type: "GET",
 
@@ -236,12 +237,9 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    console.log(new Date().getMilliseconds());
-                    console.log(data);
 
                     showFactoryInfo(data.factory_list);
-                    initPageBar(data.page_info);
-                    console.log(new Date().getMilliseconds());
+                    initPageBar(data.page_info,"factory_list_bar");
 
                 }
 

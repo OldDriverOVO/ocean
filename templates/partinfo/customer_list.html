@@ -45,8 +45,10 @@
 
 
             </div>
-            {% include 'partinfo/page_bar.html' %}
 
+            <div id="customer_list_bar">
+                {% include 'partinfo/page_bar.html' %}
+            </div>
         </div>
     </div>
     <div class="modal fade" id="model_customer_add" style="display: none;">
@@ -180,7 +182,6 @@
         })
 
         function getPageInfo(page) {
-            console.log(new Date().getMilliseconds());
             $.ajax({
                 type: "GET",
 
@@ -190,11 +191,8 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    console.log(new Date().getMilliseconds());
-                    console.log(data)
                     showPartInfo(data.customer_list);
-                    initPageBar(data.page_info);
-                    console.log(new Date().getMilliseconds());
+                    initPageBar(data.page_info,"customer_list_bar");
 
 
                 }

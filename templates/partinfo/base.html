@@ -14,13 +14,14 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{% static 'css/AdminLTE.min.css' %}">
+
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{% static 'css/_all-skins.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/select2.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/toastr.css' %}">
     <link rel="stylesheet" href="{% static 'css/jquery-confirm.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/AdminLTE.min.css' %}">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -211,8 +212,10 @@
                         <li><a href="{% url 'partsinfo:part_list' %}"><i class="fa fa-circle-o"></i>配件信息</a></li>
                         <li><a href="{% url 'partsinfo:factory_list' %}"><i class="fa fa-circle-o"></i>工厂信息</a></li>
                         <li><a href="{% url 'partsinfo:customer_list' %}"><i class="fa fa-circle-o"></i>客户信息</a></li>
-                        <li><a href="{% url 'partsinfo:factory_price_list' %}"><i class="fa fa-circle-o"></i>工厂价格</a></li>
-
+                        <li><a href="{% url 'partsinfo:factory_price_list' %}"><i class="fa fa-circle-o"></i>工厂价格</a>
+                        </li>
+                        <li><a href="{% url 'partsinfo:customer_price_list' %}"><i class="fa fa-circle-o"></i>客户价格</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -509,6 +512,7 @@
 <script src="{% static 'js/toastr.min.js' %}"></script>
 <script src="{% static 'js/shared.js' %}"></script>
 <script src="{% static 'js/jquery-confirm.min.js' %}"></script>
+<script src="{% static 'js/jquery.cookie.js' %}"></script>
 
 <!-- AdminLTE for demo purposes -->
 {% block javascript %}{% endblock %}

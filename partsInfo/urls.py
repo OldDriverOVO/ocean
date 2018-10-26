@@ -18,4 +18,7 @@ urlpatterns = [
     path('delete_factory_price/',views.delete_factory_price,name='delete_factory_price'),
     path('update_factory_price/',views.update_factory_price,name='update_factory_price'),
     path('part_detail/<pk>/',views.part_detail,name='part_detail'),
+    path('customer_price_list/',views.customer_price_list, name='customer_price_list'),
+    path('delete_customer_price/', views.delete_customer_price, name='delete_customer_price'),
+    path('update_customer_price/', views.update_customer_price, name='update_customer_price'),
 ]
