@@ -14,7 +14,7 @@
                     <div class="col-md-1 ">
                         <div class="btn-group">
                             <button type="button" class="btn btn-default" data-toggle="modal"
-                                    data-target="#model_customer_add"><i class="fa fa-plus"></i> 添加
+                                    data-target="#model_customer_price_add"><i class="fa fa-plus"></i> 添加
                             </button>
                         </div>
 
@@ -48,26 +48,166 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="model_customer_price_add" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">添加信息</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form action="#" method="post" id="add_customer_price_form">
+                        {% csrf_token %}
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>产品</label>
+                                <select class="form-control select2" id="select_parts" name="select_parts"
+                                        style="width: 100%;">
+                                    <option></option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>客户</label>
+                                <select class="form-control select2" id="select_customer" name="select_customer"
+                                        style="width: 100%;">
+                                    <option></option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>价格</label>
+                                <input type="number" min="0.0" step="0.1" class="form-control" name="num_price"
+                                       id="num_price"
+                                       placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>描述</label>
+                                <textarea class="form-control" rows="4" name="txt_area_customer_price_desc"
+                                          id="txt_area_customer_price_desc"
+                                          placeholder="....."></textarea>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="modal-footer no-border">
+                    <button type="button" class="btn btn-default pull-left" id="btn_customer_price_cancel"
+                            data-dismiss="modal">
+                        <i class="fa fa-remove "> 取消</i></button>
+                    <button type="submit" class="btn btn-primary" id="btn_customer_price_save"><i class="fa fa-check">
+                        保存</i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 
 
 {% endblock %}
 
 {% block javascript %}
+    <script src="{% static 'js/parts_factory_customer_model_select2.js' %}"></script>
+
     <script>
         $(document).ready(function () {
 
             getCustomerPriceInfo(1);
 
-            $('#customer_price_list').delegate('.customer_price_delete', 'click', function () {
-                deleteCustomerPriceInfo($(this).parent().find('input').val());
+
+            $("#btn_customer_price_save").click(function () {
+
+                var select_parts = $("#select_parts");
+                if (select_parts.val() == "") {
+                    select_parts.parent().addClass("has-error");
+                    toastr.error('选择产品');
+                    return;
+                }
+                var select_customer = $("#select_customer");
+                if (select_customer.val() == '') {
+                    select_customer.parent().addClass("has-error")
+                    toastr.error('选择工厂');
+                    return;
+                }
+                var num_price = $("#num_price");
+
+                if (num_price.val() == '' || num_price.val() < 0) {
+                    num_price.parent().addClass("has-error")
+                    toastr.error('价格不能为零或者小于零');
+                    return;
+                }
+
+                var add_customer_price_form = new FormData($("#add_customer_price_form")[0])
+
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'partsinfo:add_customer_price' %}",
+                    data: add_customer_price_form,
+                    async: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+
+
+                        if (data == "success") {
+                            $('#model_customer_price_add').modal('hide');
+                            toastr.success('添加成功！2333');
+                            getCustomerPriceInfo(1);
+
+                        } else if (data == 'info_exist') {
+
+                            toastr.error('信息重复');
+
+                        }
+                        else if (data == "data_error") {
+                            toastr.error('数据库错误');
+                        }
+                        else {
+                            toastr.error('没有权限');
+                        }
+
+                    }
+
+                });
+
+
             });
 
-            $('#customer_price_list').delegate('.customer_price_update', 'click', function () {
-                var td = $(this).parents('.price_td');
-                var price = td.prev().text();
-                var desc = td.next().text();
-                var id = td.find('input').val();
-                updateCustomerPriceInfo(id, price, desc);
+            $('#model_customer_price_add').on('hide.bs.modal', function () {
+
+                $("#select_parts").val(null).trigger('change');
+                $("#select_customer").val(null).trigger('change');
+                $("#add_customer_price_form")[0].reset();
+
+                var select_parts = $("#select_parts");
+                if (select_parts.parent().hasClass("has-error")) {
+                    select_parts.parent().removeClass("has-error");
+
+                }
+
+
+                var select_customer = $("#select_customer");
+                if (select_customer.parent().hasClass("has-error")) {
+                    select_customer.parent().removeClass("has-error");
+
+                }
+                var num_price = $("#num_price");
+                if (num_price.parent().hasClass("has-error")) {
+                    num_price.parent().removeClass("has-error");
+
+                }
 
             });
 
@@ -86,7 +226,7 @@
                 processData: false,
                 success: function (data) {
                     showInfo(data.customer_price_list);
-                    initPageBar(data.page_info,"customer_price_list_bar");
+                    initPageBar(data.page_info, "customer_price_list_bar");
 
 
                 }
@@ -108,7 +248,7 @@
                     '                            <td class="price_td">\n' +
                     '                                <div class="btn-group">\n' +
                     '<input type="hidden" value="' + data[index][4] + '">\n' +
-                    '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-info customer_price_update" >修改</div>\n' +
+                    '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-primary customer_price_update" >修改</div>\n' +
                     '                                    <div style="float: left" class="btn-xs btn-danger customer_price_delete" >删除</div>\n' +
                     '                                </div>\n' +
                     '                            </td>\n' +

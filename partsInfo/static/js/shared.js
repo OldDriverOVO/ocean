@@ -1,3 +1,32 @@
+$(document).ready(function () {
+    $('#customer_price_list').delegate('.customer_price_delete', 'click', function () {
+        deleteCustomerPriceInfo($(this).parent().find('input').val());
+    });
+
+    $('#customer_price_list').delegate('.customer_price_update', 'click', function () {
+        var td = $(this).parents('.price_td');
+        var price = td.prev().text();
+        var desc = td.next().text();
+        var id = td.find('input').val();
+        updateCustomerPriceInfo(id, price, desc);
+
+    });
+
+    $('#factory_price_list').delegate('.factory_price_delete', 'click', function () {
+        deleteFactoryPriceInfo($(this).parent().find('input').val());
+    });
+
+    $('#factory_price_list').delegate('.factory_price_update', 'click', function () {
+        var td = $(this).parents('.price_td');
+        var price = td.prev().text();
+        var desc = td.next().text();
+        var id = td.find('input').val();
+        updateFactoryPriceInfo(id, price, desc);
+
+    });
+
+})
+
 function check_file_name_img(file_name) {
     var suffixIndex = file_name.lastIndexOf(".");
     var suffix = file_name.substring(suffixIndex + 1).toUpperCase();
@@ -5,18 +34,18 @@ function check_file_name_img(file_name) {
 
 }
 
+function initPageBar(data, page_bar_id) {
 
-function initPageBar(data,page_bar_id) {
-
-    if (data.pageRange.length == 1){
+    if (data.pageRange.length == 1) {
         return;
     }
 
-    var page_info = $('#'+page_bar_id).find("#page_info");
+    var page_info = $('#' + page_bar_id).find("#page_info");
     page_info.empty();
     var pageinfo = '当前第' + data.current_page + '页 共' + data.pages + '页';
     page_info.append(pageinfo);
-    var page_list =  $('#'+page_bar_id).find("#page_list");;
+    var page_list = $('#' + page_bar_id).find("#page_list");
+    ;
     page_list.empty();
     var previous = '';
     if (data.has_previous) {

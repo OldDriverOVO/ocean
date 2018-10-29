@@ -14,6 +14,18 @@
                         <button type="button" class="btn btn-default" data-toggle="modal"
                                 data-target="#model_customer_add"><i class="fa fa-plus"> 添加</i></button>
                     </div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+
+                            <select class="form-control select2" id="select_customer" style="width: 100%;">
+                                <option></option>
+                            </select>
+                            <span class="input-group-btn">
+                              <button type="submit" id="btn_select_customer_close" class="btn btn-default btn-flat"><i
+                                      class="fa fa-close"></i> </button>
+                              </span>
+                        </div>
+                    </div>
                     <div class="col-md-6 pull-right">
                         <form action="#" method="post">
                             <div class="input-group">
@@ -67,7 +79,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>客户编号</label>
-                                <input type="text" class="form-control" name="txt_customer_nick_name" id="txt_customer_nick_name"
+                                <input type="text" class="form-control" name="txt_customer_nick_name"
+                                       id="txt_customer_nick_name"
                                        placeholder="">
                             </div>
                         </div>
@@ -81,7 +94,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>描述</label>
-                                <textarea class="form-control" rows="4" name="txt_area_customer_desc" id="txt_area_customer_desc"
+                                <textarea class="form-control" rows="4" name="txt_area_customer_desc"
+                                          id="txt_area_customer_desc"
                                           placeholder="....."></textarea>
                             </div>
                         </div>
@@ -97,7 +111,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" id="btn_customer_cancel" data-dismiss="modal">
+                    <button type="button" class="btn btn-default pull-left" id="btn_customer_cancel"
+                            data-dismiss="modal">
                         <i class="fa fa-remove "> 取消</i></button>
                     <button type="submit" class="btn btn-primary" id="btn_customer_save"><i class="fa fa-check"> 保存</i>
                     </button>
@@ -111,6 +126,8 @@
 
 {% endblock %}
 {% block javascript %}
+    <script src="{% static 'js/parts_factory_customer_model_select2.js' %}"></script>
+
     <script>
         $(document).ready(function () {
 
@@ -181,6 +198,7 @@
 
         })
 
+
         function getPageInfo(page) {
             $.ajax({
                 type: "GET",
@@ -192,7 +210,7 @@
                 processData: false,
                 success: function (data) {
                     showPartInfo(data.customer_list);
-                    initPageBar(data.page_info,"customer_list_bar");
+                    initPageBar(data.page_info, "customer_list_bar");
 
 
                 }
@@ -209,7 +227,7 @@
                     '                    <div class="box box-widget widget-user-2">\n' +
                     '                        <div class="widget-user-header">\n' +
                     '                            <div class="widget-user-image">\n' +
-                    '                                <img class="img-circle" src="../../media/' + data[index].fields.icon_img + '">\n' +
+                    '                                <img class="img-circle" src="/media/' + data[index].fields.icon_img + '">\n' +
                     '                            </div>\n' +
                     '                            <h3 class="widget-user-username" style="display: block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + data[index].fields.nick_name + '</h3>\n' +
                     '                            <h5 class="widget-user-desc" style="display: block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + data[index].fields.name + '</h5>\n' +

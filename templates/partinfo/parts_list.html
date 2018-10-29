@@ -15,12 +15,16 @@
                         <button type="button" class="btn btn-default" data-toggle="modal"
                                 data-target="#model_parts_add"><i class="fa fa-plus"> 添加</i></button>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
+                    <div class="col-md-4">
+                        <div class="input-group">
 
-                            <select class="form-control select2" style="width: 100%;">
-
+                            <select class="form-control select2"  id="select_parts" style="width: 100%;">
+                                <option></option>
                             </select>
+                            <span class="input-group-btn">
+                              <button type="submit" id="btn_select_parts_close" class="btn btn-default btn-flat"><i
+                                      class="fa fa-close"></i> </button>
+                              </span>
                         </div>
                     </div>
                     <div class="col-md-4 pull-right">
@@ -133,44 +137,14 @@
     </div>
 {% endblock %}
 {% block javascript %}
+        <script src="{% static 'js/parts_factory_customer_model_select2.js' %}"></script>
+
     <script>
         $(document).ready(function () {
 
 
             getPageInfo(1);
 
-            $(".select2").select2({
-                ajax: {
-                    url: "https://api.github.com/search/repositories",
-                    dataType: 'json',
-                    delay: 250,
-                    data: function (params) {
-                        return {
-                            q: params.term, // search term
-                            page: params.page
-                        };
-                    },
-                    processResults: function (data, params) {
-
-                        params.page = params.page || 1;
-
-                        return {
-                            results: data.items,
-                            pagination: {
-                                more: (params.page * 30) < data.total_count
-                            }
-                        };
-                    },
-                    cache: true
-                },
-                placeholder: 'Search for a repository',
-                escapeMarkup: function (markup) {
-                    return markup;
-                }, // let our custom formatter work
-                minimumInputLength: 1,
-                templateResult: formatRepo,
-                templateSelection: formatRepoSelection
-            });
 
             $("#btn_parts_save").click(function () {
                 var add_oem = $("#txt_OEM");
@@ -239,19 +213,7 @@
 
         })
 
-        function formatRepo(repo) {
-            if (repo.loading) {
-                return repo.text;
-            }
 
-            var markup = "<div class='select2-result-repository__title'>" + repo.full_name + "</div>";
-
-            return markup;
-        }
-
-        function formatRepoSelection(repo) {
-            return repo.full_name || repo.text;
-        }
 
         function getPageInfo(page) {
             $.ajax({
@@ -282,7 +244,7 @@
                                <div class="info-box" style="min-height: 100px;">\
                                      ';
 
-                var html2 = '<a style="color: #444;"  href="/baseinfo/part_detail/' + data[index].pk + '"><span class="info-box-icon" style="height: 100px;width: 100px;font-size: 50px;line-height: 0px"><img src="../../media/' + data[index].fields.img + '" width="100%" height="100%">'
+                var html2 = '<a style="color: #444;"  href="/baseinfo/part_detail/' + data[index].pk + '"><span class="info-box-icon" style="height: 100px;width: 100px;font-size: 50px;line-height: 0px"><img src="/media/' + data[index].fields.img + '" width="100%" height="100%">'
 
                 var img = '<a style="color: #444;"  href="/baseinfo/part_detail/' + data[index].pk + '"><span class="info-box-icon" style="height: 100px;width: 100px;font-size: 50px;line-height: 100px;"><i class="fa fa-file-photo-o"></i>'
                 var end = '</a></span>\
