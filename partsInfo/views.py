@@ -383,7 +383,6 @@ def factory_price_list(request):
 def add_factory_price(request):
     state = None
     if request.is_ajax():
-
         if FactoryPartsPrice.objects.filter(oem=request.POST.get('select_parts'),
                                             factory_id=request.POST.get('select_factory')):
             state = 'info_exist'
@@ -598,3 +597,14 @@ def part_detail(request, pk):
                                                                      })
     else:
         return HttpResponseRedirect(reverse("partsinfo:part_list"))
+
+@login_required
+def factory_detail(request, pk):
+    target = Factory.objects.get(id=pk)
+    if target:
+        return render(request, 'partinfo/factory_detail.html', context={'user': request.user,
+                                                                     'factory': target
+                                                                     })
+    else:
+        return HttpResponseRedirect(reverse("partsinfo:factory_list"))
+

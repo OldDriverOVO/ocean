@@ -85,7 +85,7 @@
                             <div class="form-group">
                                 <label>价格</label>
                                 <input type="number" min="0.0" step="0.1" class="form-control" name="num_price"
-                                       id="num_price"
+                                       id="num_customer_price"
                                        placeholder="">
                             </div>
                         </div>
@@ -141,10 +141,10 @@
                     toastr.error('选择工厂');
                     return;
                 }
-                var num_price = $("#num_price");
+                var num_customer_price = $("#num_price");
 
-                if (num_price.val() == '' || num_price.val() < 0) {
-                    num_price.parent().addClass("has-error")
+                if (num_customer_price.val() == '' || num_customer_price.val() < 0) {
+                    num_customer_price.parent().addClass("has-error")
                     toastr.error('价格不能为零或者小于零');
                     return;
                 }
@@ -203,9 +203,9 @@
                     select_customer.parent().removeClass("has-error");
 
                 }
-                var num_price = $("#num_price");
-                if (num_price.parent().hasClass("has-error")) {
-                    num_price.parent().removeClass("has-error");
+                var num_customer_price = $("#num_price");
+                if (num_customer_price.parent().hasClass("has-error")) {
+                    num_customer_price.parent().removeClass("has-error");
 
                 }
 

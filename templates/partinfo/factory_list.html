@@ -252,7 +252,6 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-
                     showFactoryInfo(data.factory_list);
                     initPageBar(data.page_info, "factory_list_bar");
 
@@ -267,15 +266,13 @@
             for (var index in list) {
                 var html = '<div class="col-md-3 col-sm-6 col-xs-12">\
                                          <div class="box box-widget">\
+                                            <a style="color: #444;"  href="/baseinfo/factory_detail/' + list[index].pk + '">\
                                             <div class="box-header with-border">\
                                                  <span class="info-box-text" style="font-size:16px;">' + list[index].fields.name + '</span>\
-                                                 <div class="box-tools">\
-                                                     <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>\
-                                                 </div>\
-                                             </div>\
+                                             </div></a>\
                                              <div class="box-body">\
                                                  <div class="">\
-                                                     <span class="text-muted"><i class="fa fa-users"></i> ' + list[index].fields.Contact + '</span>\
+                                                     <span class="text-muted"><i class="fa  fa-commenting-o"></i> ' + list[index].fields.Contact + '</span>\
                                                  </div>\
                                                  <div>\
                                                      <span class="text-muted" style="display: block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><i class="fa fa-tags"></i> ' + list[index].fields.address + '</span>\

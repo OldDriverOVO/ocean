@@ -85,7 +85,7 @@
                             <div class="form-group">
                                 <label>价格</label>
                                 <input type="number" min="0.0" step="0.1" class="form-control" name="num_price"
-                                       id="num_price"
+                                       id="num_factory_price"
                                        placeholder="">
                             </div>
                         </div>
@@ -127,89 +127,6 @@
 
             getFactoryPriceInfo(1);
 
-            $("#btn_factory_price_save").click(function () {
-
-                var select_parts = $("#select_parts");
-                if (select_parts.val() == "") {
-                    select_parts.parent().addClass("has-error");
-                    toastr.error('选择产品');
-                    return;
-                }
-                var select_factory = $("#select_factory");
-                if (select_factory.val() == '') {
-                    select_factory.parent().addClass("has-error")
-                    toastr.error('选择工厂');
-                    return;
-                }
-                var num_price = $("#num_price");
-
-                if (num_price.val() == '' || num_price.val() < 0) {
-                    num_price.parent().addClass("has-error")
-                    toastr.error('价格不能为零或者小于零');
-                    return;
-                }
-
-                var add_factory_price_form = new FormData($("#add_factory_price_form")[0])
-
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'partsinfo:add_factory_price' %}",
-                    data: add_factory_price_form,
-                    async: false,
-                    contentType: false,
-                    processData: false,
-                    success: function (data) {
-
-
-                        if (data == "success") {
-                            $('#model_factory_price_add').modal('hide');
-                            toastr.success('添加成功！2333');
-                            getFactoryPriceInfo(1);
-
-                        } else if (data == 'info_exist') {
-
-                            toastr.error('信息重复');
-
-                        }
-                        else if (data == "data_error") {
-                            toastr.error('数据库错误');
-                        }
-                        else {
-                            toastr.error('没有权限');
-                        }
-
-                    }
-
-                });
-
-
-            });
-
-            $('#model_factory_price_add').on('hide.bs.modal', function () {
-
-                $("#select_parts").val(null).trigger('change');
-                $("#select_factory").val(null).trigger('change');
-                $("#add_factory_price_form")[0].reset();
-
-                var select_parts = $("#select_parts");
-                if (select_parts.parent().hasClass("has-error")) {
-                    select_parts.parent().removeClass("has-error");
-
-                }
-
-
-                var select_factory = $("#select_factory");
-                if (select_factory.parent().hasClass("has-error")) {
-                    select_factory.parent().removeClass("has-error");
-
-                }
-                var num_price = $("#num_price");
-                if (num_price.parent().hasClass("has-error")) {
-                    num_price.parent().removeClass("has-error");
-
-                }
-
-            });
 
         })
 
