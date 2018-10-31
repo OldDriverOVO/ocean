@@ -127,91 +127,6 @@
             getCustomerPriceInfo(1);
 
 
-            $("#btn_customer_price_save").click(function () {
-
-                var select_parts = $("#select_parts");
-                if (select_parts.val() == "") {
-                    select_parts.parent().addClass("has-error");
-                    toastr.error('选择产品');
-                    return;
-                }
-                var select_customer = $("#select_customer");
-                if (select_customer.val() == '') {
-                    select_customer.parent().addClass("has-error")
-                    toastr.error('选择工厂');
-                    return;
-                }
-                var num_customer_price = $("#num_price");
-
-                if (num_customer_price.val() == '' || num_customer_price.val() < 0) {
-                    num_customer_price.parent().addClass("has-error")
-                    toastr.error('价格不能为零或者小于零');
-                    return;
-                }
-
-                var add_customer_price_form = new FormData($("#add_customer_price_form")[0])
-
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'partsinfo:add_customer_price' %}",
-                    data: add_customer_price_form,
-                    async: false,
-                    contentType: false,
-                    processData: false,
-                    success: function (data) {
-
-
-                        if (data == "success") {
-                            $('#model_customer_price_add').modal('hide');
-                            toastr.success('添加成功！2333');
-                            getCustomerPriceInfo(1);
-
-                        } else if (data == 'info_exist') {
-
-                            toastr.error('信息重复');
-
-                        }
-                        else if (data == "data_error") {
-                            toastr.error('数据库错误');
-                        }
-                        else {
-                            toastr.error('没有权限');
-                        }
-
-                    }
-
-                });
-
-
-            });
-
-            $('#model_customer_price_add').on('hide.bs.modal', function () {
-
-                $("#select_parts").val(null).trigger('change');
-                $("#select_customer").val(null).trigger('change');
-                $("#add_customer_price_form")[0].reset();
-
-                var select_parts = $("#select_parts");
-                if (select_parts.parent().hasClass("has-error")) {
-                    select_parts.parent().removeClass("has-error");
-
-                }
-
-
-                var select_customer = $("#select_customer");
-                if (select_customer.parent().hasClass("has-error")) {
-                    select_customer.parent().removeClass("has-error");
-
-                }
-                var num_customer_price = $("#num_price");
-                if (num_customer_price.parent().hasClass("has-error")) {
-                    num_customer_price.parent().removeClass("has-error");
-
-                }
-
-            });
-
-
         })
 
 
@@ -226,7 +141,7 @@
                 processData: false,
                 success: function (data) {
                     showInfo(data.customer_price_list);
-                    initPageBar(data.page_info, "customer_price_list_bar");
+                    initPageBar(data.page_info, "customer_price_list_bar",'getCustomerPriceInfo');
 
 
                 }

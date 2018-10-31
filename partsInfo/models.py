@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.db.models.signals import pre_delete
+from django.dispatch.dispatcher import receiver
 
 # 车型
 class CarModels(models.Model):
@@ -111,3 +112,12 @@ class OemExchange(models.Model):
 
     def __str__(self):
         return self.ex_oem
+
+
+@receiver(pre_delete,sender=Parts)
+def part_img_delete(sender, instance, **kwargs):
+    instance.img.delete(False)
+
+@receiver(pre_delete,sender=Customer)
+def customer_img_delete(sender, instance, **kwargs):
+    instance.icon_img.delete(False)

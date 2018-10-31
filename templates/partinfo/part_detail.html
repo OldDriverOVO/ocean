@@ -9,7 +9,9 @@
         <div class="col-md-12">
             <div class="box box-widget">
                 <div class="box-header with-border">
-
+                    <div class="btn-xs btn-danger pull-right" id="btn_part_delete"><i class="fa fa-trash-o"></i></div>
+                    <div class="btn-xs btn-primary pull-right" id="btn_part_update" style="margin-right: 5px"><i
+                            class="fa fa-pencil-square-o"></i></div>
 
                 </div>
                 <!-- /.box-header -->
@@ -57,6 +59,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-3 col-sm-6 col-xs-6">
                         <div class="box-body">
 
@@ -110,12 +113,6 @@
 
                             <hr>
 
-
-                            <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-calendar margin-r-5"></i>最近修改日期
-                            </p>
-                            <p style="text-indent: 1.3em;font-weight: 700;font-size: 15px">
-                                {{ part.last_change_user.first_name }}--{{ part.last_change_date|date:"Y-m-d H:i:s" }}
-                            </p>
                         </div>
                     </div>
 
@@ -123,6 +120,13 @@
                 </div>
                 <!-- /.box-body -->
                 <!-- /.box-footer -->
+                <div class="box-footer box-comments" style="padding: 0">
+                    <span class=" text-muted pull-right" style="margin-right: 10px"><i
+                            class="fa fa-clock-o"> {{ part.last_change_date|date:"Y-m-d" }}</i></span>
+                    <span class=" text-muted pull-right" style="margin-right: 10px"><i
+                            class="fa fa-user-plus"> {{ part.last_change_user.first_name }}</i></span>
+
+                </div>
                 <div class="box-footer">
                     <div class="col-md-12 col-xs-12 col-lg-12">
                         <div class="box box-primary">
@@ -169,7 +173,7 @@
                                         class="fa fa-ship margin-r-5"></i>客户价格
                                 </div>
                                 <div class="btn-xs btn-default" data-toggle="modal"
-                                    data-target="#model_customer_price_add" style="float: left;margin-left: 10px;"><i
+                                     data-target="#model_customer_price_add" style="float: left;margin-left: 10px;"><i
                                         class="fa fa-plus"></i></div>
                                 <div class="box-tools pull-right">
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
@@ -286,7 +290,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>产品</label>
-                                <input type="text" readonly="readonly" name="select_parts"  class="form-control"
+                                <input type="text" readonly="readonly" name="select_parts" class="form-control"
                                        value="{{ part.oem }}">
                             </div>
                         </div>
@@ -345,6 +349,52 @@
             getFactoryPriceInfo(1);
             getCustomerPriceInfo(1);
 
+            $("#btn_part_delete").click(function () {
+
+                $.confirm({
+                    title: '提示',
+                    content: '确定此条产品信息?',
+                    animation: 'top',
+                    closeAnimation: 'top',
+                    animateFromElement: false,
+                    buttons: {
+                        cancel: {
+                            text: '取消',
+                        },
+                        confirm: {
+                            text: '删除',
+                            btnClass: 'btn-danger',
+                            action: function () {
+                                $.ajax({
+                                    type: "POST",
+                                    headers: {"X-CSRFtoken": $.cookie('csrftoken')},
+                                    url: "{% url 'partsinfo:delete_parts_info' %}",
+                                    data: {'oem': "{{ part.oem }}"},
+
+                                    success: function (data) {
+
+                                        if (data == 'success') {
+                                            window.location.reload();
+                                        }
+                                        else if (data == "object_not_found") {
+
+                                            toastr.error('失败 没有找到删除对象');
+                                        }
+
+                                        else {
+                                            toastr.error('没有权限');
+                                        }
+
+                                    }
+
+                                });
+                            }
+                        }
+
+                    }
+                });
+            })
+
 
         })
 
@@ -352,14 +402,14 @@
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:factory_price_list' %}?page=" + page + "&oem=" +{{ part.oem }},
+                url: "{% url 'partsinfo:factory_price_list' %}?page=" + page + "&oem={{ part.oem }}",
 
                 async: false,
                 contentType: false,
                 processData: false,
                 success: function (data) {
                     showFactoryPriceList(data.factory_price_list);
-                    initPageBar(data.page_info, "factory_price_list_bar");
+                    initPageBar(data.page_info, "factory_price_list_bar", 'getFactoryPriceInfo');
 
                 }
 
@@ -396,14 +446,14 @@
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page + "&oem=" +{{ part.oem }},
+                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page + "&oem={{ part.oem }}",
 
                 async: false,
                 contentType: false,
                 processData: false,
                 success: function (data) {
                     showCustomerPriceList(data.customer_price_list);
-                    initPageBar(data.page_info, "customer_price_list_bar");
+                    initPageBar(data.page_info, "customer_price_list_bar", 'getCustomerPriceInfo');
 
 
                 }

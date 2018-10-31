@@ -13,10 +13,10 @@ $(document).ready(function () {
             toastr.error('选择工厂');
             return;
         }
-        var num_price = $("#num_price");
+        var num_factory_price = $("#num_factory_price");
 
-        if (num_price.val() == '' || num_price.val() < 0) {
-            num_price.parent().addClass("has-error")
+        if (num_factory_price.val() == '' || num_factory_price.val() < 0) {
+            num_factory_price.parent().addClass("has-error")
             toastr.error('价格不能为零或者小于零');
             return;
         }
@@ -75,9 +75,9 @@ $(document).ready(function () {
             select_factory.parent().removeClass("has-error");
 
         }
-        var num_price = $("#num_price");
-        if (num_price.parent().hasClass("has-error")) {
-            num_price.parent().removeClass("has-error");
+        var num_factory_price = $("#num_factory_price");
+        if (num_factory_price.parent().hasClass("has-error")) {
+            num_factory_price.parent().removeClass("has-error");
 
         }
 
@@ -203,7 +203,7 @@ function check_file_name_img(file_name) {
 
 }
 
-function initPageBar(data, page_bar_id) {
+function initPageBar(data, page_bar_id,initPageFunc) {
 
     if (data.pageRange.length == 1) {
         return;
@@ -218,7 +218,7 @@ function initPageBar(data, page_bar_id) {
     page_list.empty();
     var previous = '';
     if (data.has_previous) {
-        previous = '<li ><a onclick="getPageInfo(' + (data.current_page - 1) + ')">«</a></li>';
+        previous = '<li ><a onclick="'+initPageFunc+'(' + (data.current_page - 1) + ')">«</a></li>';
     }
     else {
         previous = '<li class="disabled"><a>«</a></li>';
@@ -231,13 +231,13 @@ function initPageBar(data, page_bar_id) {
             onePage = '<li class="active"><a >' + data.pageRange[page] + '</a></li>';
         }
         else {
-            onePage = '<li ><a onclick="getPageInfo(' + data.pageRange[page] + ')">' + data.pageRange[page] + '</a></li>';
+            onePage = '<li ><a onclick="'+initPageFunc+'(' + data.pageRange[page] + ')">' + data.pageRange[page] + '</a></li>';
         }
         page_list.append(onePage);
     }
     var next = '';
     if (data.has_next) {
-        next = '<li><a onclick="getPageInfo(' + (data.current_page + 1) + ')">»</a></li>';
+        next = '<li><a onclick="'+initPageFunc+'(' + (data.current_page + 1) + ')">»</a></li>';
     }
     else {
         next = '<li class="disabled"><a>»</a></li>';

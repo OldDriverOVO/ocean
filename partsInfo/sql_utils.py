@@ -6,7 +6,7 @@ cursor = connection.cursor()
 class SqlUtils():
 
     @classmethod
-    def get_factory_parts_price(cls, oem=None):
+    def get_factory_parts_price(cls, oem=None, factory_id=None):
         sql = 'SELECT "parts".oem,"parts".cn_name,"pif".name,"partsInfo_factorypartsprice".price,"partsInfo_factorypartsprice".id,\
                "partsInfo_factorypartsprice".description,"partsInfo_factorypartsprice".llast_change_date,"a".first_name\
                FROM "partsInfo_factorypartsprice"\
@@ -16,13 +16,15 @@ class SqlUtils():
 
         if oem:
             sql += " WHERE parts.oem = '" + oem + "';"
+        elif factory_id:
+            sql += " WHERE pif.id = " + factory_id + ";"
         else:
             sql += ';'
         cursor.execute(sql)
         return cursor.fetchall()
 
     @classmethod
-    def get_customer_parts_price(cls, oem=None):
+    def get_customer_parts_price(cls, oem=None, customer_id=None):
         sql = 'SELECT "parts".oem,\
                     "parts".cn_name,\
                     "pic".nick_name,\
@@ -36,9 +38,10 @@ class SqlUtils():
             JOIN "partsInfo_customer" pic ON "partsInfo_customerpartsprice".customer_id_id = pic.id\
             JOIN auth_user a ON "partsInfo_customerpartsprice".last_change_user_id = a.id'
 
-
         if oem:
             sql += " WHERE parts.oem = '" + oem + "';"
+        elif customer_id:
+            sql += " WHERE pic.id = " + customer_id + ";"
         else:
             sql += ';'
         cursor.execute(sql)

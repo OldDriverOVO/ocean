@@ -102,6 +102,7 @@ def parts_list(request):
     return render(request, 'partinfo/parts_list.html', context={'user': request.user})
 
 
+
 @login_required
 def add_parts_info(request):
     if request.is_ajax():
@@ -135,6 +136,18 @@ def add_parts_info(request):
     else:
         return HttpResponse("")
 
+@login_required
+def delete_parts_info(request):
+    if request.is_ajax():
+        targat = Parts.objects.filter(oem=request.POST.get('oem')).first()
+        if targat:
+            targat.delete()
+            return HttpResponse('success')
+        else:
+            return HttpResponse("object_not_found")
+    else:
+
+        return HttpResponseRedirect(reverse('partsinfo:part_list'))
 
 @login_required
 def factory_list(request):
@@ -233,6 +246,18 @@ def add_factory_info(request):
     else:
         return HttpResponse("")
 
+@login_required
+def delete_factory_info(request):
+    if request.is_ajax():
+        targat = Factory.objects.filter(id=request.POST.get('id')).first()
+        if targat:
+            targat.delete()
+            return HttpResponse('success')
+        else:
+            return HttpResponse("object_not_found")
+    else:
+
+        return HttpResponseRedirect(reverse('partsinfo:factory_list'))
 
 @login_required
 def customer_list(request):
@@ -320,18 +345,28 @@ def add_customer_info(request):
     else:
         return HttpResponse('')
 
+@login_required
+def delete_customer_info(request):
+    if request.is_ajax():
+        targat = Customer.objects.filter(id=request.POST.get('id')).first()
+        if targat:
+            targat.delete()
+            return HttpResponse('success')
+        else:
+            return HttpResponse("object_not_found")
+    else:
+
+        return HttpResponseRedirect(reverse('partsinfo:customer_list'))
 
 @login_required
 # @permission_required(perm='partsInfo.view_factorypartsprice')
 def factory_price_list(request):
     if request.is_ajax():
 
-        if request.GET.get("oem"):
-            contact_list = SqlUtils.get_factory_parts_price(request.GET.get("oem"))
-        else:
-            contact_list = SqlUtils.get_factory_parts_price()
+        contact_list = SqlUtils.get_factory_parts_price(oem=request.GET.get("oem"),
+                                                        factory_id=request.GET.get('factory_id'))
 
-        paginator = Paginator(contact_list, 25)  # Show 25 contacts per page
+        paginator = Paginator(contact_list, 13)  # Show 25 contacts per page
 
         try:
             currentPage = int(request.GET.get('page'))
@@ -460,12 +495,10 @@ def update_factory_price(request):
 def customer_price_list(request):
     if request.is_ajax():
 
-        if request.GET.get("oem"):
-            contact_list = SqlUtils.get_customer_parts_price(request.GET.get("oem"))
-        else:
-            contact_list = SqlUtils.get_customer_parts_price()
 
-        paginator = Paginator(contact_list, 25)  # Show 25 contacts per page
+        contact_list = SqlUtils.get_customer_parts_price(oem=request.GET.get('oem'),customer_id=request.GET.get('customer_id'))
+
+        paginator = Paginator(contact_list, 13)  # Show 25 contacts per page
 
         try:
             currentPage = int(request.GET.get('page'))
@@ -590,7 +623,8 @@ def delete_customer_price(request):
 
 @login_required
 def part_detail(request, pk):
-    target = Parts.objects.get(oem=pk)
+    target = Parts.objects.filter(oem=pk).first()
+
     if target:
         return render(request, 'partinfo/part_detail.html', context={'user': request.user,
                                                                      'part': target
@@ -598,13 +632,23 @@ def part_detail(request, pk):
     else:
         return HttpResponseRedirect(reverse("partsinfo:part_list"))
 
+
 @login_required
 def factory_detail(request, pk):
-    target = Factory.objects.get(id=pk)
+    target = Factory.objects.filter(id=pk).first()
     if target:
         return render(request, 'partinfo/factory_detail.html', context={'user': request.user,
-                                                                     'factory': target
-                                                                     })
+                                                                        'factory': target
+                                                                        })
     else:
         return HttpResponseRedirect(reverse("partsinfo:factory_list"))
 
+@login_required
+def customer_detail(request, pk):
+    target = Customer.objects.filter(id=pk).first()
+    if target:
+        return render(request, 'partinfo/customer_detail.html', context={'user': request.user,
+                                                                        'customer': target
+                                                                        })
+    else:
+        return HttpResponseRedirect(reverse("partsinfo:customer_list"))

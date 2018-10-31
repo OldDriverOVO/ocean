@@ -210,7 +210,7 @@
                 processData: false,
                 success: function (data) {
                     showPartInfo(data.customer_list);
-                    initPageBar(data.page_info, "customer_list_bar");
+                    initPageBar(data.page_info, "customer_list_bar",'getPageInfo');
 
 
                 }
@@ -224,7 +224,7 @@
             customer_list.empty();
             for (var index in data) {
                 var html = '<div class="col-md-3 col-sm-6 col-xs-12">\n' +
-                    '                    <div class="box box-widget widget-user-2">\n' +
+                    '<a style="color: #444;"  href="/baseinfo/customer_detail/' + data[index].pk + '"><div class="box box-widget widget-user-2">\n' +
                     '                        <div class="widget-user-header">\n' +
                     '                            <div class="widget-user-image">\n' +
                     '                                <img class="img-circle" src="/media/' + data[index].fields.icon_img + '">\n' +
@@ -232,7 +232,7 @@
                     '                            <h3 class="widget-user-username" style="display: block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + data[index].fields.nick_name + '</h3>\n' +
                     '                            <h5 class="widget-user-desc" style="display: block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + data[index].fields.name + '</h5>\n' +
                     '                        </div>\n' +
-                    '                    </div>\n' +
+                    '                    </div></a>\n' +
                     '                </div>';
 
                 customer_list.append(html);

@@ -4,80 +4,63 @@
 {% block title %}list{% endblock %}
 {% block content %}
     <div class="row">
-        <div class="col-lg-3 col-md-12 col-xs-12">
-            <div class="box box-widget">
-                <div class="box-header">
-                    <h3 class="box-title">{{ factory.name }}</h3>
+        <div class="col-md-3">
+            <div class="box box-widget widget-user-2">
+                <!-- Add the bg color to the header using any of the bg-* classes -->
+                <div class="widget-user-header">
+                    <div class="widget-user-image">
+                        <img class="img-circle" src="/media/{{ customer.icon_img }}" alt="User Avatar">
+                    </div>
+                    <!-- /.widget-user-image -->
+                    <h3 class="widget-user-username">{{ customer.nick_name }}</h3>
+                    <h5 class="widget-user-desc">{{ customer.name }}</h5>
                 </div>
-                <!-- /.box-header -->
-
-                <div class="box-body">
-
-                    <ul class="list-group list-group-unbordered">
-                        <li class="list-group-item">
+                <div class="box-footer">
+                    <ul class="nav nav-stacked">
+                        <li>
                             <strong><i class="fa fa-file-text-o margin-r-5"></i> 备注</strong>
                             <p class="text-muted">
-                                {{ factory.description }}
+                                customer.description
                             </p>
-                        </li>
-                        <li class="list-group-item">
-                            <strong><i class="fa fa-user-circle-o margin-r-5"></i> 联系人</strong>
-                            <p class="text-muted">{{ factory.Contact }}</p>
-                        </li>
-                        <li class="list-group-item">
-                            <strong><i class="fa fa-phone margin-r-5"></i> 电话</strong>
-                            <p class="text-muted">{{ factory.phone_num }}</p>
-                        </li>
-                        <li class="list-group-item">
-                            <strong><i class="fa fa-qq margin-r-5"></i> QQ</strong>
-                            <p class="text-muted">{{ factory.qq }}</p>
-                        </li>
-                        <li class="list-group-item">
-                            <strong><i class="fa fa-map-marker margin-r-5"></i> 地址</strong>
-                            <p class="text-muted">{{ factory.address }}</p>
                         </li>
 
                     </ul>
-
-
                 </div>
-
                 <div class="box-footer box-comments" style="padding: 0">
                     <span class=" text-muted pull-right" style="margin-right: 10px"><i
-                            class="fa fa-clock-o"> {{ factory.last_change_date|date:"Y-m-d" }}</i></span>
+                            class="fa fa-clock-o"> {{ customer.last_change_date|date:"Y-m-d" }}</i></span>
                     <span class=" text-muted pull-right" style="margin-right: 10px"><i
-                            class="fa fa-user-plus"> {{ factory.last_change_user.first_name }}</i></span>
+                            class="fa fa-user-plus"> {{ customer.last_change_user.first_name }}</i></span>
 
                 </div>
                 <div class="box-footer">
-                    <div class="btn-xs btn-danger pull-right" id="btn_factory_delete"><i class="fa fa-trash-o"></i>
+                    <div class="btn-xs btn-danger pull-right" id="btn_customer_delete"><i class="fa fa-trash-o"></i>
                     </div>
                     <div class="btn-xs btn-primary pull-right" style="margin-right: 5px"><i
                             class="fa fa-pencil-square-o"></i></div>
 
                 </div>
-
-                <!-- /.box-body -->
             </div>
         </div>
-        <div class="col-lg-9 col-md-12 col-xs-12">
-            <div class="box box-primary">
+
+        <div class="col-md-9">
+            <div class="box box-danger">
                 <div class="box-header">
                     <div class="text-muted" style="margin: 0 0 0;float: left"><i
-                            class="fa fa-truck margin-r-5"></i>工厂价格
+                            class="fa fa-ship margin-r-5"></i>客户价格
                     </div>
                     <div class="btn-xs btn-default" data-toggle="modal"
-                         data-target="#model_factory_price_add" style="float: left;margin-left: 10px;"><i
+                         data-target="#model_customer_price_add" style="float: left;margin-left: 10px;"><i
                             class="fa fa-plus"></i></div>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
                                 class="fa fa-minus"></i></button>
-
                     </div>
-                </div>
 
+                </div>
+                <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover" id="factory_price_list">
+                    <table class="table table-hover" id="customer_price_list">
                         <tbody>
                         <tr>
                             <th>OEM</th>
@@ -87,23 +70,21 @@
                             <th>备注</th>
                             <th>修改日期</th>
                             <th>修改人</th>
-                        </tr>
 
                         </tbody>
                     </table>
                 </div>
-                <div id="factory_price_list_bar">
+                <div id="customer_price_list_bar">
                     {% include "partinfo/page_bar.html" %}
                 </div>
                 <!-- /.box-body -->
             </div>
 
-
         </div>
 
 
     </div>
-    <div class="modal fade" id="model_factory_price_add" style="display: none;">
+    <div class="modal fade" id="model_customer_price_add" style="display: none;">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -113,10 +94,10 @@
                 </div>
                 <div class="modal-body">
 
-                    <form action="#" method="post" id="add_factory_price_form">
+                    <form action="#" method="post" id="add_customer_price_form">
                         {% csrf_token %}
 
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <div class="form-group">
                                 <label>产品</label>
                                 <select class="form-control select2" id="select_parts" name="select_parts"
@@ -126,12 +107,12 @@
 
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <label>工厂</label>
+                                <label>客户</label>
 
-                                <select class="form-control" name="select_factory" readonly="readonly">
-                                    <option value="{{ factory.id }}">{{ factory.name }}</option>
+                                <select class="form-control" name="select_customer" readonly="readonly">
+                                    <option value="{{ customer.id }}">{{ customer.nick_name }}</option>
                                 </select>
 
                             </div>
@@ -140,15 +121,15 @@
                             <div class="form-group">
                                 <label>价格</label>
                                 <input type="number" min="0.0" step="0.1" class="form-control" name="num_price"
-                                       id="num_factory_price"
+                                       id="num_customer_price"
                                        placeholder="">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>描述</label>
-                                <textarea class="form-control" rows="4" name="txt_area_factory_price_desc"
-                                          id="txt_area_factory_price_desc"
+                                <textarea class="form-control" rows="4" name="txt_area_customer_price_desc"
+                                          id="txt_area_customer_price_desc"
                                           placeholder="....."></textarea>
                             </div>
                         </div>
@@ -157,10 +138,10 @@
 
                 </div>
                 <div class="modal-footer no-border">
-                    <button type="button" class="btn btn-default pull-left" id="btn_factory_price_cancel"
+                    <button type="button" class="btn btn-default pull-left" id="btn_customer_price_cancel"
                             data-dismiss="modal">
                         <i class="fa fa-remove "> 取消</i></button>
-                    <button type="submit" class="btn btn-primary" id="btn_factory_price_save"><i class="fa fa-check">
+                    <button type="submit" class="btn btn-primary" id="btn_customer_price_save"><i class="fa fa-check">
                         保存</i>
                     </button>
                 </div>
@@ -169,15 +150,15 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
-
 {% endblock %}
 {% block javascript %}
     <script src="{% static 'js/parts_factory_customer_model_select2.js' %}"></script>
-    <script>
 
+    <script>
         $(document).ready(function () {
-            getFactoryPriceInfo(1);
-            $("#btn_factory_delete").click(function () {
+
+            getCustomerPriceInfo(1);
+            $("#btn_customer_delete").click(function () {
 
                 $.confirm({
                     title: '提示',
@@ -196,8 +177,8 @@
                                 $.ajax({
                                     type: "POST",
                                     headers: {"X-CSRFtoken": $.cookie('csrftoken')},
-                                    url: "{% url 'partsinfo:delete_factory_info' %}",
-                                    data: {'id': "{{ factory.id }}"},
+                                    url: "{% url 'partsinfo:delete_customer_info' %}",
+                                    data: {'id': "{{ customer.id }}"},
 
                                     success: function (data) {
 
@@ -222,40 +203,45 @@
                     }
                 });
             })
+
+
         })
 
-        function getFactoryPriceInfo(page) {
+
+        function getCustomerPriceInfo(page) {
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:factory_price_list' %}?page=" + page + "&factory_id=" +{{ factory.id }},
+                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page + "&customer_id=" +{{ customer.id }},
 
                 async: false,
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    showFactoryPriceList(data.factory_price_list);
-                    initPageBar(data.page_info, "factory_price_list_bar");
+                    showInfo(data.customer_price_list);
+                    initPageBar(data.page_info, "customer_price_list_bar", 'getCustomerPriceInfo');
+
 
                 }
 
             });
         }
 
-        function showFactoryPriceList(data) {
-            var factory_price_list = $('#factory_price_list');
-            $('#factory_price_list tr:not(:first)').empty();
+        function showInfo(data) {
+
+            var customer_price_list = $('#customer_price_list');
+            $('#customer_price_list tr:not(:first)').empty();
 
             for (var index in data) {
                 var html = '<tr class = "info_tr">\n' +
                     '                            <td>' + data[index][0] + '</td>\n' +
                     '                            <td>' + data[index][1] + '</td>\n' +
-                    '                            <td class="price_td_pr"><i class="fa  fa-cny margin-r-5"></i>' + data[index][3] + '</td>\n' +
+                    '                            <td class="price_td_pr"><i class="fa fa-dollar margin-r-5"></i>' + data[index][3] + '</td>\n' +
                     '                            <td class="price_td">\n' +
                     '                                <div class="btn-group">\n' +
                     '<input type="hidden" value="' + data[index][4] + '">\n' +
-                    '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-primary factory_price_update" >修改</div>\n' +
-                    '                                    <div style="float: left" class="btn-xs btn-danger factory_price_delete" >删除</div>\n' +
+                    '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-primary customer_price_update" >修改</div>\n' +
+                    '                                    <div style="float: left" class="btn-xs btn-danger customer_price_delete" >删除</div>\n' +
                     '                                </div>\n' +
                     '                            </td>\n' +
                     '                            <td class="price_td_ne">' + data[index][5] + '</td>\n' +
@@ -263,10 +249,15 @@
                     '                            <td>' + data[index][7] + '</td>\n' +
                     '                        </tr>';
 
-                factory_price_list.append(html);
+                customer_price_list.append(html);
 
             }
+
+
         }
 
+
     </script>
+
+
 {% endblock %}
