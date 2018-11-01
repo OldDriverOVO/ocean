@@ -2,19 +2,134 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e98eb129-8d38-41ad-abab-8f74a7530bce" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/partinfo/customer_detail.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/all.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/_all.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/aero.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/aero.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/aero@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/blue.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/blue.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/blue@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/flat.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/flat.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/flat@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/green.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/green.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/green@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/grey.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/grey.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/grey@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/orange.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/orange.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/orange@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/pink.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/pink.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/pink@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/purple.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/purple.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/purple@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/red.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/red.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/red@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/yellow.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/yellow.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/flat/yellow@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/futurico/futurico.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/futurico/futurico.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/futurico/futurico@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/icheck.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/icheck.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/_all.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/aero.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/blue.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/green.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/grey.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/line.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/line.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/line@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/orange.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/pink.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/purple.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/red.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/line/yellow.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/_all.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/aero.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/aero.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/aero@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/blue.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/blue.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/blue@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/green.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/green.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/green@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/grey.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/grey.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/grey@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/minimal.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/minimal.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/minimal@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/orange.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/orange.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/orange@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/pink.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/pink.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/pink@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/purple.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/purple.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/purple@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/red.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/red.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/red@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/yellow.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/yellow.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/minimal/yellow@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/polaris/polaris.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/polaris/polaris.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/polaris/polaris@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/_all.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/aero.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/aero.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/aero@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/blue.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/blue.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/blue@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/green.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/green.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/green@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/grey.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/grey.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/grey@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/orange.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/orange.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/orange@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/pink.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/pink.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/pink@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/purple.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/purple.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/purple@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/red.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/red.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/red@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/square.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/square.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/square@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/yellow.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/yellow.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/partsInfo/static/iCheck/square/yellow@2x.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/partsInfo/models.py" afterPath="$PROJECT_DIR$/partsInfo/models.py" />
       <change beforePath="$PROJECT_DIR$/partsInfo/sql_utils.py" afterPath="$PROJECT_DIR$/partsInfo/sql_utils.py" />
       <change beforePath="$PROJECT_DIR$/partsInfo/static/js/shared.js" afterPath="$PROJECT_DIR$/partsInfo/static/js/shared.js" />
       <change beforePath="$PROJECT_DIR$/partsInfo/urls.py" afterPath="$PROJECT_DIR$/partsInfo/urls.py" />
       <change beforePath="$PROJECT_DIR$/partsInfo/views.py" afterPath="$PROJECT_DIR$/partsInfo/views.py" />
+      <change beforePath="$PROJECT_DIR$/templates/partinfo/base.html" afterPath="$PROJECT_DIR$/templates/partinfo/base.html" />
+      <change beforePath="$PROJECT_DIR$/templates/partinfo/customer_detail.html" afterPath="$PROJECT_DIR$/templates/partinfo/customer_detail.html" />
       <change beforePath="$PROJECT_DIR$/templates/partinfo/customer_list.html" afterPath="$PROJECT_DIR$/templates/partinfo/customer_list.html" />
       <change beforePath="$PROJECT_DIR$/templates/partinfo/customer_price_list.html" afterPath="$PROJECT_DIR$/templates/partinfo/customer_price_list.html" />
       <change beforePath="$PROJECT_DIR$/templates/partinfo/factory_detail.html" afterPath="$PROJECT_DIR$/templates/partinfo/factory_detail.html" />
       <change beforePath="$PROJECT_DIR$/templates/partinfo/factory_list.html" afterPath="$PROJECT_DIR$/templates/partinfo/factory_list.html" />
       <change beforePath="$PROJECT_DIR$/templates/partinfo/factory_price_list.html" afterPath="$PROJECT_DIR$/templates/partinfo/factory_price_list.html" />
-      <change beforePath="$PROJECT_DIR$/templates/partinfo/page_bar.html" afterPath="$PROJECT_DIR$/templates/partinfo/page_bar.html" />
+      <change beforePath="$PROJECT_DIR$/templates/partinfo/login.html" afterPath="$PROJECT_DIR$/templates/partinfo/login.html" />
       <change beforePath="$PROJECT_DIR$/templates/partinfo/part_detail.html" afterPath="$PROJECT_DIR$/templates/partinfo/part_detail.html" />
       <change beforePath="$PROJECT_DIR$/templates/partinfo/parts_list.html" afterPath="$PROJECT_DIR$/templates/partinfo/parts_list.html" />
     </list>
@@ -79,112 +194,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partsInfo/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="647" column="51" lean-forward="false" selection-start-line="647" selection-start-column="51" selection-end-line="647" selection-end-column="51" />
+            <state relative-caret-position="2344">
+              <caret line="420" column="34" lean-forward="false" selection-start-line="420" selection-start-column="34" selection-end-line="420" selection-end-column="34" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#575#1153#0" expanded="false" />
-                <element signature="e#1430#3646#0" expanded="false" />
+                <element signature="e#1181#1262#0" expanded="false" />
                 <element signature="e#1975#2497#0" expanded="false" />
                 <element signature="e#2538#2672#0" expanded="false" />
                 <element signature="e#2711#2845#0" expanded="false" />
                 <element signature="e#2884#3056#0" expanded="false" />
-                <element signature="e#3699#4683#0" expanded="false" />
-                <element signature="e#5117#7548#0" expanded="false" />
-                <element signature="e#5873#6395#0" expanded="false" />
-                <element signature="e#7602#8640#0" expanded="false" />
-                <element signature="e#9080#11105#0" expanded="false" />
-                <element signature="e#11160#12082#0" expanded="false" />
-                <element signature="e#12139#12475#0" expanded="false" />
-                <element signature="e#12594#14547#0" expanded="false" />
-                <element signature="e#14602#15612#0" expanded="false" />
-                <element signature="e#15736#16102#0" expanded="false" />
-                <element signature="e#16226#16898#0" expanded="false" />
-                <element signature="e#17019#18921#0" expanded="false" />
-                <element signature="e#18977#19999#0" expanded="false" />
-                <element signature="e#20058#20731#0" expanded="false" />
-                <element signature="e#20790#21157#0" expanded="false" />
-                <element signature="e#21210#21596#0" expanded="false" />
+                <element signature="e#3698#4682#0" expanded="false" />
+                <element signature="e#4737#5068#0" expanded="false" />
+                <element signature="e#5123#5999#0" expanded="false" />
+                <element signature="e#6049#8480#0" expanded="false" />
+                <element signature="e#6805#7327#0" expanded="false" />
+                <element signature="e#8534#9572#0" expanded="false" />
+                <element signature="e#9629#9963#0" expanded="false" />
+                <element signature="e#10020#11024#0" expanded="false" />
+                <element signature="e#11075#13100#0" expanded="false" />
+                <element signature="e#13155#14077#0" expanded="false" />
+                <element signature="e#14135#14471#0" expanded="false" />
+                <element signature="e#14528#15562#0" expanded="false" />
+                <element signature="e#15682#17635#0" expanded="false" />
+                <element signature="e#17690#18700#0" expanded="false" />
+                <element signature="e#18824#19190#0" expanded="false" />
+                <element signature="e#19314#19986#0" expanded="false" />
+                <element signature="e#20107#22066#0" expanded="false" />
+                <element signature="e#22122#23144#0" expanded="false" />
+                <element signature="e#23203#23876#0" expanded="false" />
+                <element signature="e#23935#24302#0" expanded="false" />
+                <element signature="e#24355#24741#0" expanded="false" />
+                <element signature="e#24797#25198#0" expanded="false" />
+                <element signature="e#25255#25662#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partsInfo/urls.py">
+      <file leaf-file-name="customer_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/partinfo/customer_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="19" column="89" lean-forward="false" selection-start-line="19" selection-start-column="89" selection-end-line="19" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sql_utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partsInfo/sql_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="17" column="51" lean-forward="false" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+            <state relative-caret-position="420">
+              <caret line="23" column="38" lean-forward="false" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
               <folding>
-                <marker date="1540963821293" expanded="true" signature="181:187" ph="SELECT * FRO... partsInfo_customer" />
-                <marker date="1540963821293" expanded="true" signature="181:468" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
-                <marker date="1540963821293" expanded="true" signature="181:565" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
-                <marker date="1540963821293" expanded="true" signature="181:666" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
-                <marker date="1540963821293" expanded="true" signature="181:764" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
-                <marker date="1540963821293" expanded="true" signature="1118:1744" ph="SELECT &quot;part... partsInfo_customerpartsprice" />
-                <marker date="1540963821293" expanded="true" signature="1118:1835" ph="SELECT &quot;part... partsInfo_customerpartsprice" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shared.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partsInfo/static/js/shared.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
-              <caret line="294" column="0" lean-forward="true" selection-start-line="294" selection-start-column="0" selection-end-line="294" selection-end-column="0" />
-              <folding>
-                <element signature="e#83#1666#0" expanded="false" />
-                <element signature="e#1736#2470#0" expanded="false" />
-                <element signature="e#2526#4115#0" expanded="false" />
-                <element signature="e#3320#4105#0" expanded="false" />
-                <element signature="e#4186#4921#0" expanded="false" />
-                <element signature="e#5180#5401#0" expanded="false" />
-                <element signature="e#5654#5874#0" expanded="false" />
-                <element signature="n#!!block;n#check_file_name_img#0" expanded="false" />
-                <element signature="e#7528#8761#0" expanded="false" />
-                <element signature="n#!!block;n#updateFactoryPriceInfo#0" expanded="false" />
-                <element signature="n#!!block;n#deleteCustomerPriceInfo#0" expanded="false" />
-                <element signature="n#!!block;n#updateCustomerPriceInfo#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partsInfo/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="121" column="6" lean-forward="true" selection-start-line="121" selection-start-column="6" selection-end-line="121" selection-end-column="6" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="factory_detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
-              <folding>
-                <element signature="e#2597#2622#0#HTML" expanded="true" />
-                <element signature="e#7811#9465#0#HTML" expanded="false" />
-                <element signature="e#9522#10021#0#HTML" expanded="false" />
+                <element signature="e#2926#5817#0#HTML" expanded="false" />
+                <element signature="e#6082#7775#0#HTML" expanded="false" />
+                <element signature="e#7848#8401#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -193,8 +252,35 @@
       <file leaf-file-name="customer_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/partinfo/customer_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-22">
-              <caret line="180" column="61" lean-forward="false" selection-start-line="180" selection-start-column="61" selection-end-line="180" selection-end-column="61" />
+            <state relative-caret-position="150">
+              <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+              <folding>
+                <element signature="e#590#610#0#HTML" expanded="true" />
+                <element signature="e#3961#7081#0#HTML" expanded="false" />
+                <element signature="e#7086#10336#0#HTML" expanded="false" />
+                <element signature="e#10609#12265#0#HTML" expanded="false" />
+                <element signature="e#12503#14157#0#HTML" expanded="false" />
+                <element signature="e#14233#14789#0#HTML" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parts_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/partinfo/parts_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="230" column="28" lean-forward="false" selection-start-line="230" selection-start-column="28" selection-end-line="230" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="factory_detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -203,13 +289,75 @@
       <file leaf-file-name="part_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/partinfo/part_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="351" column="12" lean-forward="false" selection-start-line="351" selection-start-column="12" selection-end-line="395" selection-end-column="14" />
+            <state relative-caret-position="660">
+              <caret line="65" column="1" lean-forward="false" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
               <folding>
-                <element signature="e#794#3891#0#HTML" expanded="false" />
-                <element signature="e#3940#5126#0#HTML" expanded="false" />
-                <element signature="e#6621#10662#0#HTML" expanded="false" />
-                <element signature="e#17161#18814#0#HTML" expanded="false" />
+                <element signature="e#991#4088#0#HTML" expanded="false" />
+                <element signature="e#4253#5160#0#HTML" expanded="false" />
+                <element signature="e#5356#6009#0#HTML" expanded="false" />
+                <element signature="e#10792#13838#0#HTML" expanded="false" />
+                <element signature="e#13843#16893#0#HTML" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="factory_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+              <folding>
+                <element signature="e#8653#10764#0#HTML" expanded="false" />
+                <marker date="1541060731226" expanded="false" signature="2041:2056" ph="..." />
+                <marker date="1541060731226" expanded="true" signature="2969:3042" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="factory_price_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_price_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="567">
+              <caret line="51" column="22" lean-forward="false" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customer_price_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/partinfo/customer_price_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shared.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/partsInfo/static/js/shared.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="428" column="32" lean-forward="false" selection-start-line="428" selection-start-column="32" selection-end-line="428" selection-end-column="32" />
+              <folding>
+                <element signature="e#83#1666#0" expanded="false" />
+                <element signature="e#1736#2470#0" expanded="false" />
+                <element signature="e#2526#4115#0" expanded="false" />
+                <element signature="e#3320#4105#0" expanded="false" />
+                <element signature="e#4186#4921#0" expanded="false" />
+                <element signature="e#5654#5874#0" expanded="false" />
+                <element signature="n#!!block;n#check_file_name_img#0" expanded="false" />
+                <element signature="n#!!block;n#updateFactoryPriceInfo#0" expanded="false" />
+                <element signature="n#!!block;n#deleteCustomerPriceInfo#0" expanded="false" />
+                <element signature="e#13203#14624#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -258,28 +406,28 @@
         <option value="$PROJECT_DIR$/templates/views/index.html" />
         <option value="$PROJECT_DIR$/partsInfo/admin.py" />
         <option value="$PROJECT_DIR$/django_manage_code" />
-        <option value="$PROJECT_DIR$/templates/partinfo/login.html" />
         <option value="$PROJECT_DIR$/templates/partinfo/index.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/435d10f8-5b32-4ba6-a1b3-a20698cf9082/console.sql" />
         <option value="$PROJECT_DIR$/partsInfo/static/css/ocean_css.css" />
-        <option value="$PROJECT_DIR$/templates/partinfo/base.html" />
         <option value="$PROJECT_DIR$/OCEAN/settings.py" />
         <option value="$PROJECT_DIR$/OCEAN/urls.py" />
         <option value="$PROJECT_DIR$/partsInfo/static/js/parts_factory_customer_model_select2.js" />
         <option value="$PROJECT_DIR$/templates/partinfo/page_bar.html" />
-        <option value="$PROJECT_DIR$/partsInfo/static/js/shared.js" />
-        <option value="$PROJECT_DIR$/templates/partinfo/parts_list.html" />
+        <option value="$PROJECT_DIR$/partsInfo/models.py" />
+        <option value="$PROJECT_DIR$/partsInfo/urls.py" />
+        <option value="$PROJECT_DIR$/partsInfo/views.py" />
+        <option value="$PROJECT_DIR$/partsInfo/sql_utils.py" />
+        <option value="$PROJECT_DIR$/templates/partinfo/base.html" />
+        <option value="$PROJECT_DIR$/templates/partinfo/login.html" />
+        <option value="$PROJECT_DIR$/templates/partinfo/customer_detail.html" />
+        <option value="$PROJECT_DIR$/templates/partinfo/factory_detail.html" />
+        <option value="$PROJECT_DIR$/templates/partinfo/part_detail.html" />
         <option value="$PROJECT_DIR$/templates/partinfo/factory_list.html" />
+        <option value="$PROJECT_DIR$/templates/partinfo/customer_list.html" />
+        <option value="$PROJECT_DIR$/templates/partinfo/parts_list.html" />
         <option value="$PROJECT_DIR$/templates/partinfo/factory_price_list.html" />
         <option value="$PROJECT_DIR$/templates/partinfo/customer_price_list.html" />
-        <option value="$PROJECT_DIR$/templates/partinfo/customer_list.html" />
-        <option value="$PROJECT_DIR$/partsInfo/sql_utils.py" />
-        <option value="$PROJECT_DIR$/partsInfo/models.py" />
-        <option value="$PROJECT_DIR$/templates/partinfo/part_detail.html" />
-        <option value="$PROJECT_DIR$/partsInfo/urls.py" />
-        <option value="$PROJECT_DIR$/templates/partinfo/factory_detail.html" />
-        <option value="$PROJECT_DIR$/templates/partinfo/customer_detail.html" />
-        <option value="$PROJECT_DIR$/partsInfo/views.py" />
+        <option value="$PROJECT_DIR$/partsInfo/static/js/shared.js" />
       </list>
     </option>
   </component>
@@ -329,6 +477,66 @@
             <path>
               <item name="OCEAN" type="b2602c69:ProjectViewProjectNode" />
               <item name="OCEAN" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="customer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OCEAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OCEAN" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="customer" type="462c0819:PsiDirectoryNode" />
+              <item name="2018" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OCEAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OCEAN" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="customer" type="462c0819:PsiDirectoryNode" />
+              <item name="2018" type="462c0819:PsiDirectoryNode" />
+              <item name="11" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OCEAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OCEAN" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="customer" type="462c0819:PsiDirectoryNode" />
+              <item name="2018" type="462c0819:PsiDirectoryNode" />
+              <item name="11" type="462c0819:PsiDirectoryNode" />
+              <item name="01" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OCEAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OCEAN" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="parts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OCEAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OCEAN" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="parts" type="462c0819:PsiDirectoryNode" />
+              <item name="2018" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OCEAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OCEAN" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="parts" type="462c0819:PsiDirectoryNode" />
+              <item name="2018" type="462c0819:PsiDirectoryNode" />
+              <item name="11" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OCEAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OCEAN" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="parts" type="462c0819:PsiDirectoryNode" />
+              <item name="2018" type="462c0819:PsiDirectoryNode" />
+              <item name="11" type="462c0819:PsiDirectoryNode" />
+              <item name="01" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OCEAN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OCEAN" type="462c0819:PsiDirectoryNode" />
               <item name="OCEAN" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -341,13 +549,6 @@
               <item name="OCEAN" type="462c0819:PsiDirectoryNode" />
               <item name="partsInfo" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OCEAN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OCEAN" type="462c0819:PsiDirectoryNode" />
-              <item name="partsInfo" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OCEAN" type="b2602c69:ProjectViewProjectNode" />
@@ -385,11 +586,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ocean\OCEAN\partsInfo\static" />
       <recent name="D:\ocean\OCEAN\templates\partinfo" />
       <recent name="D:\ocean\OCEAN\partsInfo\static\js" />
       <recent name="D:\ocean\OCEAN\partsInfo\static\css" />
       <recent name="D:\ocean\OCEAN" />
-      <recent name="D:\ocean\OCEAN\partsInfo\static" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -517,11 +718,11 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.65691787" sideWeight="0.7993562" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.49785408" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.121484816" sideWeight="0.84603006" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12935883" sideWeight="0.84603006" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21372329" sideWeight="0.8991416" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18025751" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21405579" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.043991417" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08583691" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5286839" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -566,16 +767,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/media/parts/2018/10/17/TNCTNGKVGM7M3F.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/media/parts/2018/10/17/T8A9RY18Z9MTZLEGBQ5.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -599,13 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
           <caret line="6" column="40545" lean-forward="false" selection-start-line="6" selection-start-column="40459" selection-end-line="6" selection-end-column="40545" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/bb6921a/435d10f8-5b32-4ba6-a1b3-a20698cf9082/ocean_build.public.partsInfo_factory">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -698,14 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/bb6921a/435d10f8-5b32-4ba6-a1b3-a20698cf9082/ocean_build.public.partsInfo_factorypartsprice">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -794,14 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="230" column="42" lean-forward="false" selection-start-line="230" selection-start-column="42" selection-end-line="230" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OCEAN/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="750">
@@ -856,39 +1029,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/customer_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1023">
-          <caret line="226" column="70" lean-forward="false" selection-start-line="226" selection-start-column="70" selection-end-line="226" selection-end-column="70" />
-          <folding>
-            <element signature="e#6246#8664#0#HTML" expanded="false" />
-            <element signature="e#8724#9147#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_price_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="144" column="93" lean-forward="false" selection-start-line="144" selection-start-column="93" selection-end-line="144" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="255" column="79" lean-forward="false" selection-start-line="255" selection-start-column="79" selection-end-line="255" selection-end-column="79" />
-          <folding>
-            <element signature="e#8889#11000#0#HTML" expanded="false" />
-            <element signature="e#11072#11365#0#HTML" expanded="false" />
-            <element signature="e#11914#13926#0#HTML" expanded="false" />
-            <marker date="1540952730169" expanded="false" signature="2277:2292" ph="..." />
-            <marker date="1540952730169" expanded="true" signature="3205:3278" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/bb6921a/435d10f8-5b32-4ba6-a1b3-a20698cf9082/ocean_build.public.partsInfo_customerpartsprice">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -896,140 +1036,216 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/models.py">
+    <entry file="file://$PROJECT_DIR$/partsInfo/static/iCheck/flat/red.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="121" column="6" lean-forward="true" selection-start-line="121" selection-start-column="6" selection-end-line="121" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/sql_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="17" column="51" lean-forward="false" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-          <folding>
-            <marker date="1540963821293" expanded="true" signature="181:187" ph="SELECT * FRO... partsInfo_customer" />
-            <marker date="1540963821293" expanded="true" signature="181:468" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
-            <marker date="1540963821293" expanded="true" signature="181:565" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
-            <marker date="1540963821293" expanded="true" signature="181:666" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
-            <marker date="1540963821293" expanded="true" signature="181:764" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
-            <marker date="1540963821293" expanded="true" signature="1118:1744" ph="SELECT &quot;part... partsInfo_customerpartsprice" />
-            <marker date="1540963821293" expanded="true" signature="1118:1835" ph="SELECT &quot;part... partsInfo_customerpartsprice" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/customer_price_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="176" column="13" lean-forward="false" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/parts_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4230">
-          <caret line="246" column="106" lean-forward="true" selection-start-line="246" selection-start-column="29" selection-end-line="246" selection-end-column="106" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/static/js/shared.js">
+    <entry file="file://$PROJECT_DIR$/partsInfo/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="294" column="0" lean-forward="true" selection-start-line="294" selection-start-column="0" selection-end-line="294" selection-end-column="0" />
+        <state relative-caret-position="389">
+          <caret line="118" column="10" lean-forward="false" selection-start-line="118" selection-start-column="10" selection-end-line="118" selection-end-column="10" />
           <folding>
-            <element signature="e#83#1666#0" expanded="false" />
-            <element signature="e#1736#2470#0" expanded="false" />
-            <element signature="e#2526#4115#0" expanded="false" />
-            <element signature="e#3320#4105#0" expanded="false" />
-            <element signature="e#4186#4921#0" expanded="false" />
-            <element signature="e#5180#5401#0" expanded="false" />
-            <element signature="e#5654#5874#0" expanded="false" />
-            <element signature="n#!!block;n#check_file_name_img#0" expanded="false" />
-            <element signature="e#7528#8761#0" expanded="false" />
-            <element signature="n#!!block;n#updateFactoryPriceInfo#0" expanded="false" />
-            <element signature="n#!!block;n#deleteCustomerPriceInfo#0" expanded="false" />
-            <element signature="n#!!block;n#updateCustomerPriceInfo#0" expanded="false" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/bb6921a/435d10f8-5b32-4ba6-a1b3-a20698cf9082/ocean_build.public.partsInfo_factory">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/partsInfo/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="19" column="89" lean-forward="false" selection-start-line="19" selection-start-column="89" selection-end-line="19" selection-end-column="89" />
+        <state relative-caret-position="191">
+          <caret line="22" column="49" lean-forward="false" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/part_detail.html">
+    <entry file="file://$PROJECT_DIR$/partsInfo/sql_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="351" column="12" lean-forward="false" selection-start-line="351" selection-start-column="12" selection-end-line="395" selection-end-column="14" />
+        <state relative-caret-position="363">
+          <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
           <folding>
-            <element signature="e#794#3891#0#HTML" expanded="false" />
-            <element signature="e#3940#5126#0#HTML" expanded="false" />
-            <element signature="e#6621#10662#0#HTML" expanded="false" />
-            <element signature="e#17161#18814#0#HTML" expanded="false" />
+            <marker date="1541055142270" expanded="true" signature="181:187" ph="SELECT * FRO... partsInfo_customer" />
+            <marker date="1541055142270" expanded="true" signature="181:475" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
+            <marker date="1541055142270" expanded="true" signature="181:572" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
+            <marker date="1541055142270" expanded="true" signature="181:673" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
+            <marker date="1541055142270" expanded="true" signature="181:771" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
+            <marker date="1541055142270" expanded="true" signature="1125:1781" ph="SELECT &quot;part... partsInfo_customerpartsprice" />
+            <marker date="1541055142270" expanded="true" signature="1125:1872" ph="SELECT &quot;part... partsInfo_customerpartsprice" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1459">
+          <caret line="217" column="68" lean-forward="false" selection-start-line="217" selection-start-column="68" selection-end-line="217" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/customer_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding>
+            <element signature="e#590#610#0#HTML" expanded="true" />
+            <element signature="e#3961#7081#0#HTML" expanded="false" />
+            <element signature="e#7086#10336#0#HTML" expanded="false" />
+            <element signature="e#10609#12265#0#HTML" expanded="false" />
+            <element signature="e#12503#14157#0#HTML" expanded="false" />
+            <element signature="e#14233#14789#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+        <state relative-caret-position="150">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/part_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="65" column="1" lean-forward="false" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
           <folding>
-            <element signature="e#2597#2622#0#HTML" expanded="true" />
-            <element signature="e#7811#9465#0#HTML" expanded="false" />
-            <element signature="e#9522#10021#0#HTML" expanded="false" />
+            <element signature="e#991#4088#0#HTML" expanded="false" />
+            <element signature="e#4253#5160#0#HTML" expanded="false" />
+            <element signature="e#5356#6009#0#HTML" expanded="false" />
+            <element signature="e#10792#13838#0#HTML" expanded="false" />
+            <element signature="e#13843#16893#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/customer_detail.html">
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="180" column="61" lean-forward="false" selection-start-line="180" selection-start-column="61" selection-end-line="180" selection-end-column="61" />
+        <state relative-caret-position="240">
+          <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+          <folding>
+            <element signature="e#8653#10764#0#HTML" expanded="false" />
+            <marker date="1541060731226" expanded="false" signature="2041:2056" ph="..." />
+            <marker date="1541060731226" expanded="true" signature="2969:3042" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/customer_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="23" column="38" lean-forward="false" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+          <folding>
+            <element signature="e#2926#5817#0#HTML" expanded="false" />
+            <element signature="e#6082#7775#0#HTML" expanded="false" />
+            <element signature="e#7848#8401#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/parts_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="230" column="28" lean-forward="false" selection-start-line="230" selection-start-column="28" selection-end-line="230" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/partsInfo/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="647" column="51" lean-forward="false" selection-start-line="647" selection-start-column="51" selection-end-line="647" selection-end-column="51" />
+        <state relative-caret-position="2344">
+          <caret line="420" column="34" lean-forward="false" selection-start-line="420" selection-start-column="34" selection-end-line="420" selection-end-column="34" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#575#1153#0" expanded="false" />
-            <element signature="e#1430#3646#0" expanded="false" />
+            <element signature="e#1181#1262#0" expanded="false" />
             <element signature="e#1975#2497#0" expanded="false" />
             <element signature="e#2538#2672#0" expanded="false" />
             <element signature="e#2711#2845#0" expanded="false" />
             <element signature="e#2884#3056#0" expanded="false" />
-            <element signature="e#3699#4683#0" expanded="false" />
-            <element signature="e#5117#7548#0" expanded="false" />
-            <element signature="e#5873#6395#0" expanded="false" />
-            <element signature="e#7602#8640#0" expanded="false" />
-            <element signature="e#9080#11105#0" expanded="false" />
-            <element signature="e#11160#12082#0" expanded="false" />
-            <element signature="e#12139#12475#0" expanded="false" />
-            <element signature="e#12594#14547#0" expanded="false" />
-            <element signature="e#14602#15612#0" expanded="false" />
-            <element signature="e#15736#16102#0" expanded="false" />
-            <element signature="e#16226#16898#0" expanded="false" />
-            <element signature="e#17019#18921#0" expanded="false" />
-            <element signature="e#18977#19999#0" expanded="false" />
-            <element signature="e#20058#20731#0" expanded="false" />
-            <element signature="e#20790#21157#0" expanded="false" />
-            <element signature="e#21210#21596#0" expanded="false" />
+            <element signature="e#3698#4682#0" expanded="false" />
+            <element signature="e#4737#5068#0" expanded="false" />
+            <element signature="e#5123#5999#0" expanded="false" />
+            <element signature="e#6049#8480#0" expanded="false" />
+            <element signature="e#6805#7327#0" expanded="false" />
+            <element signature="e#8534#9572#0" expanded="false" />
+            <element signature="e#9629#9963#0" expanded="false" />
+            <element signature="e#10020#11024#0" expanded="false" />
+            <element signature="e#11075#13100#0" expanded="false" />
+            <element signature="e#13155#14077#0" expanded="false" />
+            <element signature="e#14135#14471#0" expanded="false" />
+            <element signature="e#14528#15562#0" expanded="false" />
+            <element signature="e#15682#17635#0" expanded="false" />
+            <element signature="e#17690#18700#0" expanded="false" />
+            <element signature="e#18824#19190#0" expanded="false" />
+            <element signature="e#19314#19986#0" expanded="false" />
+            <element signature="e#20107#22066#0" expanded="false" />
+            <element signature="e#22122#23144#0" expanded="false" />
+            <element signature="e#23203#23876#0" expanded="false" />
+            <element signature="e#23935#24302#0" expanded="false" />
+            <element signature="e#24355#24741#0" expanded="false" />
+            <element signature="e#24797#25198#0" expanded="false" />
+            <element signature="e#25255#25662#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_price_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="51" column="22" lean-forward="false" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/customer_price_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partsInfo/static/js/shared.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="428" column="32" lean-forward="false" selection-start-line="428" selection-start-column="32" selection-end-line="428" selection-end-column="32" />
+          <folding>
+            <element signature="e#83#1666#0" expanded="false" />
+            <element signature="e#1736#2470#0" expanded="false" />
+            <element signature="e#2526#4115#0" expanded="false" />
+            <element signature="e#3320#4105#0" expanded="false" />
+            <element signature="e#4186#4921#0" expanded="false" />
+            <element signature="e#5654#5874#0" expanded="false" />
+            <element signature="n#!!block;n#check_file_name_img#0" expanded="false" />
+            <element signature="n#!!block;n#updateFactoryPriceInfo#0" expanded="false" />
+            <element signature="n#!!block;n#deleteCustomerPriceInfo#0" expanded="false" />
+            <element signature="e#13203#14624#0" expanded="false" />
           </folding>
         </state>
       </provider>

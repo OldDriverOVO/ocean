@@ -203,7 +203,7 @@ function check_file_name_img(file_name) {
 
 }
 
-function initPageBar(data, page_bar_id,initPageFunc) {
+function initPageBar(data, page_bar_id, initPageFunc) {
 
     if (data.pageRange.length == 1) {
         return;
@@ -218,7 +218,7 @@ function initPageBar(data, page_bar_id,initPageFunc) {
     page_list.empty();
     var previous = '';
     if (data.has_previous) {
-        previous = '<li ><a onclick="'+initPageFunc+'(' + (data.current_page - 1) + ')">«</a></li>';
+        previous = '<li ><a onclick="' + initPageFunc + '(' + (data.current_page - 1) + ')">«</a></li>';
     }
     else {
         previous = '<li class="disabled"><a>«</a></li>';
@@ -231,13 +231,13 @@ function initPageBar(data, page_bar_id,initPageFunc) {
             onePage = '<li class="active"><a >' + data.pageRange[page] + '</a></li>';
         }
         else {
-            onePage = '<li ><a onclick="'+initPageFunc+'(' + data.pageRange[page] + ')">' + data.pageRange[page] + '</a></li>';
+            onePage = '<li ><a onclick="' + initPageFunc + '(' + data.pageRange[page] + ')">' + data.pageRange[page] + '</a></li>';
         }
         page_list.append(onePage);
     }
     var next = '';
     if (data.has_next) {
-        next = '<li><a onclick="'+initPageFunc+'(' + (data.current_page + 1) + ')">»</a></li>';
+        next = '<li><a onclick="' + initPageFunc + '(' + (data.current_page + 1) + ')">»</a></li>';
     }
     else {
         next = '<li class="disabled"><a>»</a></li>';
@@ -253,6 +253,7 @@ function deleteFactoryPriceInfo(id) {
         animation: 'top',
         closeAnimation: 'top',
         animateFromElement: false,
+        backgroundDismiss: true,
         buttons: {
             cancel: {
                 text: '取消',
@@ -302,6 +303,7 @@ function updateFactoryPriceInfo(id, price, desc) {
         animation: 'top',
         closeAnimation: 'top',
         animateFromElement: false,
+        backgroundDismiss: true,
         content: '' +
         '<form action="" class="formName">' +
         '<div class="form-group">' +
@@ -313,6 +315,10 @@ function updateFactoryPriceInfo(id, price, desc) {
         '</div>' +
         '</form>',
         buttons: {
+            cancel: {
+                text: '取消',
+
+            },
             formSubmit: {
                 text: '保存',
                 btnClass: 'btn-blue',
@@ -358,10 +364,7 @@ function updateFactoryPriceInfo(id, price, desc) {
                 }
 
             },
-            cancel: {
-                text: '取消',
 
-            },
         },
 
     });
@@ -374,6 +377,7 @@ function deleteCustomerPriceInfo(id) {
         animation: 'top',
         closeAnimation: 'top',
         animateFromElement: false,
+        backgroundDismiss: true,
         buttons: {
             cancel: {
                 text: '取消',
@@ -422,6 +426,7 @@ function updateCustomerPriceInfo(id, price, desc) {
         title: '修改',
         animation: 'top',
         closeAnimation: 'top',
+        backgroundDismiss: true,
         animateFromElement: false,
         content: '' +
         '<form action="" class="formName">' +
@@ -434,6 +439,10 @@ function updateCustomerPriceInfo(id, price, desc) {
         '</div>' +
         '</form>',
         buttons: {
+            cancel: {
+                text: '取消',
+
+            },
             formSubmit: {
                 text: '保存',
                 btnClass: 'btn-blue',
@@ -478,10 +487,7 @@ function updateCustomerPriceInfo(id, price, desc) {
                 }
 
             },
-            cancel: {
-                text: '取消',
 
-            },
         },
 
     });

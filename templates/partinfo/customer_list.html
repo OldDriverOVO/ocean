@@ -1,7 +1,9 @@
 {% extends 'partinfo/base.html' %}
 
 {% load staticfiles %}
-{% block title %}list{% endblock %}
+{% block menu_baseinfo %}active menu-open{% endblock %}
+{% block menu_customer_list %}active{% endblock %}
+{% block title %}客户列表{% endblock %}
 {% block content-header %}客户信息{% endblock %}
 {% block content %}
     <div class="row">
@@ -14,21 +16,14 @@
                         <button type="button" class="btn btn-default" data-toggle="modal"
                                 data-target="#model_customer_add"><i class="fa fa-plus"> 添加</i></button>
                     </div>
-                    <div class="col-md-4">
-                        <div class="input-group">
 
-                            <select class="form-control select2" id="select_customer" style="width: 100%;">
-                                <option></option>
-                            </select>
-                            <span class="input-group-btn">
-                              <button type="submit" id="btn_select_customer_close" class="btn btn-default btn-flat"><i
-                                      class="fa fa-close"></i> </button>
-                              </span>
-                        </div>
-                    </div>
                     <div class="col-md-6 pull-right">
                         <form action="#" method="post">
                             <div class="input-group">
+                                <span class="input-group-btn">
+                              <button id="btn_select_customer_close" class="btn btn-default btn-flat"><i
+                                      class="fa fa-close"></i> </button>
+                              </span>
                                 <input type="text" name="message" placeholder="查询条件....." class="form-control">
                                 <span class="input-group-btn">
                               <button type="submit" class="btn btn-default btn-flat"><i
@@ -210,7 +205,7 @@
                 processData: false,
                 success: function (data) {
                     showPartInfo(data.customer_list);
-                    initPageBar(data.page_info, "customer_list_bar",'getPageInfo');
+                    initPageBar(data.page_info, "customer_list_bar", 'getPageInfo');
 
 
                 }
@@ -227,7 +222,7 @@
                     '<a style="color: #444;"  href="/baseinfo/customer_detail/' + data[index].pk + '"><div class="box box-widget widget-user-2">\n' +
                     '                        <div class="widget-user-header">\n' +
                     '                            <div class="widget-user-image">\n' +
-                    '                                <img class="img-circle" src="/media/' + data[index].fields.icon_img + '">\n' +
+                    '                                <img class="img-circle" style="height: 65px" src="/media/' + data[index].fields.icon_img + '">\n' +
                     '                            </div>\n' +
                     '                            <h3 class="widget-user-username" style="display: block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + data[index].fields.nick_name + '</h3>\n' +
                     '                            <h5 class="widget-user-desc" style="display: block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + data[index].fields.name + '</h5>\n' +

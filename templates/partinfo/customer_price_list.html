@@ -1,7 +1,9 @@
 {% extends 'partinfo/base.html' %}
 
 {% load staticfiles %}
-{% block title %}list{% endblock %}
+{% block menu_baseinfo %}active menu-open{% endblock %}
+{% block menu_customer_price_list %}active{% endblock %}
+{% block title %}客户价格表{% endblock %}
 {% block content-header %}客户价格{% endblock %}
 {% block content %}
     <div class="row">
@@ -22,6 +24,10 @@
 
                 </div>
                 <!-- /.box-header -->
+
+                <!-- /.box-body -->
+            </div>
+            <div class="box box-danger">
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover" id="customer_price_list">
                         <tbody>
@@ -44,7 +50,6 @@
                 <div id="customer_price_list_bar">
                     {% include 'partinfo/page_bar.html' %}
                 </div>
-                <!-- /.box-body -->
             </div>
         </div>
     </div>
@@ -141,7 +146,7 @@
                 processData: false,
                 success: function (data) {
                     showInfo(data.customer_price_list);
-                    initPageBar(data.page_info, "customer_price_list_bar",'getCustomerPriceInfo');
+                    initPageBar(data.page_info, "customer_price_list_bar", 'getCustomerPriceInfo');
 
 
                 }
@@ -156,9 +161,9 @@
 
             for (var index in data) {
                 var html = '<tr class = "info_tr">\n' +
-                    '                            <td>' + data[index][0] + '</td>\n' +
+                    '                            <td><a style="color: #444;"  href="/baseinfo/part_detail/' + data[index][0] + '">' + data[index][0] + '</a></td>\n' +
                     '                            <td>' + data[index][1] + '</td>\n' +
-                    '                            <td>' + data[index][2] + '</td>\n' +
+                    '                            <td><a style="color: #444;"  href="/baseinfo/customer_detail/' + data[index][8] + '">' + data[index][2] + '</a></td>\n' +
                     '                            <td class="price_td_pr"><i class="fa fa-dollar margin-r-5"></i>' + data[index][3] + '</td>\n' +
                     '                            <td class="price_td">\n' +
                     '                                <div class="btn-group">\n' +

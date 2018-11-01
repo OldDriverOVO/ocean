@@ -8,7 +8,7 @@ class SqlUtils():
     @classmethod
     def get_factory_parts_price(cls, oem=None, factory_id=None):
         sql = 'SELECT "parts".oem,"parts".cn_name,"pif".name,"partsInfo_factorypartsprice".price,"partsInfo_factorypartsprice".id,\
-               "partsInfo_factorypartsprice".description,"partsInfo_factorypartsprice".llast_change_date,"a".first_name\
+               "partsInfo_factorypartsprice".description,"partsInfo_factorypartsprice".llast_change_date,"a".first_name,pif.id\
                FROM "partsInfo_factorypartsprice"\
                JOIN "partsInfo_parts" parts ON "partsInfo_factorypartsprice".oem_id = parts.oem\
                JOIN "partsInfo_factory" pif ON "partsInfo_factorypartsprice".factory_id_id = pif.id\
@@ -32,7 +32,8 @@ class SqlUtils():
                     "partsInfo_customerpartsprice".id,\
                     "partsInfo_customerpartsprice".description,\
                     "partsInfo_customerpartsprice".last_change_date,\
-                    "a".first_name\
+                    "a".first_name,\
+                     pic.id\
             FROM "partsInfo_customerpartsprice"\
             JOIN "partsInfo_parts" parts ON "partsInfo_customerpartsprice".oem_id = parts.oem\
             JOIN "partsInfo_customer" pic ON "partsInfo_customerpartsprice".customer_id_id = pic.id\

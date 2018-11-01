@@ -1,13 +1,15 @@
 {% extends 'partinfo/base.html' %}
 
 {% load staticfiles %}
-{% block title %}list{% endblock %}
+{% block menu_baseinfo %}active menu-open{% endblock %}
+{% block menu_factory_list %}active{% endblock %}
+{% block title %}工厂信息|{{ factory.name }}{% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-lg-3 col-md-12 col-xs-12">
             <div class="box box-widget">
                 <div class="box-header">
-                    <h3 class="box-title">{{ factory.name }}</h3>
+                    <h3 class="box-title" style="line-height: initial">{{ factory.name }}</h3>
                 </div>
                 <!-- /.box-header -->
 
@@ -52,7 +54,8 @@
                 <div class="box-footer">
                     <div class="btn-xs btn-danger pull-right" id="btn_factory_delete"><i class="fa fa-trash-o"></i>
                     </div>
-                    <div class="btn-xs btn-primary pull-right" style="margin-right: 5px"><i
+                    <div class="btn-xs btn-primary pull-right" data-toggle="modal"
+                         data-target="#model_factory_update" style="margin-right: 5px"><i
                             class="fa fa-pencil-square-o"></i></div>
 
                 </div>
@@ -169,7 +172,88 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+    <div class="modal fade" id="model_factory_update" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">修改信息</h4>
+                </div>
+                <div class="modal-body">
 
+                    <form action="#" method="post" id="update_factory_form">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ factory.id }}" name="id">
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label>工厂名称</label>
+                                <input type="text" class="form-control" name="txt_factory_name"
+                                       id="txt_factory_name"
+                                       value="{{ factory.name }}">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label>联系人</label>
+                                <input type="text" class="form-control" name="txt_factory_contact"
+                                       id="txt_factory_contact"
+                                       value="{{ factory.Contact }}">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>电话</label>
+                                <input type="text" class="form-control" name="txt_factory_phone_num"
+                                       id="txt_factory_phone_num"
+                                       value="{{ factory.phone_num }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>QQ</label>
+                                <input type="text" class="form-control" name="txt_factory_qq"
+                                       id="txt_factory_qq"
+                                       value="{{ factory.qq }}">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>联系地址</label>
+                                <input type="text" class="form-control" name="txt_factory_address"
+                                       id="txt_factory_address"
+                                       value="{{ factory.address }}">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>备注</label>
+                                <textarea class="form-control" rows="4" name="txt_area_factory_desc"
+                                          id="txt_area_factory_desc"
+                                          placeholder="....."> {{ factory.description }}</textarea>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" id="btn_factory_cancel"
+                            data-dismiss="modal">
+                        <i class="fa fa-remove "> 取消</i></button>
+                    <button type="submit" class="btn btn-primary" id="btn_factory_update"><i class="fa fa-check">
+                        保存</i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 {% endblock %}
 {% block javascript %}
     <script src="{% static 'js/parts_factory_customer_model_select2.js' %}"></script>
@@ -222,6 +306,74 @@
                     }
                 });
             })
+
+            $("#btn_factory_update").click(function () {
+                var txt_factory_name = $("#txt_factory_name");
+                if (txt_factory_name.val() == "") {
+                    txt_factory_name.parent().addClass("has-error");
+                    toastr.error('工厂名称不能为空！');
+                    return;
+                }
+                var txt_factory_contact = $("#txt_factory_contact");
+                if (txt_factory_contact.val() == "") {
+                    txt_factory_contact.val('---');
+                }
+                var txt_factory_qq = $("#txt_factory_qq");
+                if (txt_factory_qq.val() == "") {
+                    txt_factory_qq.val('xxxxxxxxx')
+                }
+                var txt_factory_phone_num = $("#txt_factory_phone_num");
+                if (txt_factory_phone_num.val() == "") {
+                    txt_factory_phone_num.val('xxx-xxxx-xxxx');
+                }
+                var txt_factory_address = $("#txt_factory_address");
+                if (txt_factory_address.val() == "") {
+                    txt_factory_address.val('暂无详细地址');
+                }
+
+
+                var update_factory_form = new FormData($("#update_factory_form")[0])
+
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'partsinfo:update_factory_info' %}",
+                    data: update_factory_form,
+                    async: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+
+
+                        if (data == "success") {
+                            $('#model_factory_add').modal('hide');
+                            window.location.reload();
+                        }
+                        else if (data == 'info_exist') {
+
+                            toastr.error('工厂名称重复');
+                            $("#txt_factory_name").parent().addClass("has-error");
+                        }
+                        else {
+                            toastr.error('添加失败 未知错误');
+                        }
+
+                    }
+
+                });
+
+
+            });
+
+            $('#model_factory_update').on('hide.bs.modal', function () {
+
+                $("#update_factory_form")[0].reset();
+
+                var txt_factory_name = $("#txt_factory_name");
+                if (txt_factory_name.parent().hasClass("has-error")) {
+                    txt_factory_name.parent().removeClass("has-error");
+                }
+
+            });
         })
 
         function getFactoryPriceInfo(page) {
@@ -248,7 +400,7 @@
 
             for (var index in data) {
                 var html = '<tr class = "info_tr">\n' +
-                    '                            <td>' + data[index][0] + '</td>\n' +
+                    '                            <td><a style="color: #444;"  href="/baseinfo/part_detail/' + data[index][0] + '">' + data[index][0] + '</td>\n' +
                     '                            <td>' + data[index][1] + '</td>\n' +
                     '                            <td class="price_td_pr"><i class="fa  fa-cny margin-r-5"></i>' + data[index][3] + '</td>\n' +
                     '                            <td class="price_td">\n' +

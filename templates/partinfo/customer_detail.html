@@ -1,7 +1,9 @@
 {% extends 'partinfo/base.html' %}
 
 {% load staticfiles %}
-{% block title %}list{% endblock %}
+{% block menu_baseinfo %}active menu-open{% endblock %}
+{% block menu_customer_list %}active{% endblock %}
+{% block title %}客户信息|{{ customer.nick_name }}{% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-md-3">
@@ -9,7 +11,7 @@
                 <!-- Add the bg color to the header using any of the bg-* classes -->
                 <div class="widget-user-header">
                     <div class="widget-user-image">
-                        <img class="img-circle" src="/media/{{ customer.icon_img }}" alt="User Avatar">
+                        <img class="img-circle" style="height: 65px" src="/media/{{ customer.icon_img }}" alt="User Avatar">
                     </div>
                     <!-- /.widget-user-image -->
                     <h3 class="widget-user-username">{{ customer.nick_name }}</h3>
@@ -20,7 +22,7 @@
                         <li>
                             <strong><i class="fa fa-file-text-o margin-r-5"></i> 备注</strong>
                             <p class="text-muted">
-                                customer.description
+                               {{ customer.description }}
                             </p>
                         </li>
 
@@ -36,7 +38,8 @@
                 <div class="box-footer">
                     <div class="btn-xs btn-danger pull-right" id="btn_customer_delete"><i class="fa fa-trash-o"></i>
                     </div>
-                    <div class="btn-xs btn-primary pull-right" style="margin-right: 5px"><i
+                    <div class="btn-xs btn-primary pull-right" data-toggle="modal"
+                         data-target="#model_customer_update" style="margin-right: 5px"><i
                             class="fa fa-pencil-square-o"></i></div>
 
                 </div>
@@ -150,6 +153,68 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+    <div class="modal fade" id="model_customer_update" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">添加信息</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form action="#" method="post" id="update_customer_form">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value="{{ customer.id }}">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>客户编号</label>
+                                <input type="text" class="form-control" name="txt_customer_nick_name"
+                                       id="txt_customer_nick_name"
+                                       value="{{ customer.nick_name }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>客户姓名</label>
+                                <input type="text" class="form-control" name="txt_customer_name" id="txt_customer_name"
+                                       value="{{ customer.name }}">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>描述</label>
+                                <textarea class="form-control" rows="4" name="txt_area_customer_desc"
+                                          id="txt_area_customer_desc"
+                                          placeholder=".....">{{ customer.description }}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>上传头像</label>
+                                <input type="file" name="file_customer_icon" id="file_customer_icon">
+
+                                <p class="help-block">图片格式BMP、JPG、JPEG、PNG、GIF</p>
+                                <label>删除原有头像 <input name="chb_delete_img" id="chb_delete_img" type="checkbox"
+                                                     class="minimal"></label>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" id="btn_customer_cancel"
+                            data-dismiss="modal">
+                        <i class="fa fa-remove "> 取消</i></button>
+                    <button type="submit" class="btn btn-primary" id="btn_customer_update"><i class="fa fa-check">
+                        保存</i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 {% endblock %}
 {% block javascript %}
     <script src="{% static 'js/parts_factory_customer_model_select2.js' %}"></script>
@@ -203,8 +268,73 @@
                     }
                 });
             })
+            $('input[type="checkbox"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            })
+
+            $("#btn_customer_update").click(function () {
+                var txt_customer_nick_name = $("#txt_customer_nick_name");
+                if (txt_customer_nick_name.val() == "") {
+                    txt_customer_nick_name.parent().addClass("has-error");
+                    toastr.error('客户编号不能为空！');
+                    return;
+                }
+                var file_customer_icon = $("#file_customer_icon");
+                if (file_customer_icon.val() != '' && check_file_name_img(file_customer_icon.val())) {
+                    toastr.error('请检查图片格式（格式BMP、JPG、JPEG、PNG、GIF等）!');
+                    file_customer_icon.parent().addClass("has-error")
+                    return;
+                }
+                var update_customer_form = new FormData($("#update_customer_form")[0])
+
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'partsinfo:update_customer_info' %}",
+                    data: update_customer_form,
+                    async: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
 
 
+                        if (data == "success") {
+                            $('#model_customer_add').modal('hide');
+                            window.location.reload();
+
+                        } else if (data == 'info_exist') {
+
+                            toastr.error('客户信息重复');
+                            $("#txt_customer_nick_name").parent().addClass("has-error");
+                        }
+                        else {
+                            toastr.error('没有权限');
+                        }
+
+                    }
+
+                });
+
+
+            });
+
+            $('#model_customer_update').on('hide.bs.modal', function () {
+
+                $("#update_customer_form")[0].reset();
+
+                var txt_customer_nick_name = $("#txt_customer_nick_name");
+                if (txt_customer_nick_name.parent().hasClass("has-error")) {
+                    txt_customer_nick_name.parent().removeClass("has-error");
+
+                }
+                var file_customer_icon = $("#file_customer_icon");
+
+                if (file_customer_icon.parent().hasClass("has-error")) {
+                    file_customer_icon.parent().removeClass("has-error");
+
+                }
+
+            });
         })
 
 
@@ -234,7 +364,7 @@
 
             for (var index in data) {
                 var html = '<tr class = "info_tr">\n' +
-                    '                            <td>' + data[index][0] + '</td>\n' +
+                    '                            <td><a style="color: #444;"  href="/baseinfo/part_detail/' + data[index][0] + '">' + data[index][0] + '</td>\n' +
                     '                            <td>' + data[index][1] + '</td>\n' +
                     '                            <td class="price_td_pr"><i class="fa fa-dollar margin-r-5"></i>' + data[index][3] + '</td>\n' +
                     '                            <td class="price_td">\n' +

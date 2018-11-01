@@ -10,14 +10,17 @@ urlpatterns = [
     path('part_list/', views.parts_list, name='part_list'),
     path('add_parts_info/', views.add_parts_info, name='add_parts_info'),
     path('delete_parts_info/',views.delete_parts_info,name='delete_parts_info'),
+    path('update_parts_info/',views.update_parts_info,name='update_parts_info'),
 
     path('factory_list/', views.factory_list, name='factory_list'),
     path('add_factory_info/', views.add_factory_info, name='add_factory_info'),
     path("delete_factory_info/",views.delete_factory_info,name='delete_factory_info'),
+    path('update_factory_info/',views.update_factory_info,name='update_factory_info'),
 
     path('customer_list/', views.customer_list, name='customer_list'),
     path('add_customer_info/', views.add_customer_info, name='add_customer_info'),
     path('delete_customer_info/',views.delete_customer_info,name='delete_customer_info'),
+    path('update_customer_info/',views.update_customer_info,name='update_customer_info'),
 
     path('factory_price_list/', views.factory_price_list, name='factory_price_list'),
     path('delete_factory_price/', views.delete_factory_price, name='delete_factory_price'),

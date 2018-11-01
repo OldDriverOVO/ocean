@@ -1,7 +1,9 @@
 {% extends 'partinfo/base.html' %}
 
 {% load staticfiles %}
-{% block title %}list{% endblock %}
+{% block menu_baseinfo %}active menu-open{% endblock %}
+{% block menu_part_list %}active{% endblock %}
+{% block title %}配件信息|{{ part.oem }}{% endblock %}
 {% block content-header %}{% endblock %}
 {% block content %}
     <div class="row">
@@ -10,7 +12,8 @@
             <div class="box box-widget">
                 <div class="box-header with-border">
                     <div class="btn-xs btn-danger pull-right" id="btn_part_delete"><i class="fa fa-trash-o"></i></div>
-                    <div class="btn-xs btn-primary pull-right" id="btn_part_update" style="margin-right: 5px"><i
+                    <div class="btn-xs btn-primary pull-right" data-toggle="modal"
+                         data-target="#model_parts_update" id="btn_part_update" style="margin-right: 5px"><i
                             class="fa fa-pencil-square-o"></i></div>
 
                 </div>
@@ -62,58 +65,45 @@
 
                     <div class="col-lg-3 col-sm-6 col-xs-6">
                         <div class="box-body">
+                            <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
+                                    <strong><i class="fa fa-book margin-r-5"></i> OEM</strong>
+                                    <p class="text-muted">{{ part.oem }}</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <strong><i class="fa fa-tags margin-r-5"></i> 中文品名</strong>
+                                    <p class="text-muted"> {{ part.cn_name }}</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <strong><i class="fa fa-tags margin-r-5"></i> 英文品名</strong>
+                                    <p class="text-muted"> {{ part.en_name }}</p>
+
+                                </li>
 
 
-                            <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-book margin-r-5"></i>OEM
-                            </p>
-                            <p style="text-indent: 1.3em;font-weight: 700;font-size: 15px">
-                                {{ part.oem }}
-
-                            </p>
-
-                            <hr>
-
-                            <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-tags margin-r-5"></i>中文品名
-                            </p>
-                            <p style="text-indent: 1.3em;font-weight: 700;font-size: 15px">
-                                {{ part.cn_name }}
-
-                            </p>
-
-                            <hr>
-
-
-                            <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-tags margin-r-5"></i>英文品名
-                            </p>
-                            <p style="text-indent: 1.3em;font-weight: 700;font-size: 15px">
-                                {{ part.en_name }}
-
-                            </p>
-
+                            </ul>
                         </div>
+
                     </div>
                     <div class="col-lg-4 col-sm-6 col-xs-6">
                         <div class="box-body">
-                            <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-car margin-r-5"></i>车型
-                            </p>
-                            <p style="text-indent: 1.3em;font-weight: 700;font-size: 15px">
-                                {{ part.car_model.cn_name }}
+                            <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
 
-                            </p>
+                                    <strong><i class="fa fa-car margin-r-5"></i> 车型</strong>
+                                    <p class="text-muted">{{ part.car_model.en_name }}</p>
+
+                                </li>
+                                <li class="list-group-item">
+
+                                    <strong><i class="fa fa-commenting-o margin-r-5"></i> 描述</strong>
+                                    <p class="text-muted">{{ part.description }}</p>
+                                </li>
 
 
-                            <hr>
-
-                            <p class="text-muted" style="margin: 0 0 0"><i class="fa fa-commenting-o margin-r-5"></i>描述
-                            </p>
-                            <p style="text-indent: 1.3em;font-weight: 700;font-size: 15px">
-                                {{ part.description }}
-
-                            </p>
-
-                            <hr>
-
+                            </ul>
                         </div>
+
                     </div>
 
 
@@ -337,6 +327,76 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+    <div class="modal fade" id="model_parts_update" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">修改信息</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form action="#" method="post" id="update_parts_form">
+                        {% csrf_token %}
+                        <div class="col-md-12">
+                            <div class="form-group">
+
+                                <label>OEM</label>
+                                <input type="text" class="form-control" name="txt_OEM" id="txt_OEM" readonly="readonly"
+                                       value="{{ part.oem }}" placeholder="">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>中文品名</label>
+                                <input type="text" class="form-control" value="{{ part.cn_name }}" name="txt_cn_name"
+                                       id="txt_cn_name"
+                                       placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>英文品名</label>
+                                <input type="text" class="form-control" value="{{ part.en_name }}" name="txt_en_name"
+                                       id="txt_en_name"
+                                       placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>描述</label>
+                                <textarea class="form-control" rows="6" name="txt_area_desc" id="txt_area_desc"
+                                          placeholder=".....">{{ part.description }}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>上传图片</label>
+
+                                <input type="file" name="file_img" id="file_img">
+
+                                <p class="help-block">图片格式BMP、JPG、JPEG、PNG、GIF</p>
+                                <label>删除原有图片 <input name="chb_delete_img" id="chb_delete_img" type="checkbox"
+                                                     class="minimal"></label>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" id="btn_parts_cancel" data-dismiss="modal">
+                        <i class="fa fa-remove "> 取消</i></button>
+                    <button type="submit" class="btn btn-primary" id="btn_parts_update"><i class="fa fa-check"> 保存</i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 
 
 {% endblock %}
@@ -348,6 +408,10 @@
         $(document).ready(function () {
             getFactoryPriceInfo(1);
             getCustomerPriceInfo(1);
+            $('input[type="checkbox"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            })
 
             $("#btn_part_delete").click(function () {
 
@@ -396,6 +460,59 @@
             })
 
 
+            $("#btn_parts_update").click(function () {
+
+                var file_img = $("#file_img");
+                if (file_img.val() != '' && check_file_name_img(file_img.val())) {
+                    toastr.error('请检查图片格式（格式BMP、JPG、JPEG、PNG、GIF等）!');
+                    file_img.parent().addClass("has-error")
+                    return;
+                }
+                var update_parts_form = new FormData($("#update_parts_form")[0])
+
+                $.ajax({
+                    type: "POST",
+                    {#headers:{ "X-CSRFtoken":$("[name='csrfmiddlewaretoken']").val()},#}
+                    url: "{% url 'partsinfo:update_parts_info' %}",
+                    {#dataType:'',#}
+                    data: update_parts_form,
+                    async: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+
+
+                        if (data == "success") {
+                            $('#model_parts_update').modal('hide');
+                            window.location.reload();
+
+                        } else if (data == "object_not_found") {
+
+                            toastr.error('未知错误');
+                        }
+                        else {
+                            toastr.error('没有权限');
+                        }
+
+                    }
+
+                });
+
+
+            });
+            $('#model_parts_update').on('hide.bs.modal', function () {
+
+                $("#update_parts_form")[0].reset();
+
+                var file_img = $("#file_img");
+
+                if (file_img.parent().hasClass("has-error")) {
+                    file_img.parent().removeClass("has-error");
+
+                }
+
+            });
+
         })
 
         function getFactoryPriceInfo(page) {
@@ -423,7 +540,7 @@
             for (var index in data) {
                 var html = '<tr class = "info_tr">\n' +
 
-                    '                            <td>' + data[index][2] + '</td>\n' +
+                    '<td><a style="color: #444;"  href="/baseinfo/factory_detail/' + data[index][8] + '">' + data[index][2] + '</a></td>\n' +
                     '                            <td class="price_td_pr"><i class="fa  fa-cny margin-r-5"></i>' + data[index][3] + '</td>\n' +
                     '                            <td class="price_td">\n' +
                     '                                <div class="btn-group">\n' +
@@ -468,7 +585,7 @@
 
             for (var index in data) {
                 var html = '<tr class = "info_tr">\n' +
-                    '                            <td>' + data[index][2] + '</td>\n' +
+                    '                            <td><a style="color: #444;"  href="/baseinfo/customer_detail/' + data[index][8] + '">' + data[index][2] + '</a></td>\n' +
                     '                            <td class="price_td_pr"><i class="fa fa-dollar margin-r-5"></i>' + data[index][3] + '</td>\n' +
                     '                            <td class="price_td">\n' +
                     '                                <div class="btn-group">\n' +

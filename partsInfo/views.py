@@ -102,7 +102,6 @@ def parts_list(request):
     return render(request, 'partinfo/parts_list.html', context={'user': request.user})
 
 
-
 @login_required
 def add_parts_info(request):
     if request.is_ajax():
@@ -136,6 +135,7 @@ def add_parts_info(request):
     else:
         return HttpResponse("")
 
+
 @login_required
 def delete_parts_info(request):
     if request.is_ajax():
@@ -148,6 +148,32 @@ def delete_parts_info(request):
     else:
 
         return HttpResponseRedirect(reverse('partsinfo:part_list'))
+
+
+@login_required
+def update_parts_info(request):
+    if request.is_ajax():
+        try:
+            target = Parts.objects.get(oem=request.POST.get("txt_OEM"))
+            if target:
+                target.cn_name = request.POST.get('txt_cn_name')
+                target.en_name = request.POST.get('txt_en_name')
+                target.description = request.POST.get('txt_area_desc')
+                target.last_change_user_id = request.user.id
+                if request.POST.get('file_img') != "" or request.POST.get('chb_delete_img'):
+                    target.img.delete(False)
+                    target.img = request.FILES.get('file_img')
+
+                target.save()
+
+                return HttpResponse('success')
+            else:
+                return HttpResponse("object_not_found")
+        except:
+            return HttpResponse("data_error")
+    else:
+        return render(request, 'partinfo/parts_list.html')
+
 
 @login_required
 def factory_list(request):
@@ -246,6 +272,7 @@ def add_factory_info(request):
     else:
         return HttpResponse("")
 
+
 @login_required
 def delete_factory_info(request):
     if request.is_ajax():
@@ -258,6 +285,37 @@ def delete_factory_info(request):
     else:
 
         return HttpResponseRedirect(reverse('partsinfo:factory_list'))
+
+
+@login_required
+def update_factory_info(request):
+    if request.is_ajax():
+
+        info_exist = Factory.objects.filter(name=request.POST.get("txt_factory_name")).first()
+
+        if info_exist:
+
+            if info_exist.id != int(request.POST.get('id')):
+                return HttpResponse('info_exist')
+
+        try:
+            target = Factory.objects.get(id=request.POST.get('id'))
+
+            target.name = request.POST.get("txt_factory_name")
+            target.Contact = request.POST.get("txt_factory_contact")
+            target.phone_num = request.POST.get("txt_factory_phone_num")
+            target.qq = request.POST.get("txt_factory_qq")
+            target.address = request.POST.get("txt_factory_address")
+            target.description = request.POST.get("txt_area_factory_desc")
+            target.last_change_user_id = request.user.id
+            target.save()
+            return HttpResponse('success')
+        except:
+            return HttpResponse("data_error")
+
+    else:
+        return render(request, 'partinfo/factory_list.html')
+
 
 @login_required
 def customer_list(request):
@@ -345,6 +403,7 @@ def add_customer_info(request):
     else:
         return HttpResponse('')
 
+
 @login_required
 def delete_customer_info(request):
     if request.is_ajax():
@@ -357,6 +416,36 @@ def delete_customer_info(request):
     else:
 
         return HttpResponseRedirect(reverse('partsinfo:customer_list'))
+
+@login_required
+def update_customer_info(request):
+    if request.is_ajax():
+
+        info_exist = Customer.objects.filter(name=request.POST.get("txt_customer_nick_name")).first()
+
+        if info_exist:
+
+            if info_exist.id != int(request.POST.get('id')):
+                return HttpResponse('info_exist')
+
+        try:
+            target = Customer.objects.get(id=request.POST.get('id'))
+
+            target.name = request.POST.get("txt_customer_name")
+            target.nick_name = request.POST.get("txt_customer_nick_name")
+            target.description = request.POST.get("txt_area_customer_desc")
+            if request.POST.get('file_customer_icon')!="" or request.POST.get('chb_delete_img'):
+                target.icon_img.delete(False)
+                target.icon_img=request.FILES.get("file_customer_icon")
+            target.last_change_user_id = request.user.id
+            target.save()
+            return HttpResponse('success')
+        except:
+            return HttpResponse("data_error")
+
+    else:
+        return render(request, 'partinfo/customer_list.html')
+
 
 @login_required
 # @permission_required(perm='partsInfo.view_factorypartsprice')
@@ -495,8 +584,8 @@ def update_factory_price(request):
 def customer_price_list(request):
     if request.is_ajax():
 
-
-        contact_list = SqlUtils.get_customer_parts_price(oem=request.GET.get('oem'),customer_id=request.GET.get('customer_id'))
+        contact_list = SqlUtils.get_customer_parts_price(oem=request.GET.get('oem'),
+                                                         customer_id=request.GET.get('customer_id'))
 
         paginator = Paginator(contact_list, 13)  # Show 25 contacts per page
 
@@ -643,12 +732,13 @@ def factory_detail(request, pk):
     else:
         return HttpResponseRedirect(reverse("partsinfo:factory_list"))
 
+
 @login_required
 def customer_detail(request, pk):
     target = Customer.objects.filter(id=pk).first()
     if target:
         return render(request, 'partinfo/customer_detail.html', context={'user': request.user,
-                                                                        'customer': target
-                                                                        })
+                                                                         'customer': target
+                                                                         })
     else:
         return HttpResponseRedirect(reverse("partsinfo:customer_list"))
