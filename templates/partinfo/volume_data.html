@@ -1,0 +1,262 @@
+{% extends 'partinfo/base.html' %}
+
+{% load staticfiles %}
+{% block menu_baseinfo %}active menu-open{% endblock %}
+{% block menu_volume_data %}active{% endblock %}
+{% block title %}装箱数据{% endblock %}
+{% block content-header %}装箱数据{% endblock %}
+{% block content %}
+    <div class="row">
+        {% csrf_token %}
+        <div class="col-md-12">
+
+
+            <div class="box box-widget">
+                <div class="box-header">
+                    <div class="col-md-1 ">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                    data-target="#model_volume_data_add"><i class="fa fa-plus"></i> 添加
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.box-header -->
+
+                <!-- /.box-body -->
+            </div>
+            <div class="box box-info">
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover" id="volume_data_list">
+                        <tbody>
+                        <tr>
+                            <th>OEM</th>
+                            <th>长(cm)</th>
+                            <th>宽(cm)</th>
+                            <th>高(cm)</th>
+                            <th>毛重(kg)</th>
+                            <th>净重(kg)</th>
+                            <th>操作</th>
+                            <th>备注</th>
+
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="volume_data_list_bar">
+                    {% include 'partinfo/page_bar.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="model_volume_data_add" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">添加信息</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form action="#" method="post" id="add_volume_data_form">
+                        {% csrf_token %}
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>产品</label>
+                                <select class="form-control select2" id="select_parts" name="select_parts"
+                                        style="width: 100%;">
+                                    <option></option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>长(cm)</label>
+                                <input type="number" min="0.0" step="0.1" class="form-control" name="length"
+                                       id="in_volume_data_length"
+                                       placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>宽(cm)</label>
+                                <input type="number" min="0.0" step="0.1" class="form-control" name="width"
+                                       id="in_volume_data_width"
+                                       placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>高(cm)</label>
+                                <input type="number" min="0.0" step="0.1" class="form-control" name="height"
+                                       id="in_volume_data_height"
+                                       placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>毛重(kg)</label>
+                                <input type="number" min="0.0" step="0.1" class="form-control" name="gross_weight"
+                                       id="in_volume_data_gross_weight"
+                                       placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>净重(kg)</label>
+                                <input type="number" min="0.0" step="0.1" class="form-control" name="net_weight"
+                                       id="in_volume_data_net_weight"
+                                       placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>备注</label>
+                                <textarea class="form-control" rows="4" name="desc"
+                                          id="txt_area_volume_data_desc"
+                                          placeholder="....."></textarea>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="modal-footer no-border">
+                    <button type="button" class="btn btn-default pull-left" id="btn_volume_data_cancel"
+                            data-dismiss="modal">
+                        <i class="fa fa-remove "> 取消</i></button>
+                    <button type="submit" class="btn btn-primary" id="btn_volume_data_save"><i class="fa fa-check">
+                        保存</i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script src="{% static 'js/parts_factory_customer_model_select2.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            getVolumeDataInfo(1)
+
+            $("#btn_volume_data_save").click(function () {
+                var select_parts = $("#select_parts");
+                if (select_parts.val() == "") {
+                    select_parts.parent().addClass("has-error");
+                    toastr.error('选择产品');
+                    return;
+                }
+
+                var add_volume_data_form = new FormData($("#add_volume_data_form")[0])
+
+                $.ajax({
+                    type: "POST",
+                    {#headers:{ "X-CSRFtoken":$("[name='csrfmiddlewaretoken']").val()},#}
+                    url: "{% url 'partsinfo:add_volume_data' %}",
+                    {#dataType:'',#}
+                    data: add_volume_data_form,
+                    async: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+
+
+                        if (data == "success") {
+                            $('#model_volume_data_add').modal('hide');
+                            toastr.success('添加成功');
+                            getVolumeDataInfo(1);
+                        } else if (data == 'info_exist') {
+
+                            toastr.error('该产品装箱数据已经存在');
+                            $("#select_parts").parent().addClass("has-error");
+                        }
+                        else {
+                            toastr.error('没有权限');
+                        }
+
+                    }
+
+                });
+
+
+            });
+            $('#model_volume_data_add').on('hide.bs.modal', function () {
+
+                $("#select_parts").val(null).trigger('change');
+                $("#add_volume_data_form")[0].reset();
+
+                var select_parts = $("#select_parts");
+                if (select_parts.parent().hasClass("has-error")) {
+                    select_parts.parent().removeClass("has-error");
+
+                }
+
+
+            });
+
+        })
+
+        function getVolumeDataInfo(page) {
+            $.ajax({
+                type: "GET",
+
+                url: "{% url 'partsinfo:volume_data' %}?page=" + page,
+
+                async: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+
+                    showInfo(data.volume_data);
+                    initPageBar(data.page_info, "volume_data_list_bar", 'getVolumeDataInfo');
+
+
+                }
+
+            });
+        }
+
+        function showInfo(data) {
+
+            var volume_data_list = $('#volume_data_list');
+            $('#volume_data_list tr:not(:first)').empty();
+
+            for (var index in data) {
+                var html = '<tr class = "info_tr">\n' +
+                    '                            <td><a style="color: #444;"  href="/baseinfo/part_detail/' + data[index].fields.oem + '">' + data[index].fields.oem + '</a></td>\n' +
+                    '                            <td class="volume_length">' + data[index].fields.length + 'cm</td>\n' +
+                    '                            <td class="volume_width">' + data[index].fields.width + 'cm</td>\n' +
+                    '                            <td class="volume_height">' + data[index].fields.height + 'cm</td>\n' +
+                    '                            <td class="volume_net_weight">' + data[index].fields.net_weight + 'kg</td>\n' +
+                    '                            <td class="volume_gross_weight">' + data[index].fields.gross_weight + 'kg</td>\n' +
+                    '                            <td class="volume_td">\n' +
+                    '                                <div class="btn-group">\n' +
+                    '                                    <input type="hidden" value="' + data[index].pk + '">\n' +
+                    '                                    <div style="float: left;margin-right: 5px" class="btn-xs btn-primary volume_data_update" >修改</div>\n' +
+                    '                                    <div style="float: left" class="btn-xs btn-danger volume_data_delete" >删除</div>\n' +
+                    '                                </div>\n' +
+                    '                            </td>\n' +
+                    '                            <td class="volume_desc">' + data[index].fields.description + '</td>\n' +
+                    '                        </tr>';
+
+                volume_data_list.append(html);
+
+            }
+
+
+        }
+
+    </script>
+
+{% endblock %}

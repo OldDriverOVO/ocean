@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
-from .models import Parts, Factory, Customer, FactoryPartsPrice, CustomerPartsPrice
+from .models import VolumeWeightData,Parts, Factory, Customer, FactoryPartsPrice, CustomerPartsPrice
 import win32timezone
 import json
 from django.urls import reverse
@@ -9,6 +9,7 @@ from django.core import serializers
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from partsInfo.sql_utils import SqlUtils
 from django.contrib.auth.decorators import login_required, permission_required
+from django.db.models import Q
 
 
 # Create your partinfo here.
@@ -121,7 +122,7 @@ def add_parts_info(request):
                     img=request.FILES.get("file_img"),
                     last_change_date=win32timezone.now(),
                     last_change_user_id=user.id,
-                    car_model_id=1
+                    car_model=request.POST.get('txt_car_model')
 
                 )
                 new_parts.save()
@@ -158,6 +159,7 @@ def update_parts_info(request):
             if target:
                 target.cn_name = request.POST.get('txt_cn_name')
                 target.en_name = request.POST.get('txt_en_name')
+                target.car_model = request.POST.get('txt_car_model')
                 target.description = request.POST.get('txt_area_desc')
                 target.last_change_user_id = request.user.id
                 if request.POST.get('file_img') != "" or request.POST.get('chb_delete_img'):
@@ -417,6 +419,7 @@ def delete_customer_info(request):
 
         return HttpResponseRedirect(reverse('partsinfo:customer_list'))
 
+
 @login_required
 def update_customer_info(request):
     if request.is_ajax():
@@ -434,9 +437,9 @@ def update_customer_info(request):
             target.name = request.POST.get("txt_customer_name")
             target.nick_name = request.POST.get("txt_customer_nick_name")
             target.description = request.POST.get("txt_area_customer_desc")
-            if request.POST.get('file_customer_icon')!="" or request.POST.get('chb_delete_img'):
+            if request.POST.get('file_customer_icon') != "" or request.POST.get('chb_delete_img'):
                 target.icon_img.delete(False)
-                target.icon_img=request.FILES.get("file_customer_icon")
+                target.icon_img = request.FILES.get("file_customer_icon")
             target.last_change_user_id = request.user.id
             target.save()
             return HttpResponse('success')
@@ -742,3 +745,86 @@ def customer_detail(request, pk):
                                                                          })
     else:
         return HttpResponseRedirect(reverse("partsinfo:customer_list"))
+
+
+@login_required
+def volume_data(request):
+    if request.is_ajax():
+
+
+        contact_list = VolumeWeightData.objects.all().order_by('-last_change_date')
+
+        paginator = Paginator(contact_list, 40)  # Show 25 contacts per page
+
+        try:
+            currentPage = int(request.GET.get('page'))
+            contacts = paginator.page(currentPage)
+            if paginator.num_pages > 10:
+                if currentPage - 5 < 1:
+                    pageRange = range(1, 11)
+                elif currentPage + 5 > paginator.num_pages:
+                    pageRange = range(currentPage - 5, paginator.num_pages + 1)
+
+                else:
+                    pageRange = range(currentPage - 5, currentPage + 5)
+
+            else:
+                pageRange = paginator.page_range
+
+        except ValueError:
+            # If page is not an integer, deliver first page.
+            contacts = paginator.page(1)
+            pageRange = paginator.page_range
+        except TypeError:
+            # If page is not an integer, deliver first page.
+            contacts = paginator.page(1)
+            pageRange = paginator.page_range
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            contacts = paginator.page(paginator.num_pages)
+            pageRange = paginator.page_range
+
+        return JsonResponse(
+            {
+                'volume_data': json.loads(serializers.serialize('json', contacts.object_list)),
+                'page_info': {
+                    'current_page': contacts.number,
+                    'has_next': contacts.has_next(),
+                    'has_previous': contacts.has_previous(),
+                    'pageRange': list(pageRange),
+                    'pages': contacts.paginator.num_pages
+                },
+
+            }, safe=False
+
+        )
+
+    return render(request, 'partinfo/volume_data.html')
+
+
+@login_required
+def add_volume_data(request):
+    if request.is_ajax():
+        if VolumeWeightData.objects.filter(oem=request.POST.get("select_parts")):
+            return HttpResponse("info_exist")
+        part = Parts.objects.get(oem=request.POST.get("select_parts"))
+
+        new = VolumeWeightData(
+            oem=part,
+            length=request.POST.get("length"),
+            width=request.POST.get("width"),
+            height=request.POST.get("height"),
+            net_weight=request.POST.get("net_weight"),
+            gross_weight=request.POST.get("gross_weight"),
+            description=request.POST.get("desc"),
+            last_change_user_id=request.user.id,
+
+
+        )
+        new.save()
+        return HttpResponse('success')
+    else:
+        return HttpResponse("")
+
+
+

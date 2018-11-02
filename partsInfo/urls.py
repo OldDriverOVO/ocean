@@ -36,4 +36,6 @@ urlpatterns = [
     path('customer_detail/<pk>', views.customer_detail, name='customer_detail'),
     path('part_detail/<pk>', views.part_detail, name='part_detail'),
 
+    path('volume_data/',views.volume_data,name='volume_data'),
+    path('add_volume_data/',views.add_volume_data,name='add_volume_data'),
 ]

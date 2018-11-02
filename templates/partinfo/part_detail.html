@@ -19,7 +19,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <div class="col-lg-5 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-sm-12 col-xs-12">
                         <div class="box-body">
                             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                                 {#                                <ol class="carousel-indicators">#}
@@ -79,21 +79,22 @@
                                     <p class="text-muted"> {{ part.en_name }}</p>
 
                                 </li>
+                                <li class="list-group-item">
+
+                                    <strong><i class="fa fa-car margin-r-5"></i> 车型</strong>
+                                    <p class="text-muted">{{ part.car_model }}</p>
+
+                                </li>
 
 
                             </ul>
                         </div>
 
                     </div>
-                    <div class="col-lg-4 col-sm-6 col-xs-6">
+                    <div class="col-lg-3 col-sm-6 col-xs-6">
                         <div class="box-body">
                             <ul class="list-group list-group-unbordered">
-                                <li class="list-group-item">
 
-                                    <strong><i class="fa fa-car margin-r-5"></i> 车型</strong>
-                                    <p class="text-muted">{{ part.car_model.en_name }}</p>
-
-                                </li>
                                 <li class="list-group-item">
 
                                     <strong><i class="fa fa-commenting-o margin-r-5"></i> 描述</strong>
@@ -339,12 +340,20 @@
 
                     <form action="#" method="post" id="update_parts_form">
                         {% csrf_token %}
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
 
                                 <label>OEM</label>
                                 <input type="text" class="form-control" name="txt_OEM" id="txt_OEM" readonly="readonly"
                                        value="{{ part.oem }}" placeholder="">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label>车型</label>
+                                <input type="text" class="form-control" name="txt_car_model" id="txt_car_model" value="{{ part.car_model }}">
 
                             </div>
                         </div>

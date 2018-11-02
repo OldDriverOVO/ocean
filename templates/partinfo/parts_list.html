@@ -79,11 +79,19 @@
 
                     <form action="#" method="post" id="add_parts_form">
                         {% csrf_token %}
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
 
                                 <label>OEM</label>
                                 <input type="text" class="form-control" name="txt_OEM" id="txt_OEM" placeholder="">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label>车型</label>
+                                <input type="text" class="form-control" name="txt_car_model" id="txt_car_model" placeholder="">
 
                             </div>
                         </div>
@@ -228,7 +236,6 @@
         }
 
         function showPartInfo(data) {
-            console.log(data)
             var info_box = $('#part_list');
             info_box.empty();
             for (var index in data) {
@@ -245,6 +252,7 @@
                                             <a style="color: #444;"  href="/baseinfo/part_detail/' + data[index].pk + '"><span class="info-box-number">' + data[index].pk + '</span></a>\
                                             <span class="info-box-text">' + data[index].fields.cn_name + '</span>\
                                             <span class="info-box-text">' + data[index].fields.en_name + '</span>\
+                                            <span class="info-box-text">' + data[index].fields.car_model + '</span>\
                                           </div>\
                                 </div>\
                          </div>';

@@ -4,19 +4,19 @@ from django.db.models.signals import pre_delete
 from django.dispatch.dispatcher import receiver
 
 # 车型
-class CarModels(models.Model):
-
-    id = models.AutoField(primary_key=True)
-    cn_name = models.CharField(max_length=128,blank=True)
-    en_name = models.CharField(max_length=128)
-    img = models.ImageField(upload_to='models/%Y/%m/%d/',blank=True)
-    description = models.TextField(blank=True)
-    last_change_date = models.DateField()
-    last_change_user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    class META:
-        ordering = ['-last_change_date']
-    def __str__(self):
-        return self.cn_name
+# class CarModels(models.Model):
+#
+#     id = models.AutoField(primary_key=True)
+#     cn_name = models.CharField(max_length=128,blank=True)
+#     en_name = models.CharField(max_length=128)
+#     img = models.ImageField(upload_to='models/%Y/%m/%d/',blank=True)
+#     description = models.TextField(blank=True)
+#     last_change_date = models.DateField()
+#     last_change_user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+#     class META:
+#         ordering = ['-last_change_date']
+#     def __str__(self):
+#         return self.cn_name
 # parts
 class Parts(models.Model):
     oem = models.CharField(max_length=128,primary_key=True)
@@ -26,8 +26,8 @@ class Parts(models.Model):
     description = models.TextField(blank=True)
     last_change_date = models.DateTimeField(auto_now=True)
     last_change_user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    car_model = models.ForeignKey(CarModels,on_delete=models.SET_NULL,null=True)
-
+    # car_model = models.ForeignKey(CarModels,on_delete=models.SET_NULL,null=True)
+    car_model= models.CharField(max_length=128,blank=True)
     class META:
         ordering = ['-last_change_date']
 
@@ -92,16 +92,17 @@ class FactoryPartsPrice(models.Model):
 
 
 class VolumeWeightData(models.Model):
-    oem = models.ForeignKey(Parts, on_delete=models.CASCADE)
-    num = models.IntegerField(default=1)
-    height = models.FloatField(max_length=10,default=0)
-    length = models.FloatField(max_length=10,default=0)
-    width = models.FloatField(max_length=10,default=0)
-    gross_weight = models.FloatField(max_length=10,default=0)
-    net_weight = models.FloatField(max_length=10,default=0)
+
+    oem = models.OneToOneField(Parts, on_delete=models.CASCADE)
+    height = models.FloatField(max_length=10,default=0,blank=True)
+    length = models.FloatField(max_length=10,default=0,blank=True)
+    width = models.FloatField(max_length=10,default=0,blank=True)
+    gross_weight = models.FloatField(max_length=10,default=0,blank=True)
+    net_weight = models.FloatField(max_length=10,default=0,blank=True)
     description = models.TextField(blank=True)
     last_change_date = models.DateTimeField(auto_now=True)
     last_change_user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+
     class META:
         ordering = ['last_change_date']
 

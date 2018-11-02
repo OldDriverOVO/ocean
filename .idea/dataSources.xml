@@ -13,5 +13,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/ocean_build</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="ocean_test@localhost" uuid="6bf14d21-b86c-4a37-ade4-b20b47cc23d4">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/ocean_test</jdbc-url>
+    </data-source>
   </component>
 </project>

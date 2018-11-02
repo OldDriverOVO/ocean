@@ -19,5 +19,14 @@
       <user-name>postgres</user-name>
       <introspection-schemas>ocean_build:public</introspection-schemas>
     </data-source>
+    <data-source name="ocean_test@localhost" uuid="6bf14d21-b86c-4a37-ade4-b20b47cc23d4">
+      <database-info product="PostgreSQL" version="10.5" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <introspection-schemas>ocean_test:public</introspection-schemas>
+    </data-source>
   </component>
 </project>

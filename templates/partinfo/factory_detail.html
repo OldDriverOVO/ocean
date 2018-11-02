@@ -16,27 +16,32 @@
                 <div class="box-body">
 
                     <ul class="list-group list-group-unbordered">
-                        <li class="list-group-item">
+                        <li class="list-group-item" style="border: 0">
                             <strong><i class="fa fa-file-text-o margin-r-5"></i> 备注</strong>
-                            <p class="text-muted">
+                            <p class="text-muted pull-right">
                                 {{ factory.description }}
                             </p>
+                            <hr style="margin-top: 10px;margin-bottom: 0">
                         </li>
-                        <li class="list-group-item">
+                        <li class="list-group-item" style="border: 0">
                             <strong><i class="fa fa-user-circle-o margin-r-5"></i> 联系人</strong>
-                            <p class="text-muted">{{ factory.Contact }}</p>
+                            <p class="text-muted pull-right">{{ factory.Contact }}</p>
+                             <hr style="margin-top: 10px;margin-bottom: 0">
                         </li>
-                        <li class="list-group-item">
+                        <li class="list-group-item" style="border: 0">
                             <strong><i class="fa fa-phone margin-r-5"></i> 电话</strong>
-                            <p class="text-muted">{{ factory.phone_num }}</p>
+                            <p class="text-muted pull-right">{{ factory.phone_num }}</p>
+                             <hr style="margin-top: 10px;margin-bottom: 0">
                         </li>
-                        <li class="list-group-item">
+                        <li class="list-group-item" style="border: 0">
                             <strong><i class="fa fa-qq margin-r-5"></i> QQ</strong>
-                            <p class="text-muted">{{ factory.qq }}</p>
+                            <p class="text-muted pull-right">{{ factory.qq }}</p>
+                             <hr style="margin-top: 10px;margin-bottom: 0">
                         </li>
-                        <li class="list-group-item">
+                        <li class="list-group-item" style="border: 0">
                             <strong><i class="fa fa-map-marker margin-r-5"></i> 地址</strong>
-                            <p class="text-muted">{{ factory.address }}</p>
+                            <p class="text-muted pull-right">{{ factory.address }}</p>
+                             <hr style="margin-top: 10px;margin-bottom: 0">
                         </li>
 
                     </ul>
@@ -311,7 +316,7 @@
                 var txt_factory_name = $("#txt_factory_name");
                 if (txt_factory_name.val() == "") {
                     txt_factory_name.parent().addClass("has-error");
-                    toastr.error('工厂名称不能为空！');
+                    toastr.error('选择工厂！');
                     return;
                 }
                 var txt_factory_contact = $("#txt_factory_contact");

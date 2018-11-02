@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'OCEAN.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ocean_build',  # 数据库名字(需要先创建)
+        'NAME': 'ocean_test',  # 数据库名字(需要先创建)
         'USER': 'postgres',  # 登录用户名
         'PASSWORD': 'root',  # 密码
         'HOST': '',  # 数据库IP地址,留空默认为localhost
