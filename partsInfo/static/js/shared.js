@@ -371,6 +371,7 @@ function updateFactoryPriceInfo(id, price, desc) {
 }
 
 function deleteCustomerPriceInfo(id) {
+
     $.confirm({
         title: '提示',
         content: '确定删除？',

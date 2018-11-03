@@ -83,7 +83,7 @@
                                 <label>长(cm)</label>
                                 <input type="number" min="0.0" step="0.1" class="form-control" name="length"
                                        id="in_volume_data_length"
-                                       placeholder="">
+                                       value="0">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -91,7 +91,7 @@
                                 <label>宽(cm)</label>
                                 <input type="number" min="0.0" step="0.1" class="form-control" name="width"
                                        id="in_volume_data_width"
-                                       placeholder="">
+                                       value="0">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -99,7 +99,7 @@
                                 <label>高(cm)</label>
                                 <input type="number" min="0.0" step="0.1" class="form-control" name="height"
                                        id="in_volume_data_height"
-                                       placeholder="">
+                                       value="0">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -107,7 +107,7 @@
                                 <label>毛重(kg)</label>
                                 <input type="number" min="0.0" step="0.1" class="form-control" name="gross_weight"
                                        id="in_volume_data_gross_weight"
-                                       placeholder="">
+                                       value="0">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -115,7 +115,7 @@
                                 <label>净重(kg)</label>
                                 <input type="number" min="0.0" step="0.1" class="form-control" name="net_weight"
                                        id="in_volume_data_net_weight"
-                                       placeholder="">
+                                       value="0">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -130,6 +130,7 @@
                     </form>
 
                 </div>
+
                 <div class="modal-footer no-border">
                     <button type="button" class="btn btn-default pull-left" id="btn_volume_data_cancel"
                             data-dismiss="modal">
@@ -205,7 +206,192 @@
 
             });
 
+            $('#volume_data_list').delegate('.volume_data_delete', 'click', function () {
+                deleteVolumeDataInfo($(this).parent().find('input').val());
+            });
+
+            $('#volume_data_list').delegate('.volume_data_update', 'click', function () {
+                var tr = $(this).parents('.info_tr');
+
+                var data = {
+                    'volume_length': parseFloat(tr.find(".volume_length").text()),
+                    'volume_width': parseFloat(tr.find(".volume_width").text()),
+                    'volume_height': parseFloat(tr.find(".volume_height").text()),
+                    'volume_net_weight': parseFloat(tr.find(".volume_net_weight").text()),
+                    'volume_gross_weight': parseFloat(tr.find(".volume_gross_weight").text()),
+                    'volume_desc': tr.find(".volume_desc").text(),
+                    'id': $(this).parents('.volume_td').find('input').val(),
+                }
+                updateVolumeDataInfo(data);
+
+            });
+
+
         })
+
+        function updateVolumeDataInfo(data) {
+
+            $.confirm({
+                title: '修改',
+                animation: 'top',
+                closeAnimation: 'top',
+                backgroundDismiss: true,
+                animateFromElement: false,
+                content: '' +
+                '<form id="update_volume_data" action="" method="post">' +
+                '<input type="hidden" value="' + data.id + '" name="id">' +
+                '<div class="col-md-4">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>长(cm)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="length"\n' +
+                '                                       id=""\n' +
+                '                                       value="' + data.volume_length + '">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-4">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>宽(cm)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="width"\n' +
+                '                                       id=""\n' +
+                '                                       value="' + data.volume_width + '">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-4">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>高(cm)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="height"\n' +
+                '                                       id=""\n' +
+                '                                       value="' + data.volume_height + '">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-6">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>毛重(kg)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="gross_weight"\n' +
+                '                                       id=""\n' +
+                '                                       value="' + data.volume_gross_weight + '">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-6">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>净重(kg)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="net_weight"\n' +
+                '                                       id=""\n' +
+                '                                       value="' + data.volume_net_weight + '">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-12">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>备注</label>\n' +
+                '                                <textarea class="form-control" rows="4" name="desc"\n' +
+                '                                          id=""\n' +
+                '                                          placeholder=".....">' + data.volume_desc + '</textarea>\n' +
+                '                            </div>\n' +
+                '                        </div>' +
+                '</form>',
+                buttons: {
+                    cancel: {
+                        text: '取消',
+
+                    },
+                    formSubmit: {
+                        text: '保存',
+                        btnClass: 'btn-blue',
+                        action: function () {
+
+                            var update_volume_data = new FormData(this.$content.find('#update_volume_data')[0]);
+                            $.ajax({
+                                type: "POST",
+                                headers: {"X-CSRFtoken": $.cookie('csrftoken')},
+                                url: "/baseinfo/update_volume_data/",
+                                data: update_volume_data,
+                                async: false,
+                                contentType: false,
+                                processData: false,
+
+                                success: function (data) {
+
+
+                                    if (data == "success") {
+
+                                        toastr.success('修改成功');
+                                        getVolumeDataInfo(1);
+                                    }
+                                    else if (data == "object_not_found") {
+
+                                        toastr.error('修改失败 没有找到修改对象');
+                                    }
+                                    else if (data == "data_error") {
+                                        toastr.error('数据库错误');
+                                    }
+                                    else {
+                                        toastr.error('没有权限');
+                                    }
+
+                                }
+
+                            });
+
+
+                        }
+
+                    },
+
+                },
+
+            });
+        }
+
+        function deleteVolumeDataInfo(id) {
+
+            $.confirm({
+                title: '提示',
+                content: '确定删除？',
+                animation: 'top',
+                closeAnimation: 'top',
+                animateFromElement: false,
+                backgroundDismiss: true,
+                buttons: {
+                    cancel: {
+                        text: '取消',
+                    },
+                    confirm: {
+                        text: '删除',
+                        btnClass: 'btn-danger',
+                        action: function () {
+                            $.ajax({
+                                type: "POST",
+                                headers: {"X-CSRFtoken": $.cookie('csrftoken')},
+                                url: "/baseinfo/delete_volume_data/",
+                                data: {'id': id},
+
+                                success: function (data) {
+
+
+                                    if (data == "success") {
+
+                                        toastr.success('删除成功！2333');
+                                        getVolumeDataInfo(1);
+                                    }
+                                    else if (data == "object_not_found") {
+
+                                        toastr.error('失败 没有找到删除对象');
+                                    }
+                                    else {
+                                        toastr.error('没有权限');
+                                    }
+
+                                }
+
+                            });
+                        }
+                    }
+
+                }
+            });
+
+
+        }
 
         function getVolumeDataInfo(page) {
             $.ajax({

@@ -21,6 +21,34 @@
                         </div>
 
                     </div>
+                    <div class="col-md-4 pull-right">
+
+                        <div class="input-group">
+                                <span class="input-group-btn">
+                              <div id="btn_search_parts_txt_clear" class="btn btn-default btn-flat"><i
+                                      class="fa fa-close"></i> </div>
+                              </span>
+                            <input type="text" id="search_parts_key_word" name="search_key_word" placeholder="产品..."
+                                   class="form-control">
+                            <span class="input-group-btn">
+                              <div class="btn btn-default btn-flat" id="btn_search"><i
+                                      class="fa fa-search"></i> </div>
+                              </span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 pull-right">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                              <div id="btn_search_customer_txt_clear" class="btn btn-default btn-flat"><i
+                                      class="fa fa-close"></i> </div>
+                              </span>
+                            <input type="text" id="search_customer_key_word" name="search_key_word"
+                                   placeholder="客户..."
+                                   class="form-control">
+
+                        </div>
+                    </div>
 
                 </div>
                 <!-- /.box-header -->
@@ -134,12 +162,26 @@
 
         })
 
+        $('#btn_search').click(function () {
+            getCustomerPriceInfo(1)
+        })
+
+        $('#btn_search_customer_txt_clear').click(function () {
+
+            $('#search_customer_key_word').val("");
+            getCustomerPriceInfo(1)
+        })
+        $('#btn_search_parts_txt_clear').click(function () {
+            $('#search_parts_key_word').val("");
+            getCustomerPriceInfo(1)
+        })
+
 
         function getCustomerPriceInfo(page) {
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page,
+                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page+ "&customer_q=" + $('#search_customer_key_word').val() + "&parts_q=" + $('#search_parts_key_word').val(),
 
                 async: false,
                 contentType: false,

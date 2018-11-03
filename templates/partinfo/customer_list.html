@@ -18,38 +18,24 @@
                     </div>
 
                     <div class="col-md-6 pull-right">
-                        <form action="#" method="post">
-                            <div class="input-group">
+                        <div class="input-group">
                                 <span class="input-group-btn">
-                              <button id="btn_select_customer_close" class="btn btn-default btn-flat"><i
-                                      class="fa fa-close"></i> </button>
+                              <div id="btn_search_txt_clear" class="btn btn-default btn-flat"><i
+                                      class="fa fa-close"></i> </div>
                               </span>
-                                <input type="text" name="message" placeholder="查询条件....." class="form-control">
-                                <span class="input-group-btn">
-                              <button type="submit" class="btn btn-default btn-flat"><i
-                                      class="fa fa-search"></i> </button>
+                            <input type="text" id="search_key_word" name="search_key_word" placeholder="查询条件....."
+                                   class="form-control">
+                            <span class="input-group-btn">
+                              <div class="btn btn-default btn-flat" id="btn_search"><i
+                                      class="fa fa-search"></i> </div>
                               </span>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
                 <!-- /.box-body -->
             </div>
 
             <div class="row" id="customer_list">
-
-                {#                <div class="col-md-3 col-sm-6 col-xs-12">#}
-                {#                    <div class="box box-widget widget-user-2">#}
-                {#                        <div class="widget-user-header">#}
-                {#                            <div class="widget-user-image">#}
-                {#                                <img class="img-circle" src="C:/Users/90961/Desktop/AdminLTE-2.4.3/dist/img/user7-128x128.jpg" alt="User Avatar">#}
-                {#                            </div>#}
-                {#                            <h3 class="widget-user-username" style="display: block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">玻利维亚1号</h3>#}
-                {#                            <h5 class="widget-user-desc" style="display: block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Nadia Carmichael</h5>#}
-                {#                        </div>#}
-                {#                    </div>#}
-                {#                </div>#}
-
 
             </div>
 
@@ -128,6 +114,14 @@
 
             getPageInfo(1);
 
+            $("#btn_search").click(function () {
+                getPageInfo(1);
+            })
+            $("#btn_search_txt_clear").click(function () {
+                $("#search_key_word").val("");
+                getPageInfo(1);
+            })
+
             $("#btn_customer_save").click(function () {
                 var txt_customer_nick_name = $("#txt_customer_nick_name");
                 if (txt_customer_nick_name.val() == "") {
@@ -198,7 +192,7 @@
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:customer_list' %}?page=" + page,
+                url: "{% url 'partsinfo:customer_list' %}?page=" + page+"&q="+$("#search_key_word").val(),
 
                 async: false,
                 contentType: false,

@@ -153,6 +153,7 @@ function formatParts(repo) {
                                             <a style="color: #444;" ><span class="info-box-number">' + repo.pk + '</span></a>\
                                             <span class="info-box-text">' + repo.fields.cn_name + '</span>\
                                             <span class="info-box-text">' + repo.fields.en_name + '</span>\
+                                          <span class="info-box-text">' + repo.fields.car_model + '</span>\
                                           </div>\
                                 </div>\
                          </div>';

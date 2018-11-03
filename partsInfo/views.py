@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
-from .models import VolumeWeightData,Parts, Factory, Customer, FactoryPartsPrice, CustomerPartsPrice
+from .models import VolumeWeightData, Parts, Factory, Customer, FactoryPartsPrice, CustomerPartsPrice
 import win32timezone
 import json
 from django.urls import reverse
@@ -50,8 +50,13 @@ def parts_list(request):
     #     new.save()
     #     pass
     if request.is_ajax():
-        if request.GET.get('q'):
-            contact_list = Parts.objects.filter(oem__icontains=request.GET.get('q'))
+        if request.GET.get('q') != '':
+            contact_list = Parts.objects.filter(
+                Q(oem__icontains=request.GET.get('q')) |
+                Q(cn_name__icontains=request.GET.get('q')) |
+                Q(en_name__icontains=request.GET.get('q')) |
+                Q(car_model__icontains=request.GET.get('q'))
+            )
         else:
             contact_list = Parts.objects.all().order_by('-last_change_date')
 
@@ -190,7 +195,7 @@ def factory_list(request):
     #     new.save()
     if request.is_ajax():
 
-        if request.GET.get('q'):
+        if request.GET.get('q') != '':
             contact_list = Factory.objects.filter(name__icontains=request.GET.get('q')).order_by('-last_change_date')
         else:
             contact_list = Factory.objects.all().order_by('-last_change_date')
@@ -323,8 +328,9 @@ def update_factory_info(request):
 def customer_list(request):
     if request.is_ajax():
 
-        if request.GET.get('q'):
-            contact_list = Customer.objects.filter(nick_name__icontains=request.GET.get('q'))
+        if request.GET.get('q') != '':
+            contact_list = Customer.objects.filter(
+                Q(nick_name__icontains=request.GET.get('q')) | Q(name__icontains=request.GET.get('q')))
         else:
             contact_list = Customer.objects.all().order_by('-last_change_date')
 
@@ -456,9 +462,14 @@ def factory_price_list(request):
     if request.is_ajax():
 
         contact_list = SqlUtils.get_factory_parts_price(oem=request.GET.get("oem"),
-                                                        factory_id=request.GET.get('factory_id'))
+                                                        factory_id=request.GET.get('factory_id'),
+                                                        factory_q=request.GET.get('factory_q') if request.GET.get(
+                                                            'factory_q') != '' else None,
+                                                        parts_q=request.GET.get('parts_q') if request.GET.get(
+                                                            'parts_q') != '' else None
+                                                        )
 
-        paginator = Paginator(contact_list, 13)  # Show 25 contacts per page
+        paginator = Paginator(contact_list, 13)
 
         try:
             currentPage = int(request.GET.get('page'))
@@ -588,7 +599,12 @@ def customer_price_list(request):
     if request.is_ajax():
 
         contact_list = SqlUtils.get_customer_parts_price(oem=request.GET.get('oem'),
-                                                         customer_id=request.GET.get('customer_id'))
+                                                         customer_id=request.GET.get('customer_id'),
+                                                         customer_q=request.GET.get('customer_q') if request.GET.get(
+                                                             'customer_q') != '' else None,
+                                                         parts_q=request.GET.get('parts_q') if request.GET.get(
+                                                             'parts_q') != '' else None
+                                                         )
 
         paginator = Paginator(contact_list, 13)  # Show 25 contacts per page
 
@@ -751,7 +767,6 @@ def customer_detail(request, pk):
 def volume_data(request):
     if request.is_ajax():
 
-
         contact_list = VolumeWeightData.objects.all().order_by('-last_change_date')
 
         paginator = Paginator(contact_list, 40)  # Show 25 contacts per page
@@ -819,7 +834,6 @@ def add_volume_data(request):
             description=request.POST.get("desc"),
             last_change_user_id=request.user.id,
 
-
         )
         new.save()
         return HttpResponse('success')
@@ -827,4 +841,45 @@ def add_volume_data(request):
         return HttpResponse("")
 
 
+@login_required
+def delete_volume_data(request):
+    if request.is_ajax():
+        try:
+            target = VolumeWeightData.objects.get(id=request.POST.get("id"))
+            target.delete()
+            return HttpResponse('success')
+        except:
+            return HttpResponse('object_not_found')
 
+    else:
+        return HttpResponse("")
+
+
+@login_required
+def update_volume_data(request):
+    state = None
+    if request.is_ajax():
+        target = VolumeWeightData.objects.get(id=request.POST.get("id"))
+        if target:
+            try:
+                target.height = request.POST.get('height')
+                target.width = request.POST.get('width')
+                target.length = request.POST.get('length')
+                target.net_weight = request.POST.get('net_weight')
+                target.gross_weight = request.POST.get('gross_weight')
+                target.description = request.POST.get('desc').strip()
+                target.last_change_user_id = request.user.id
+                target.save()
+            except:
+                state = 'data_error'
+                return HttpResponse(state)
+
+            state = 'success'
+            return HttpResponse(state)
+
+        else:
+            state = 'object_not_found'
+            return HttpResponse(state)
+
+    else:
+        return HttpResponse('')
