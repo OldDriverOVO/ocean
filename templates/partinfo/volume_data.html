@@ -21,6 +21,22 @@
                         </div>
 
                     </div>
+                    <div class="col-md-4 pull-right">
+
+                        <div class="input-group">
+                                <span class="input-group-btn">
+                              <div id="btn_search_parts_txt_clear" class="btn btn-default btn-flat"><i
+                                      class="fa fa-close"></i> </div>
+                              </span>
+                            <input type="text" id="search_parts_key_word" name="search_key_word" placeholder="产品..."
+                                   class="form-control">
+                            <span class="input-group-btn">
+                              <div class="btn btn-default btn-flat" id="btn_search"><i
+                                      class="fa fa-search"></i> </div>
+                              </span>
+                        </div>
+
+                    </div>
 
                 </div>
                 <!-- /.box-header -->
@@ -150,6 +166,14 @@
     <script>
         $(document).ready(function () {
             getVolumeDataInfo(1)
+
+            $("#btn_search").click(function () {
+                getVolumeDataInfo(1);
+            })
+            $("#btn_search_parts_txt_clear").click(function () {
+                $("#search_parts_key_word").val("");
+                getVolumeDataInfo(1);
+            })
 
             $("#btn_volume_data_save").click(function () {
                 var select_parts = $("#select_parts");
@@ -397,7 +421,7 @@
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:volume_data' %}?page=" + page,
+                url: "{% url 'partsinfo:volume_data' %}?page=" + page + "&q=" + $("#search_parts_key_word").val(),
 
                 async: false,
                 contentType: false,

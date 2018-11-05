@@ -11,7 +11,8 @@
                 <!-- Add the bg color to the header using any of the bg-* classes -->
                 <div class="widget-user-header">
                     <div class="widget-user-image">
-                        <img class="img-circle" style="height: 65px" src="/media/{{ customer.icon_img }}" alt="User Avatar">
+                        <img class="img-circle" style="height: 65px" src="/media/{{ customer.icon_img }}"
+                             alt="User Avatar">
                     </div>
                     <!-- /.widget-user-image -->
                     <h3 class="widget-user-username">{{ customer.nick_name }}</h3>
@@ -22,7 +23,7 @@
                         <li>
                             <strong><i class="fa fa-file-text-o margin-r-5"></i> 备注</strong>
                             <p class="text-muted">
-                               {{ customer.description }}
+                                {{ customer.description }}
                             </p>
                         </li>
 
@@ -52,12 +53,25 @@
                     <div class="text-muted" style="margin: 0 0 0;float: left"><i
                             class="fa fa-ship margin-r-5"></i>客户价格
                     </div>
-                    <div class="btn-xs btn-default" data-toggle="modal"
-                         data-target="#model_customer_price_add" style="float: left;margin-left: 10px;"><i
-                            class="fa fa-plus"></i></div>
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                class="fa fa-minus"></i></button>
+                    <div class="col-md-6 col-xs-9 pull-right">
+                        <div class="input-group input-group-sm">
+                                        <span class="input-group-btn">
+                                            <div class="btn btn-default" data-toggle="modal"
+                                                 data-target="#model_customer_price_add"
+                                            ><i
+                                                    class="fa fa-plus"></i></div>
+                                        </span>
+                            <span class="input-group-btn">
+                              <div id="btn_search_parts_txt_clear" class="btn btn-default btn-flat"><i
+                                      class="fa fa-close"></i> </div>
+                              </span>
+                            <input type="text" id="search_parts_key_word" name="search_key_word" placeholder="产品..."
+                                   class="form-control">
+                            <span class="input-group-btn">
+                              <div class="btn btn-default btn-flat" id="btn_parts_search"><i
+                                      class="fa fa-search"></i> </div>
+                              </span>
+                        </div>
                     </div>
 
                 </div>
@@ -272,6 +286,15 @@
                 checkboxClass: 'icheckbox_minimal-blue',
                 radioClass: 'iradio_minimal-blue'
             })
+            $('#btn_parts_search').click(function () {
+                getCustomerPriceInfo(1);
+            })
+
+            $('#btn_search_parts_txt_clear').click(function () {
+
+                $('#search_parts_key_word').val("");
+                getCustomerPriceInfo(1);
+            })
 
             $("#btn_customer_update").click(function () {
                 var txt_customer_nick_name = $("#txt_customer_nick_name");
@@ -342,7 +365,7 @@
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page + "&customer_id=" +{{ customer.id }},
+                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page + "&customer_id=" + {{ customer.id }} +"&parts_q=" + $('#search_parts_key_word').val(),
 
                 async: false,
                 contentType: false,

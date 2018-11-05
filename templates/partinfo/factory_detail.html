@@ -8,43 +8,43 @@
     <div class="row">
         <div class="col-lg-3 col-md-12 col-xs-12">
             <div class="box box-widget">
-                <div class="box-header">
+                <div class="box-header with-border">
                     <h3 class="box-title" style="line-height: initial">{{ factory.name }}</h3>
                 </div>
                 <!-- /.box-header -->
 
-                <div class="box-body">
+                <div class="box-body" style="padding-left: 0;padding-right: 0">
 
-                    <ul class="list-group list-group-unbordered">
-                        <li class="list-group-item" style="border: 0">
+
+                        <div class="col-md-12 col-xs-12 col-xs-12" style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
                             <strong><i class="fa fa-file-text-o margin-r-5"></i> 备注</strong>
                             <p class="text-muted pull-right">
                                 {{ factory.description }}
                             </p>
-                            <hr style="margin-top: 10px;margin-bottom: 0">
-                        </li>
-                        <li class="list-group-item" style="border: 0">
+
+                        </div>
+                        <div class="col-md-12 col-xs-12 col-xs-12" style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px" >
                             <strong><i class="fa fa-user-circle-o margin-r-5"></i> 联系人</strong>
                             <p class="text-muted pull-right">{{ factory.Contact }}</p>
-                             <hr style="margin-top: 10px;margin-bottom: 0">
-                        </li>
-                        <li class="list-group-item" style="border: 0">
+
+                        </div>
+                        <div class="col-md-12 col-xs-12 col-xs-12" style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px" >
                             <strong><i class="fa fa-phone margin-r-5"></i> 电话</strong>
                             <p class="text-muted pull-right">{{ factory.phone_num }}</p>
-                             <hr style="margin-top: 10px;margin-bottom: 0">
-                        </li>
-                        <li class="list-group-item" style="border: 0">
+
+                        </div>
+                        <div class="col-md-12 col-xs-12 col-xs-12" style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
                             <strong><i class="fa fa-qq margin-r-5"></i> QQ</strong>
                             <p class="text-muted pull-right">{{ factory.qq }}</p>
-                             <hr style="margin-top: 10px;margin-bottom: 0">
-                        </li>
-                        <li class="list-group-item" style="border: 0">
+
+                        </div>
+                        <div class="col-md-12 col-xs-12 col-xs-12" style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px" >
                             <strong><i class="fa fa-map-marker margin-r-5"></i> 地址</strong>
                             <p class="text-muted pull-right">{{ factory.address }}</p>
-                             <hr style="margin-top: 10px;margin-bottom: 0">
-                        </li>
 
-                    </ul>
+                        </div>
+
+
 
 
                 </div>
@@ -74,13 +74,25 @@
                     <div class="text-muted" style="margin: 0 0 0;float: left"><i
                             class="fa fa-truck margin-r-5"></i>工厂价格
                     </div>
-                    <div class="btn-xs btn-default" data-toggle="modal"
-                         data-target="#model_factory_price_add" style="float: left;margin-left: 10px;"><i
-                            class="fa fa-plus"></i></div>
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                class="fa fa-minus"></i></button>
-
+                    <div class="col-md-6 col-xs-9 pull-right">
+                        <div class="input-group input-group-sm">
+                                        <span class="input-group-btn">
+                                            <div class="btn btn-default" data-toggle="modal"
+                                                 data-target="#model_factory_price_add"
+                                            ><i
+                                                    class="fa fa-plus"></i></div>
+                                        </span>
+                            <span class="input-group-btn">
+                              <div id="btn_search_parts_txt_clear" class="btn btn-default btn-flat"><i
+                                      class="fa fa-close"></i> </div>
+                              </span>
+                            <input type="text" id="search_parts_key_word" name="search_key_word" placeholder="产品..."
+                                   class="form-control">
+                            <span class="input-group-btn">
+                              <div class="btn btn-default btn-flat" id="btn_parts_search"><i
+                                      class="fa fa-search"></i> </div>
+                              </span>
+                        </div>
                     </div>
                 </div>
 
@@ -266,6 +278,16 @@
 
         $(document).ready(function () {
             getFactoryPriceInfo(1);
+            $('#btn_parts_search').click(function () {
+                getFactoryPriceInfo(1);
+            })
+
+            $('#btn_search_parts_txt_clear').click(function () {
+
+                $('#search_parts_key_word').val("");
+                getFactoryPriceInfo(1);
+            })
+
             $("#btn_factory_delete").click(function () {
 
                 $.confirm({
@@ -385,7 +407,7 @@
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:factory_price_list' %}?page=" + page + "&factory_id=" +{{ factory.id }},
+                url: "{% url 'partsinfo:factory_price_list' %}?page=" + page + "&factory_id=" +{{ factory.id }} + "&parts_q=" + $('#search_parts_key_word').val(),
 
                 async: false,
                 contentType: false,

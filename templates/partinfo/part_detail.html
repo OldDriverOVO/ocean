@@ -125,14 +125,29 @@
                                 <div class="text-muted" style="margin: 0 0 0;float: left"><i
                                         class="fa fa-truck margin-r-5"></i>工厂价格
                                 </div>
-                                <div class="btn-xs btn-default" data-toggle="modal"
-                                     data-target="#model_factory_price_add" style="float: left;margin-left: 10px;"><i
-                                        class="fa fa-plus"></i></div>
-                                <div class="box-tools pull-right">
-                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                            class="fa fa-minus"></i></button>
 
+                                <div class="col-md-6 col-xs-9 pull-right">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-btn">
+                                            <div class="btn btn-default" data-toggle="modal"
+                                                 data-target="#model_factory_price_add"
+                                            ><i
+                                                    class="fa fa-plus"></i></div>
+                                        </span>
+                                        <span class="input-group-btn">
+                              <div id="btn_search_parts_txt_clear" class="btn btn-default btn-flat"><i
+                                      class="fa fa-close"></i> </div>
+                              </span>
+                                        <input type="text" id="search_factory_key_word" name="search_factory_key_word"
+                                               placeholder="查询条件....."
+                                               class="form-control ">
+                                        <span class="input-group-btn">
+                              <div class="btn btn-default btn-flat" id="btn_factory_search"><i
+                                      class="fa fa-search"></i> </div>
+                              </span>
+                                    </div>
                                 </div>
+
                             </div>
 
                             <div class="box-body table-responsive no-padding">
@@ -163,12 +178,27 @@
                                 <div class="text-muted" style="margin: 0 0 0;float: left"><i
                                         class="fa fa-ship margin-r-5"></i>客户价格
                                 </div>
-                                <div class="btn-xs btn-default" data-toggle="modal"
-                                     data-target="#model_customer_price_add" style="float: left;margin-left: 10px;"><i
-                                        class="fa fa-plus"></i></div>
-                                <div class="box-tools pull-right">
-                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                            class="fa fa-minus"></i></button>
+                                <div class="col-md-6 col-xs-9 pull-right">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-btn">
+                                            <div class="btn btn-default" data-toggle="modal"
+                                                 data-target="#model_customer_price_add"
+                                            ><i
+                                                    class="fa fa-plus"></i></div>
+                                        </span>
+                                        <span class="input-group-btn">
+                              <div id="btn_search_customer_txt_clear" class="btn btn-default btn-flat"><i
+                                      class="fa fa-close"></i> </div>
+                              </span>
+                                        <input type="text" id="search_customer_key_word"
+                                               name="search_customer_key_word"
+                                               placeholder="查询条件....."
+                                               class="form-control ">
+                                        <span class="input-group-btn">
+                              <div class="btn btn-default btn-flat" id="btn_customer_search"><i
+                                      class="fa fa-search"></i> </div>
+                              </span>
+                                    </div>
                                 </div>
 
                             </div>
@@ -353,7 +383,8 @@
                             <div class="form-group">
 
                                 <label>车型</label>
-                                <input type="text" class="form-control" name="txt_car_model" id="txt_car_model" value="{{ part.car_model }}">
+                                <input type="text" class="form-control" name="txt_car_model" id="txt_car_model"
+                                       value="{{ part.car_model }}">
 
                             </div>
                         </div>
@@ -420,6 +451,24 @@
             $('input[type="checkbox"].minimal').iCheck({
                 checkboxClass: 'icheckbox_minimal-blue',
                 radioClass: 'iradio_minimal-blue'
+            })
+            $('#btn_factory_search').click(function () {
+                getFactoryPriceInfo(1);
+            })
+
+            $('#btn_search_factory_txt_clear').click(function () {
+
+                $('#search_factory_key_word').val("");
+                getFactoryPriceInfo(1);
+            })
+            $('#btn_customer_search').click(function () {
+                getCustomerPriceInfo(1)
+            })
+
+            $('#btn_search_customer_txt_clear').click(function () {
+
+                $('#search_customer_key_word').val("");
+                getCustomerPriceInfo(1)
             })
 
             $("#btn_part_delete").click(function () {
@@ -528,7 +577,7 @@
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:factory_price_list' %}?page=" + page + "&oem={{ part.oem }}",
+                url: "{% url 'partsinfo:factory_price_list' %}?page=" + page + "&oem={{ part.oem }}" + "&factory_q=" + $('#search_factory_key_word').val(),
 
                 async: false,
                 contentType: false,
@@ -572,7 +621,7 @@
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page + "&oem={{ part.oem }}",
+                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page + "&oem={{ part.oem }}"+ "&customer_q=" + $('#search_customer_key_word').val(),
 
                 async: false,
                 contentType: false,

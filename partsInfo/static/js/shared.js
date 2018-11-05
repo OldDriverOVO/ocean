@@ -205,17 +205,19 @@ function check_file_name_img(file_name) {
 
 function initPageBar(data, page_bar_id, initPageFunc) {
 
+    var page_info = $('#' + page_bar_id).find("#page_info");
+    page_info.empty();
+    var page_list = $('#' + page_bar_id).find("#page_list");
+
+    page_list.empty();
     if (data.pageRange.length == 1) {
         return;
     }
 
-    var page_info = $('#' + page_bar_id).find("#page_info");
-    page_info.empty();
+
     var pageinfo = '当前第' + data.current_page + '页 共' + data.pages + '页';
     page_info.append(pageinfo);
-    var page_list = $('#' + page_bar_id).find("#page_list");
-    ;
-    page_list.empty();
+
     var previous = '';
     if (data.has_previous) {
         previous = '<li ><a onclick="' + initPageFunc + '(' + (data.current_page - 1) + ')">«</a></li>';

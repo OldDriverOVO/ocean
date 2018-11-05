@@ -45,10 +45,6 @@ def index(request):
 
 @login_required
 def parts_list(request):
-    # for i in range(31,150):
-    #     new = Parts(oem='909612'+str(i),cn_name='测试数据'+str(i),en_name='Test Data',last_change_date=win32timezone.now(),last_change_user_id=1)
-    #     new.save()
-    #     pass
     if request.is_ajax():
         if request.GET.get('q') != '':
             contact_list = Parts.objects.filter(
@@ -104,7 +100,11 @@ def parts_list(request):
             }, safe=False
 
         )
-
+    # for i in range(31, 1500):
+    #     new = Parts(oem='909612' + str(i), cn_name='测试数据' + str(i), en_name='Test Data',car_model='MATIZ',
+    #                 last_change_date=win32timezone.now(), last_change_user_id=1)
+    #     new.save()
+    #     pass
     return render(request, 'partinfo/parts_list.html', context={'user': request.user})
 
 
@@ -766,8 +766,11 @@ def customer_detail(request, pk):
 @login_required
 def volume_data(request):
     if request.is_ajax():
-
-        contact_list = VolumeWeightData.objects.all().order_by('-last_change_date')
+        if request.GET.get('q'):
+            contact_list = VolumeWeightData.objects.filter(oem__oem__icontains=request.GET.get('q')).order_by(
+                '-last_change_date')
+        else:
+            contact_list = VolumeWeightData.objects.all().order_by('-last_change_date')
 
         paginator = Paginator(contact_list, 40)  # Show 25 contacts per page
 
