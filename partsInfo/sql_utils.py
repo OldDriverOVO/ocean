@@ -16,21 +16,22 @@ class SqlUtils():
                LEFT JOIN auth_user a ON "partsInfo_factorypartsprice".last_change_user_id = a.id'
 
         if oem and not factory_q:
-            sql += " WHERE parts.oem = '" + oem + "';"
+            sql += " WHERE parts.oem = '" + oem + "'"
         elif oem and factory_q:
-            sql += " WHERE parts.oem = '" + oem + "' AND pif.name LIKE '%" + factory_q + "%';"
+            sql += " WHERE parts.oem = '" + oem + "' AND pif.name LIKE '%" + factory_q + "%'"
         elif factory_id and not parts_q:
-            sql += " WHERE pif.id = " + factory_id + ";"
+            sql += " WHERE pif.id = " + factory_id
         elif factory_id and parts_q:
-            sql += " WHERE pif.id = " + factory_id + " AND (parts.oem LIKE '%" + parts_q + "%' OR parts.cn_name LIKE '%" + parts_q + "%');"
+            sql += " WHERE pif.id = " + factory_id + " AND (parts.oem LIKE '%" + parts_q + "%' OR parts.cn_name LIKE '%" + parts_q + "%')"
         elif factory_q and parts_q:
-            sql += " WHERE pif.name LIKE '%" + factory_q + "%' AND (parts.oem LIKE '%" + parts_q + "%' OR parts.cn_name LIKE '%" + parts_q + "%');"
+            sql += " WHERE pif.name LIKE '%" + factory_q + "%' AND (parts.oem LIKE '%" + parts_q + "%' OR parts.cn_name LIKE '%" + parts_q + "%')"
         elif factory_q and not parts_q:
-            sql += " WHERE pif.name LIKE '%" + factory_q + "%';"
+            sql += " WHERE pif.name LIKE '%" + factory_q + "%'"
         elif parts_q and not factory_q:
-            sql += " WHERE parts.oem LIKE '%" + parts_q + "%' OR parts.cn_name LIKE '%" + parts_q + "%';"
-        else:
-            sql += ';'
+            sql += " WHERE parts.oem LIKE '%" + parts_q + "%' OR parts.cn_name LIKE '%" + parts_q + "%'"
+
+        sql +=' ORDER BY "partsInfo_factorypartsprice".price ASC;'
+
         cursor.execute(sql)
         return cursor.fetchall()
 
@@ -51,20 +52,20 @@ class SqlUtils():
             JOIN auth_user a ON "partsInfo_customerpartsprice".last_change_user_id = a.id'
 
         if oem and not customer_q:
-            sql += " WHERE parts.oem = '" + oem + "';"
+            sql += " WHERE parts.oem = '" + oem + "'"
         elif oem and customer_q:
-            sql += " WHERE parts.oem = '" + oem + "' AND pic.nick_name LIKE '%" + customer_q + "%';"
+            sql += " WHERE parts.oem = '" + oem + "' AND pic.nick_name LIKE '%" + customer_q + "%'"
         elif customer_id and not parts_q:
-            sql += " WHERE pic.id = " + customer_id + ";"
+            sql += " WHERE pic.id = " + customer_id
         elif customer_id and parts_q:
-            sql += " WHERE pic.id = " + customer_id + " AND (parts.oem LIKE '%" + parts_q + "%' OR parts.cn_name LIKE '%" + parts_q + "%');"
+            sql += " WHERE pic.id = " + customer_id + " AND (parts.oem LIKE '%" + parts_q + "%' OR parts.cn_name LIKE '%" + parts_q + "%')"
         elif customer_q and parts_q:
-            sql += " WHERE pic.nick_name LIKE '%" + customer_q + "%' AND (parts.oem LIKE '%" + parts_q + "%' OR parts.cn_name LIKE '%" + parts_q + "%');"
+            sql += " WHERE pic.nick_name LIKE '%" + customer_q + "%' AND (parts.oem LIKE '%" + parts_q + "%' OR parts.cn_name LIKE '%" + parts_q + "%')"
         elif customer_q and not parts_q:
-            sql += " WHERE pic.nick_name LIKE '%" + customer_q + "%';"
+            sql += " WHERE pic.nick_name LIKE '%" + customer_q + "%'"
         elif parts_q and not customer_q:
-            sql += " WHERE parts.oem LIKE '%" + parts_q + "%' OR parts.cn_name LIKE '%" + parts_q + "%';"
-        else:
-            sql += ';'
+            sql += " WHERE parts.oem LIKE '%" + parts_q + "%' OR parts.cn_name LIKE '%" + parts_q + "%'"
+
+        sql += ' ORDER BY "partsInfo_customerpartsprice".price ASC;'
         cursor.execute(sql)
         return cursor.fetchall()

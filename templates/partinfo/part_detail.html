@@ -7,103 +7,97 @@
 {% block content-header %}{% endblock %}
 {% block content %}
     <div class="row">
+        <div class="col-lg-6 col-sm-12 col-xs-12 col-md-12">
+            <div class="box box-widget">
+                <div class="box-body no-padding">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
-        <div class="col-md-12">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="/media/{{ part.img }}"
+                                     alt="First slide">
+
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+                            {#                                    <div class="item">#}
+                            {#                                        <img src="/media/{{ part.img }}"#}
+                            {#                                             alt="Second slide">#}
+                            {##}
+                            {#                                        <div class="carousel-caption">#}
+                            {##}
+                            {#                                        </div>#}
+                            {#                                    </div>#}
+                            {#                                    <div class="item">#}
+                            {#                                        <img src="/media/{{ part.img }}"#}
+                            {#                                             alt="Third slide">#}
+                            {##}
+                            {#                                        <div class="carousel-caption">#}
+                            {##}
+                            {#                                        </div>#}
+                            {#                                    </div>#}
+                        </div>
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="fa fa-angle-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="fa fa-angle-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-sm-12 col-xs-12 col-md-12">
             <div class="box box-widget">
                 <div class="box-header with-border">
-                    <div class="btn-xs btn-danger pull-right" id="btn_part_delete"><i class="fa fa-trash-o"></i></div>
+                    <div class="box-title">
+                        {{ part.cn_name }}
+                    </div>
+                    <div class="btn-xs btn-danger pull-right" id="btn_part_delete"><i class="fa fa-trash-o"></i>
+                    </div>
                     <div class="btn-xs btn-primary pull-right" data-toggle="modal"
                          data-target="#model_parts_update" id="btn_part_update" style="margin-right: 5px"><i
-                            class="fa fa-pencil-square-o"></i></div>
+                            class="fa fa-pencil-square-o"></i>
+                    </div>
 
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body">
-                    <div class="col-lg-6 col-sm-12 col-xs-12">
-                        <div class="box-body">
-                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                {#                                <ol class="carousel-indicators">#}
-                                {#                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>#}
-                                {#                                    <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>#}
-                                {#                                    <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>#}
-                                {#                                </ol>#}
-                                <div class="carousel-inner">
-                                    <div class="item active">
-                                        <img src="/media/{{ part.img }}"
-                                             alt="First slide">
-
-                                        <div class="carousel-caption">
-
-                                        </div>
-                                    </div>
-                                    {#                                    <div class="item">#}
-                                    {#                                        <img src="/media/{{ part.img }}"#}
-                                    {#                                             alt="Second slide">#}
-                                    {##}
-                                    {#                                        <div class="carousel-caption">#}
-                                    {##}
-                                    {#                                        </div>#}
-                                    {#                                    </div>#}
-                                    {#                                    <div class="item">#}
-                                    {#                                        <img src="/media/{{ part.img }}"#}
-                                    {#                                             alt="Third slide">#}
-                                    {##}
-                                    {#                                        <div class="carousel-caption">#}
-                                    {##}
-                                    {#                                        </div>#}
-                                    {#                                    </div>#}
-                                </div>
-                                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                    <span class="fa fa-angle-left"></span>
-                                </a>
-                                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                    <span class="fa fa-angle-right"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-sm-6 col-xs-6">
-                        <div class="box-body">
-                            <ul class="list-group list-group-unbordered">
-                                <li class="list-group-item">
-                                    <strong><i class="fa fa-book margin-r-5"></i> OEM</strong>
-                                    <p class="text-muted">{{ part.oem }}</p>
-                                </li>
-                                <li class="list-group-item">
-                                    <strong><i class="fa fa-tags margin-r-5"></i> 中文品名</strong>
-                                    <p class="text-muted"> {{ part.cn_name }}</p>
-                                </li>
-                                <li class="list-group-item">
-                                    <strong><i class="fa fa-tags margin-r-5"></i> 英文品名</strong>
-                                    <p class="text-muted"> {{ part.en_name }}</p>
-
-                                </li>
-                                <li class="list-group-item">
-
-                                    <strong><i class="fa fa-car margin-r-5"></i> 车型</strong>
-                                    <p class="text-muted">{{ part.car_model }}</p>
-
-                                </li>
+                <div class="box-body" style="padding-left: 0;padding-right: 0">
 
 
-                            </ul>
-                        </div>
+                    <div class="col-md-12 col-xs-12 col-xs-12"
+                         style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
+                        <strong><i class="fa fa-book margin-r-5"></i> OEM</strong>
+                        <p class="text-muted pull-right">
+                            {{ part.oem }}
+                        </p>
 
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-xs-6">
-                        <div class="box-body">
-                            <ul class="list-group list-group-unbordered">
+                    <div class="col-md-12 col-xs-12 col-xs-12"
+                         style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
+                        <strong><i class="fa fa-tag margin-r-5"></i> 中文品名</strong>
+                        <p class="text-muted pull-right">{{ part.cn_name }}</p>
 
-                                <li class="list-group-item">
+                    </div>
+                    <div class="col-md-12 col-xs-12 col-xs-12"
+                         style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
+                        <strong><i class="fa fa-tag margin-r-5"></i> 英文品名</strong>
+                        <p class="text-muted pull-right">{{ part.en_name }}</p>
 
-                                    <strong><i class="fa fa-commenting-o margin-r-5"></i> 描述</strong>
-                                    <p class="text-muted">{{ part.description }}</p>
-                                </li>
+                    </div>
+                    <div class="col-md-12 col-xs-12 col-xs-12"
+                         style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
+                        <strong><i class="fa fa-car margin-r-5"></i> 车型</strong>
+                        <p class="text-muted pull-right">{{ part.car_model }}</p>
 
-
-                            </ul>
-                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-12 col-xs-12"
+                         style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
+                        <strong><i class="fa fa-commenting-o margin-r-5"></i> 备注</strong>
+                        <p class="text-muted pull-right">{{ part.description }}</p>
 
                     </div>
 
@@ -119,112 +113,228 @@
 
                 </div>
                 <div class="box-footer">
-                    <div class="col-md-12 col-xs-12 col-lg-12">
-                        <div class="box box-primary">
-                            <div class="box-header">
-                                <div class="text-muted" style="margin: 0 0 0;float: left"><i
-                                        class="fa fa-truck margin-r-5"></i>工厂价格
-                                </div>
 
-                                <div class="col-md-6 col-xs-9 pull-right">
-                                    <div class="input-group input-group-sm">
+                </div>
+
+                <!-- /.box-footer -->
+            </div>
+
+        </div>
+        <div class="col-lg-3 col-sm-12 col-xs-12 col-md-12">
+            <div class="box box-widget">
+                <div class="box-header">
+                    <div class="box-title">
+                        互换号
+                    </div>
+                    <div class="btn-xs btn-default pull-right"><i class="fa fa-plus"> 添加</i></div>
+
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tbody>
+
+                        <tr>
+
+                            <td>John Doe</td>
+                            <td>
+                                <div class="btn-xs btn-default pull-right"><i class="fa fa-close"></i></div>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>Alexander Pierce</td>
+                            <td>
+                                <div class="btn-xs btn-default pull-right"><i class="fa fa-close"></i></div>
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                            <td>Bob Doe</td>
+                            <td>
+                                <div class="btn-xs btn-default pull-right"><i class="fa fa-close"></i></div>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>Mike Doe</td>
+                            <td>
+                                <div class="btn-xs btn-default pull-right"><i class="fa fa-close"></i></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+                <!-- /.box-footer -->
+
+                <div class="box-footer">
+
+                </div>
+
+                <!-- /.box-footer -->
+            </div>
+
+        </div>
+
+        <div class="col-md-12 col-xs-12 col-lg-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <div class="text-muted" style="margin: 0 0 0;float: left"><i
+                            class="fa fa-truck margin-r-5"></i>工厂价格
+                    </div>
+
+                    <div class="col-md-6 col-xs-9 pull-right">
+                        <div class="input-group input-group-sm">
                                         <span class="input-group-btn">
                                             <div class="btn btn-default" data-toggle="modal"
                                                  data-target="#model_factory_price_add"
                                             ><i
-                                                    class="fa fa-plus"></i></div>
+                                                    class="fa fa-plus"></i> 添加</div>
                                         </span>
-                                        <span class="input-group-btn">
+                            <span class="input-group-btn">
                               <div id="btn_search_parts_txt_clear" class="btn btn-default btn-flat"><i
                                       class="fa fa-close"></i> </div>
                               </span>
-                                        <input type="text" id="search_factory_key_word" name="search_factory_key_word"
-                                               placeholder="查询条件....."
-                                               class="form-control ">
-                                        <span class="input-group-btn">
+                            <input type="text" id="search_factory_key_word" name="search_factory_key_word"
+                                   placeholder="查询条件....."
+                                   class="form-control ">
+                            <span class="input-group-btn">
                               <div class="btn btn-default btn-flat" id="btn_factory_search"><i
                                       class="fa fa-search"></i> </div>
                               </span>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="box-body table-responsive no-padding">
-                                <table class="table table-hover" id="factory_price_list">
-                                    <tbody>
-                                    <tr>
-                                        <th>工厂</th>
-                                        <th>价格</th>
-                                        <th>操作</th>
-                                        <th>备注</th>
-                                        <th>修改日期</th>
-                                        <th>修改人</th>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="factory_price_list_bar">
-                                {% include "partinfo/page_bar.html" %}
-                            </div>
-                            <!-- /.box-body -->
                         </div>
-
                     </div>
-                    <div class="col-md-12 col-xs-12 col-lg-12">
-                        <div class="box box-danger">
-                            <div class="box-header">
-                                <div class="text-muted" style="margin: 0 0 0;float: left"><i
-                                        class="fa fa-ship margin-r-5"></i>客户价格
-                                </div>
-                                <div class="col-md-6 col-xs-9 pull-right">
-                                    <div class="input-group input-group-sm">
+
+                </div>
+
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover" id="factory_price_list">
+                        <tbody>
+                        <tr>
+                            <th>工厂</th>
+                            <th>价格</th>
+                            <th>操作</th>
+                            <th>备注</th>
+                            <th>修改日期</th>
+                            <th>修改人</th>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div id="factory_price_list_bar">
+                    {% include "partinfo/page_bar.html" %}
+                </div>
+                <!-- /.box-body -->
+            </div>
+
+        </div>
+        <div class="col-md-12 col-xs-12 col-lg-12">
+            <div class="box box-danger">
+                <div class="box-header">
+                    <div class="text-muted" style="margin: 0 0 0;float: left"><i
+                            class="fa fa-ship margin-r-5"></i>客户价格
+                    </div>
+                    <div class="col-md-6 col-xs-9 pull-right">
+                        <div class="input-group input-group-sm">
                                         <span class="input-group-btn">
                                             <div class="btn btn-default" data-toggle="modal"
                                                  data-target="#model_customer_price_add"
                                             ><i
-                                                    class="fa fa-plus"></i></div>
+                                                    class="fa fa-plus"></i> 添加</div>
                                         </span>
-                                        <span class="input-group-btn">
+                            <span class="input-group-btn">
                               <div id="btn_search_customer_txt_clear" class="btn btn-default btn-flat"><i
                                       class="fa fa-close"></i> </div>
                               </span>
-                                        <input type="text" id="search_customer_key_word"
-                                               name="search_customer_key_word"
-                                               placeholder="查询条件....."
-                                               class="form-control ">
-                                        <span class="input-group-btn">
+                            <input type="text" id="search_customer_key_word"
+                                   name="search_customer_key_word"
+                                   placeholder="查询条件....."
+                                   class="form-control ">
+                            <span class="input-group-btn">
                               <div class="btn btn-default btn-flat" id="btn_customer_search"><i
                                       class="fa fa-search"></i> </div>
                               </span>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!-- /.box-header -->
-                            <div class="box-body table-responsive no-padding">
-                                <table class="table table-hover" id="customer_price_list">
-                                    <tbody>
-                                    <tr>
-                                        <th>客户</th>
-                                        <th>价格</th>
-                                        <th>操作</th>
-                                        <th>备注</th>
-                                        <th>修改日期</th>
-                                        <th>修改人</th>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div id="customer_price_list_bar">
-                                {% include "partinfo/page_bar.html" %}
-                            </div>
-                            <!-- /.box-body -->
                         </div>
-
                     </div>
+
                 </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover" id="customer_price_list">
+                        <tbody>
+                        <tr>
+                            <th>客户</th>
+                            <th>价格</th>
+                            <th>操作</th>
+                            <th>备注</th>
+                            <th>修改日期</th>
+                            <th>修改人</th>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div id="customer_price_list_bar">
+                    {% include "partinfo/page_bar.html" %}
+                </div>
+                <!-- /.box-body -->
+            </div>
+
+        </div>
+        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+            <div class="box box-default">
+                <div class="box-header">
+                    <div class="text-muted" style="margin: 0 0 0;float: left"></i>装箱数据
+                    </div>
+                    <div class="btn-xs btn-default pull-right"><i class="fa fa-pencil-square-o"> 修改</i></div>
+
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive">
+                    <table class="table table-hover">
+                        <tbody>
+
+                        <tr>
+
+                            <th>长(cm)</th>
+                            <th>
+                                宽(cm)
+                            </th>
+                            <th>
+                                高(cm)
+                            </th>
+                            <th>毛重(kg)</th>
+                            <th>
+                                净重(kg)
+                            </th>
+                            <th>
+                                备注
+                            </th>
+
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <!-- /.box-body -->
+                <!-- /.box-footer -->
+
+
+                <div class="box-footer box-comments" style="padding: 0">
+                    <span class=" text-muted pull-right" style="margin-right: 10px"><i
+                            class="fa fa-clock-o"> {{ part.last_change_date|date:"Y-m-d" }}</i></span>
+                    <span class=" text-muted pull-right" style="margin-right: 10px"><i
+                            class="fa fa-user-plus"> {{ part.last_change_user.first_name }}</i></span>
+
+                </div>
+
 
                 <!-- /.box-footer -->
             </div>
@@ -621,7 +731,7 @@
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page + "&oem={{ part.oem }}"+ "&customer_q=" + $('#search_customer_key_word').val(),
+                url: "{% url 'partsinfo:customer_price_list' %}?page=" + page + "&oem={{ part.oem }}" + "&customer_q=" + $('#search_customer_key_word').val(),
 
                 async: false,
                 contentType: false,
