@@ -123,8 +123,8 @@
         <div class="col-lg-3 col-sm-12 col-xs-12 col-md-12">
             <div class="box box-widget">
                 <div class="box-header">
-                    <div class="box-title">
-                        互换号
+                    <div class="text-muted" style="margin: 0 0 0;float: left"><i
+                            class="fa fa-chain margin-r-5"></i>互换号
                     </div>
                     <div class="btn-xs btn-default pull-right"><i class="fa fa-plus"> 添加</i></div>
 
@@ -134,36 +134,17 @@
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tbody>
+                        {% for ex in part.oemexchange_set.all %}
+                            <tr>
 
-                        <tr>
+                                <td class="text-muted">{{ ex }}</td>
+                                <td>
+                                    <div class="btn-xs btn-default pull-right"><i class="fa fa-close"></i></div>
+                                </td>
+                            </tr>
+                        {% endfor %}
 
-                            <td>John Doe</td>
-                            <td>
-                                <div class="btn-xs btn-default pull-right"><i class="fa fa-close"></i></div>
-                            </td>
-                        </tr>
-                        <tr>
 
-                            <td>Alexander Pierce</td>
-                            <td>
-                                <div class="btn-xs btn-default pull-right"><i class="fa fa-close"></i></div>
-                            </td>
-
-                        </tr>
-                        <tr>
-
-                            <td>Bob Doe</td>
-                            <td>
-                                <div class="btn-xs btn-default pull-right"><i class="fa fa-close"></i></div>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td>Mike Doe</td>
-                            <td>
-                                <div class="btn-xs btn-default pull-right"><i class="fa fa-close"></i></div>
-                            </td>
-                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -178,7 +159,91 @@
             </div>
 
         </div>
+        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <div class="text-muted" style="margin: 0 0 0;float: left"><i class="fa  fa-cube"></i> 装箱数据
+                    </div>
 
+
+                    {% if part.volumeweightdata %}
+                        <div class="btn-xs btn-danger pull-right" id="volume_data_delete">删除</div>
+                    {% endif %}
+                    <div class="btn-xs btn-primary pull-right" id="volume_data_update_or_add" style="margin-right: 5px">
+                        {% if part.volumeweightdata %}
+
+                            修改
+                        {% else %}
+                            添加
+                        {% endif %}
+                    </div>
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tbody>
+
+                        <tr>
+
+                            <th>长(cm)</th>
+                            <th>
+                                宽(cm)
+                            </th>
+                            <th>
+                                高(cm)
+                            </th>
+                            <th>毛重(kg)</th>
+                            <th>
+                                净重(kg)
+                            </th>
+                            <th>
+                                备注
+                            </th>
+
+                        </tr>
+                        <tr>
+
+                            <td>{{ part.volumeweightdata.length }} cm</td>
+                            <td>
+                                {{ part.volumeweightdata.width }} cm
+                            </td>
+                            <td>
+                                {{ part.volumeweightdata.height }} cm
+                            </td>
+                            <td>{{ part.volumeweightdata.gross_weight }} kg</td>
+                            <td>
+                                {{ part.volumeweightdata.net_weight }} kg
+                            </td>
+                            <td>
+                                {{ part.volumeweightdata.description }}
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <!-- /.box-body -->
+                <!-- /.box-footer -->
+
+
+                <div class="box-footer box-comments" style="padding: 0">
+                    <span class=" text-muted pull-right" style="margin-right: 10px"><i
+                            class="fa fa-clock-o"> {{ part.volumeweightdata.last_change_date|date:"Y-m-d" }}</i></span>
+                    <span class=" text-muted pull-right" style="margin-right: 10px"><i
+                            class="fa fa-user-plus"> {{ part.volumeweightdata.last_change_user.first_name }}</i></span>
+
+                </div>
+
+
+                <!-- /.box-footer -->
+            </div>
+
+        </div>
         <div class="col-md-12 col-xs-12 col-lg-12">
             <div class="box box-primary">
                 <div class="box-header">
@@ -284,62 +349,7 @@
             </div>
 
         </div>
-        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
-            <div class="box box-default">
-                <div class="box-header">
-                    <div class="text-muted" style="margin: 0 0 0;float: left"></i>装箱数据
-                    </div>
-                    <div class="btn-xs btn-default pull-right"><i class="fa fa-pencil-square-o"> 修改</i></div>
 
-
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body table-responsive">
-                    <table class="table table-hover">
-                        <tbody>
-
-                        <tr>
-
-                            <th>长(cm)</th>
-                            <th>
-                                宽(cm)
-                            </th>
-                            <th>
-                                高(cm)
-                            </th>
-                            <th>毛重(kg)</th>
-                            <th>
-                                净重(kg)
-                            </th>
-                            <th>
-                                备注
-                            </th>
-
-                        </tr>
-
-
-                        </tbody>
-                    </table>
-
-
-                </div>
-                <!-- /.box-body -->
-                <!-- /.box-footer -->
-
-
-                <div class="box-footer box-comments" style="padding: 0">
-                    <span class=" text-muted pull-right" style="margin-right: 10px"><i
-                            class="fa fa-clock-o"> {{ part.last_change_date|date:"Y-m-d" }}</i></span>
-                    <span class=" text-muted pull-right" style="margin-right: 10px"><i
-                            class="fa fa-user-plus"> {{ part.last_change_user.first_name }}</i></span>
-
-                </div>
-
-
-                <!-- /.box-footer -->
-            </div>
-
-        </div>
     </div>
     <div class="modal fade" id="model_factory_price_add" style="display: none;">
         <div class="modal-dialog">
@@ -681,6 +691,20 @@
 
             });
 
+            $('#volume_data_update_or_add').click(function () {
+
+                updateVolumeDataInfo();
+
+            });
+            $('#volume_data_delete').click(function () {
+
+
+                deleteVolumeDataInfo({{ part.volumeweightdata.id }});
+
+
+            });
+
+
         })
 
         function getFactoryPriceInfo(page) {
@@ -773,5 +797,172 @@
 
 
         }
+
+        function updateVolumeDataInfo() {
+
+            $.confirm({
+                title: '修改',
+                animation: 'top',
+                closeAnimation: 'top',
+                backgroundDismiss: true,
+                animateFromElement: false,
+                content: '' +
+                '<form id="update_volume_data" action="" method="post">' +
+                '<input type="hidden" value="{{ part.volumeweightdata.id }}" name="id">' +
+                '<input type="hidden" value="{{ part.oem }}" name="select_parts">' +
+                '<div class="col-md-4">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>长(cm)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="length"\n' +
+                '                                       id=""\n' +
+                '                                       value="{{ part.volumeweightdata.length }}">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-4">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>宽(cm)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="width"\n' +
+                '                                       id=""\n' +
+                '                                       value="{{ part.volumeweightdata.width }}">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-4">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>高(cm)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="height"\n' +
+                '                                       id=""\n' +
+                '                                       value="{{ part.volumeweightdata.height }}">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-6">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>毛重(kg)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="gross_weight"\n' +
+                '                                       id=""\n' +
+                '                                       value="{{ part.volumeweightdata.gross_weight }}">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-6">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>净重(kg)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="net_weight"\n' +
+                '                                       id=""\n' +
+                '                                       value="{{ part.volumeweightdata.net_weight }}">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-12">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>备注</label>\n' +
+                '                                <textarea class="form-control" rows="4" name="desc"\n' +
+                '                                          id=""\n' +
+                '                                          placeholder=".....">{{ part.volumeweightdata.description}}</textarea>\n' +
+                '                            </div>\n' +
+                '                        </div>' +
+                '</form>',
+                buttons: {
+                    cancel: {
+                        text: '取消',
+
+                    },
+                    formSubmit: {
+                        text: '保存',
+                        btnClass: 'btn-blue',
+                        action: function () {
+
+                            var update_volume_data = new FormData(this.$content.find('#update_volume_data')[0]);
+                            $.ajax({
+                                type: "POST",
+                                headers: {"X-CSRFtoken": $.cookie('csrftoken')},
+                                url: {% if part.volumeweightdata %}"/baseinfo/update_volume_data/"
+                                    {% else %}"/baseinfo/add_volume_data/"{% endif %},
+                                data: update_volume_data,
+                                async: false,
+                                contentType: false,
+                                processData: false,
+
+                                success: function (data) {
+
+
+                                    if (data == "success") {
+
+                                        toastr.success('修改成功');
+                                        window.location.reload()
+                                    }
+                                    else if (data == "object_not_found") {
+
+                                        toastr.error('修改失败 没有找到修改对象');
+                                    }
+                                    else if (data == "data_error") {
+                                        toastr.error('数据库错误');
+                                    }
+                                    else {
+                                        toastr.error('没有权限');
+                                    }
+
+                                }
+
+                            });
+
+
+                        }
+
+                    },
+
+                },
+
+            });
+        }
+
+        function deleteVolumeDataInfo(id) {
+
+            $.confirm({
+                title: '提示',
+                content: '确定删除？',
+                animation: 'top',
+                closeAnimation: 'top',
+                animateFromElement: false,
+                backgroundDismiss: true,
+                buttons: {
+                    cancel: {
+                        text: '取消',
+                    },
+                    confirm: {
+                        text: '删除',
+                        btnClass: 'btn-danger',
+                        action: function () {
+                            $.ajax({
+                                type: "POST",
+                                headers: {"X-CSRFtoken": $.cookie('csrftoken')},
+                                url: "/baseinfo/delete_volume_data/",
+                                data: {'id': id},
+
+                                success: function (data) {
+
+
+                                    if (data == "success") {
+
+                                        toastr.success('删除成功！2333');
+                                        window.location.reload()
+                                    }
+                                    else if (data == "object_not_found") {
+
+                                        toastr.error('失败 没有找到删除对象');
+                                    }
+                                    else {
+                                        toastr.error('没有权限');
+                                    }
+
+                                }
+
+                            });
+                        }
+                    }
+
+                }
+            });
+
+
+        }
+
     </script>
 {% endblock %}

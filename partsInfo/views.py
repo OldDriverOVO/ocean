@@ -731,7 +731,7 @@ def delete_customer_price(request):
 
 @login_required
 def part_detail(request, pk):
-    target = Parts.objects.filter(oem=pk).first()
+    target = Parts.objects.get(oem=pk)
 
     if target:
         return render(request, 'partinfo/part_detail.html', context={'user': request.user,
@@ -829,11 +829,11 @@ def add_volume_data(request):
 
         new = VolumeWeightData(
             oem=part,
-            length=request.POST.get("length"),
-            width=request.POST.get("width"),
-            height=request.POST.get("height"),
-            net_weight=request.POST.get("net_weight"),
-            gross_weight=request.POST.get("gross_weight"),
+            length=request.POST.get("length") if request.POST.get("length")!='' else 0,
+            width=request.POST.get("width") if request.POST.get("width")!='' else 0,
+            height=request.POST.get("height") if request.POST.get("height")!='' else 0,
+            net_weight=request.POST.get("net_weight") if request.POST.get("net_weight")!='' else 0,
+            gross_weight=request.POST.get("gross_weight") if request.POST.get("gross_weight")!='' else 0,
             description=request.POST.get("desc"),
             last_change_user_id=request.user.id,
 
