@@ -126,7 +126,7 @@
                     <div class="text-muted" style="margin: 0 0 0;float: left"><i
                             class="fa fa-chain margin-r-5"></i>互换号
                     </div>
-                    <div class="btn-xs btn-default pull-right"><i class="fa fa-plus"> 添加</i></div>
+                    <div class="btn-xs btn-default pull-right" id="btn_ex_oem_add"><i class="fa fa-plus"> 添加</i></div>
 
 
                 </div>
@@ -574,6 +574,8 @@
             })
             $('#btn_factory_search').click(function () {
                 getFactoryPriceInfo(1);
+
+
             })
 
             $('#btn_search_factory_txt_clear').click(function () {
@@ -662,7 +664,7 @@
 
                         if (data == "success") {
                             $('#model_parts_update').modal('hide');
-                            window.location.reload();
+                           window.location.reload();
 
                         } else if (data == "object_not_found") {
 
@@ -691,21 +693,266 @@
 
             });
 
-            $('#volume_data_update_or_add').click(function () {
+            $('#volume_data_update_or_add').confirm({
+                title: '修改',
+                animation: 'top',
+                closeAnimation: 'top',
+                backgroundDismiss: true,
+                animateFromElement: false,
+                content: '' +
+                '<form id="update_volume_data" action="" method="post">' +
+                '<input type="hidden" value="{{ part.volumeweightdata.id }}" name="id">' +
+                '<input type="hidden" value="{{ part.oem }}" name="select_parts">' +
+                '<div class="col-md-4">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>长(cm)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="length"\n' +
+                '                                       id=""\n' +
+                '                                       value="{{ part.volumeweightdata.length }}">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-4">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>宽(cm)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="width"\n' +
+                '                                       id=""\n' +
+                '                                       value="{{ part.volumeweightdata.width }}">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-4">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>高(cm)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="height"\n' +
+                '                                       id=""\n' +
+                '                                       value="{{ part.volumeweightdata.height }}">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-6">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>毛重(kg)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="gross_weight"\n' +
+                '                                       id=""\n' +
+                '                                       value="{{ part.volumeweightdata.gross_weight }}">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-6">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>净重(kg)</label>\n' +
+                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="net_weight"\n' +
+                '                                       id=""\n' +
+                '                                       value="{{ part.volumeweightdata.net_weight }}">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-12">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>备注</label>\n' +
+                '                                <textarea class="form-control" rows="4" name="desc"\n' +
+                '                                          id=""\n' +
+                '                                          placeholder=".....">{{ part.volumeweightdata.description}}</textarea>\n' +
+                '                            </div>\n' +
+                '                        </div>' +
+                '</form>',
+                buttons: {
+                    cancel: {
+                        text: '取消',
 
-                updateVolumeDataInfo();
+                    },
+                    formSubmit: {
+                        text: '保存',
+                        btnClass: 'btn-blue',
+                        action: function () {
+
+                            var update_volume_data = new FormData(this.$content.find('#update_volume_data')[0]);
+                            $.ajax({
+                                type: "POST",
+                                headers: {"X-CSRFtoken": $.cookie('csrftoken')},
+                                url: {% if part.volumeweightdata %}'{% url 'partsinfo:update_volume_data' %}'
+                                    {% else %}'{% url 'partsinfo:add_volume_data' %}'{% endif %},
+                                data: update_volume_data,
+                                async: false,
+                                contentType: false,
+                                processData: false,
+
+                                success: function (data) {
+
+
+                                    if (data == "success") {
+
+                                        toastr.success('修改成功');
+
+                                        window.location.reload()
+                                    }
+                                    else if (data == "object_not_found") {
+
+                                        toastr.error('修改失败 没有找到修改对象');
+                                    }
+                                    else if (data == "data_error") {
+                                        toastr.error('数据库错误');
+                                    }
+                                    else {
+                                        toastr.error('没有权限');
+                                    }
+
+                                }
+
+                            });
+
+
+                        }
+
+                    },
+
+                },
 
             });
-            $('#volume_data_delete').click(function () {
+
+            $('#volume_data_delete').confirm({
+
+                title: '提示',
+                content: '确定删除？',
+                animation: 'top',
+                closeAnimation: 'top',
+                animateFromElement: false,
+                backgroundDismiss: true,
+                buttons: {
+                    cancel: {
+                        text: '取消',
+                    },
+                    confirm: {
+                        text: '删除',
+                        btnClass: 'btn-danger',
+                        action: function () {
+                            $.ajax({
+                                type: "POST",
+                                headers: {"X-CSRFtoken": $.cookie('csrftoken')},
+                                url: "{% url 'partsinfo:delete_volume_data' %}",
+                                data: {'id': '{{part.volumeweightdata.id}}'},
+
+                                success: function (data) {
 
 
-                deleteVolumeDataInfo({{ part.volumeweightdata.id }});
+                                    if (data == "success") {
 
+                                        toastr.success('删除成功！2333');
+                                        window.location.reload()
+                                    }
+                                    else if (data == "object_not_found") {
+
+                                        toastr.error('失败 没有找到删除对象');
+                                    }
+                                    else {
+                                        toastr.error('没有权限');
+                                    }
+
+                                }
+
+                            });
+                        }
+                    }
+
+                }
+            });
+
+
+            $('#btn_ex_oem_add').confirm({
+
+                title: '添加',
+                columnClass: 'col-md-6 col-md-offset-3',
+                animation: 'top',
+                closeAnimation: 'top',
+                backgroundDismiss: true,
+                animateFromElement: false,
+                content: '' +
+                '<form id="add_ex_oem" action="" method="post">' +
+
+                '<div class="col-md-6">\n' +
+                '                            <div class="form-group">\n' +
+                '                                <label>OEM</label>\n' +
+                '                                <input type="text" readonly="readonly" class="form-control" name="oem"\n' +
+                '                                       id=""\n' +
+                '                                       value="{{ part.oem }}">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-md-6">\n' +
+                '                            <div class="form-group" id="ex_fg">\n' +
+                '                                <label>互换号</label>\n' +
+                '                                <input type="text"  class="form-control" name="ex_oem"\n' +
+                '                                       id=""\n' +
+                '                                       placeholder="...">\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+
+                '</form>',
+                buttons: {
+                    cancel: {
+                        text: '取消',
+
+                    },
+                    formSubmit: {
+                        text: '保存',
+                        btnClass: 'btn-blue',
+                        action: function () {
+
+                            var add_ex_oem = new FormData(this.$content.find('#add_ex_oem')[0]);
+                            if (!addExOem(add_ex_oem)) {
+                                this.$content.find('#ex_fg').addClass('has-error');
+                                return false;
+                            }
+
+
+                        }
+
+                    },
+
+                },
 
             });
 
 
         })
+
+
+        function addExOem(add_ex_oem) {
+            var bool = true;
+            $.ajax({
+                type: "POST",
+                headers: {"X-CSRFtoken": $.cookie('csrftoken')},
+                url: '{% url 'partsinfo:add_ex_ome' %}',
+                data: add_ex_oem,
+                async: false,
+                contentType: false,
+                processData: false,
+
+                success: function (data) {
+
+
+                    if (data.state == "success") {
+
+                        toastr.success('添加成功');
+                        window.location.reload();
+
+                    }
+                    else if (data.state == "ex_info_exist") {
+
+                        toastr.error(data.ex_oem + '是' + data.oem + '的互换号');
+                        bool = false;
+
+                    }
+                    else if (data.state == "info_exist") {
+                        toastr.error('信息重复');
+                        bool = false;
+
+                    }
+                    else {
+                        toastr.error('没有权限');
+
+                    }
+
+                }
+
+            });
+            return bool;
+        }
 
         function getFactoryPriceInfo(page) {
             $.ajax({
@@ -798,171 +1045,6 @@
 
         }
 
-        function updateVolumeDataInfo() {
-
-            $.confirm({
-                title: '修改',
-                animation: 'top',
-                closeAnimation: 'top',
-                backgroundDismiss: true,
-                animateFromElement: false,
-                content: '' +
-                '<form id="update_volume_data" action="" method="post">' +
-                '<input type="hidden" value="{{ part.volumeweightdata.id }}" name="id">' +
-                '<input type="hidden" value="{{ part.oem }}" name="select_parts">' +
-                '<div class="col-md-4">\n' +
-                '                            <div class="form-group">\n' +
-                '                                <label>长(cm)</label>\n' +
-                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="length"\n' +
-                '                                       id=""\n' +
-                '                                       value="{{ part.volumeweightdata.length }}">\n' +
-                '                            </div>\n' +
-                '                        </div>\n' +
-                '                        <div class="col-md-4">\n' +
-                '                            <div class="form-group">\n' +
-                '                                <label>宽(cm)</label>\n' +
-                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="width"\n' +
-                '                                       id=""\n' +
-                '                                       value="{{ part.volumeweightdata.width }}">\n' +
-                '                            </div>\n' +
-                '                        </div>\n' +
-                '                        <div class="col-md-4">\n' +
-                '                            <div class="form-group">\n' +
-                '                                <label>高(cm)</label>\n' +
-                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="height"\n' +
-                '                                       id=""\n' +
-                '                                       value="{{ part.volumeweightdata.height }}">\n' +
-                '                            </div>\n' +
-                '                        </div>\n' +
-                '                        <div class="col-md-6">\n' +
-                '                            <div class="form-group">\n' +
-                '                                <label>毛重(kg)</label>\n' +
-                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="gross_weight"\n' +
-                '                                       id=""\n' +
-                '                                       value="{{ part.volumeweightdata.gross_weight }}">\n' +
-                '                            </div>\n' +
-                '                        </div>\n' +
-                '                        <div class="col-md-6">\n' +
-                '                            <div class="form-group">\n' +
-                '                                <label>净重(kg)</label>\n' +
-                '                                <input type="number" min="0.0" step="0.1" class="form-control" name="net_weight"\n' +
-                '                                       id=""\n' +
-                '                                       value="{{ part.volumeweightdata.net_weight }}">\n' +
-                '                            </div>\n' +
-                '                        </div>\n' +
-                '                        <div class="col-md-12">\n' +
-                '                            <div class="form-group">\n' +
-                '                                <label>备注</label>\n' +
-                '                                <textarea class="form-control" rows="4" name="desc"\n' +
-                '                                          id=""\n' +
-                '                                          placeholder=".....">{{ part.volumeweightdata.description}}</textarea>\n' +
-                '                            </div>\n' +
-                '                        </div>' +
-                '</form>',
-                buttons: {
-                    cancel: {
-                        text: '取消',
-
-                    },
-                    formSubmit: {
-                        text: '保存',
-                        btnClass: 'btn-blue',
-                        action: function () {
-
-                            var update_volume_data = new FormData(this.$content.find('#update_volume_data')[0]);
-                            $.ajax({
-                                type: "POST",
-                                headers: {"X-CSRFtoken": $.cookie('csrftoken')},
-                                url: {% if part.volumeweightdata %}"/baseinfo/update_volume_data/"
-                                    {% else %}"/baseinfo/add_volume_data/"{% endif %},
-                                data: update_volume_data,
-                                async: false,
-                                contentType: false,
-                                processData: false,
-
-                                success: function (data) {
-
-
-                                    if (data == "success") {
-
-                                        toastr.success('修改成功');
-                                        window.location.reload()
-                                    }
-                                    else if (data == "object_not_found") {
-
-                                        toastr.error('修改失败 没有找到修改对象');
-                                    }
-                                    else if (data == "data_error") {
-                                        toastr.error('数据库错误');
-                                    }
-                                    else {
-                                        toastr.error('没有权限');
-                                    }
-
-                                }
-
-                            });
-
-
-                        }
-
-                    },
-
-                },
-
-            });
-        }
-
-        function deleteVolumeDataInfo(id) {
-
-            $.confirm({
-                title: '提示',
-                content: '确定删除？',
-                animation: 'top',
-                closeAnimation: 'top',
-                animateFromElement: false,
-                backgroundDismiss: true,
-                buttons: {
-                    cancel: {
-                        text: '取消',
-                    },
-                    confirm: {
-                        text: '删除',
-                        btnClass: 'btn-danger',
-                        action: function () {
-                            $.ajax({
-                                type: "POST",
-                                headers: {"X-CSRFtoken": $.cookie('csrftoken')},
-                                url: "/baseinfo/delete_volume_data/",
-                                data: {'id': id},
-
-                                success: function (data) {
-
-
-                                    if (data == "success") {
-
-                                        toastr.success('删除成功！2333');
-                                        window.location.reload()
-                                    }
-                                    else if (data == "object_not_found") {
-
-                                        toastr.error('失败 没有找到删除对象');
-                                    }
-                                    else {
-                                        toastr.error('没有权限');
-                                    }
-
-                                }
-
-                            });
-                        }
-                    }
-
-                }
-            });
-
-
-        }
 
     </script>
 {% endblock %}

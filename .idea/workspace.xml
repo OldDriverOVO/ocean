@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e98eb129-8d38-41ad-abab-8f74a7530bce" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/partsInfo/urls.py" afterPath="$PROJECT_DIR$/partsInfo/urls.py" />
       <change beforePath="$PROJECT_DIR$/partsInfo/views.py" afterPath="$PROJECT_DIR$/partsInfo/views.py" />
+      <change beforePath="$PROJECT_DIR$/templates/partinfo/factory_detail.html" afterPath="$PROJECT_DIR$/templates/partinfo/factory_detail.html" />
       <change beforePath="$PROJECT_DIR$/templates/partinfo/part_detail.html" afterPath="$PROJECT_DIR$/templates/partinfo/part_detail.html" />
+      <change beforePath="$PROJECT_DIR$/templates/partinfo/parts_list.html" afterPath="$PROJECT_DIR$/templates/partinfo/parts_list.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,6 +62,24 @@
         <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="ocean_test@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="ocean_test: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="auth_user: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="ocean_test@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="ocean_test: database" type="6d9b600a:PostgresImplModel$Database" />
+        <item name="public: schema" type="a16502c0:PostgresImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="partsInfo_parts: table" type="a93d6ac6:PostgresImplModel$LocalTable" />
+      </path>
     </expand>
     <select />
   </component>
@@ -70,63 +91,84 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partsInfo/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1236">
-              <caret line="835" column="91" lean-forward="false" selection-start-line="835" selection-start-column="91" selection-end-line="835" selection-end-column="91" />
+            <state relative-caret-position="210">
+              <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
-                <element signature="e#624#1202#0" expanded="false" />
-                <element signature="e#1230#1311#0" expanded="false" />
-                <element signature="e#1479#3968#0" expanded="false" />
-                <element signature="e#2038#2560#0" expanded="false" />
-                <element signature="e#2601#2735#0" expanded="false" />
-                <element signature="e#2774#2908#0" expanded="false" />
-                <element signature="e#2947#3119#0" expanded="false" />
-                <element signature="e#4020#5033#0" expanded="false" />
-                <element signature="e#5088#5419#0" expanded="false" />
-                <element signature="e#5474#6419#0" expanded="false" />
-                <element signature="e#6469#8906#0" expanded="false" />
-                <element signature="e#7231#7753#0" expanded="false" />
-                <element signature="e#8960#9998#0" expanded="false" />
-                <element signature="e#10055#10389#0" expanded="false" />
-                <element signature="e#10446#11450#0" expanded="false" />
-                <element signature="e#11501#13594#0" expanded="false" />
-                <element signature="e#13649#14571#0" expanded="false" />
-                <element signature="e#14629#14965#0" expanded="false" />
-                <element signature="e#15023#16061#0" expanded="false" />
-                <element signature="e#16181#18566#0" expanded="false" />
-                <element signature="e#18621#19631#0" expanded="false" />
-                <element signature="e#19755#20121#0" expanded="false" />
-                <element signature="e#20245#20917#0" expanded="false" />
-                <element signature="e#21038#23466#0" expanded="false" />
-                <element signature="e#23522#24544#0" expanded="false" />
-                <element signature="e#24603#25276#0" expanded="false" />
-                <element signature="e#25335#25702#0" expanded="false" />
-                <element signature="e#26186#26587#0" expanded="false" />
-                <element signature="e#26644#27051#0" expanded="false" />
-                <element signature="e#27100#29150#0" expanded="false" />
-                <element signature="e#27509#28031#0" expanded="false" />
-                <element signature="e#30211#30504#0" expanded="false" />
-                <element signature="e#30560#31487#0" expanded="false" />
+                <element signature="e#636#1214#0" expanded="false" />
+                <element signature="e#1242#1323#0" expanded="false" />
+                <element signature="e#1366#1443#0" expanded="false" />
+                <element signature="e#1491#3984#0" expanded="false" />
+                <element signature="e#2050#2572#0" expanded="false" />
+                <element signature="e#2613#2747#0" expanded="false" />
+                <element signature="e#2786#2920#0" expanded="false" />
+                <element signature="e#2959#3131#0" expanded="false" />
+                <element signature="e#4036#5049#0" expanded="false" />
+                <element signature="e#5104#5435#0" expanded="false" />
+                <element signature="e#5490#6435#0" expanded="false" />
+                <element signature="e#6485#8922#0" expanded="false" />
+                <element signature="e#7247#7769#0" expanded="false" />
+                <element signature="e#8976#10014#0" expanded="false" />
+                <element signature="e#10071#10405#0" expanded="false" />
+                <element signature="e#10462#11466#0" expanded="false" />
+                <element signature="e#11517#13610#0" expanded="false" />
+                <element signature="e#13665#14587#0" expanded="false" />
+                <element signature="e#14645#14981#0" expanded="false" />
+                <element signature="e#15039#16077#0" expanded="false" />
+                <element signature="e#16197#18811#0" expanded="false" />
+                <element signature="e#18866#19876#0" expanded="false" />
+                <element signature="e#20000#20366#0" expanded="false" />
+                <element signature="e#20490#21162#0" expanded="false" />
+                <element signature="e#21283#23711#0" expanded="false" />
+                <element signature="e#23767#24789#0" expanded="false" />
+                <element signature="e#24848#25521#0" expanded="false" />
+                <element signature="e#25580#25947#0" expanded="false" />
+                <element signature="e#26002#26389#0" expanded="false" />
+                <element signature="e#26445#26846#0" expanded="false" />
+                <element signature="e#26903#27310#0" expanded="false" />
+                <element signature="e#27768#28290#0" expanded="false" />
+                <element signature="e#29462#30414#0" expanded="false" />
+                <element signature="e#30470#30763#0" expanded="false" />
+                <element signature="e#30819#31746#0" expanded="false" />
+                <element signature="e#31794#32430#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customer_price_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/partinfo/customer_price_list.html">
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6bf14d21-b86c-4a37-ade4-b20b47cc23d4/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="183" column="133" lean-forward="false" selection-start-line="183" selection-start-column="77" selection-end-line="183" selection-end-column="133" />
+            <state relative-caret-position="0">
+              <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="factory_price_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_price_list.html">
+      <file leaf-file-name="auth_user" pinned="false" current-in-tab="false">
+        <entry file="das://table:/bb6921a/6bf14d21-b86c-4a37-ade4-b20b47cc23d4/ocean_test.public.auth_user">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="django_manage_code" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/django_manage_code">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="65" column="34" lean-forward="false" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
+            <state relative-caret-position="180">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/partsInfo/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="601">
+              <caret line="43" column="32" lean-forward="false" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -135,51 +177,68 @@
       <file leaf-file-name="parts_list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/partinfo/parts_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3840">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="part_detail.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/partinfo/part_detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="162" column="36" lean-forward="false" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="36" />
+            <state relative-caret-position="458">
+              <caret line="239" column="36" lean-forward="false" selection-start-line="239" selection-start-column="36" selection-end-line="239" selection-end-column="36" />
               <folding>
-                <element signature="e#7903#7928#0#HTML" expanded="true" />
-                <element signature="e#12938#15458#0#HTML" expanded="false" />
-                <element signature="e#15475#18521#0#HTML" expanded="false" />
-                <element signature="e#18526#21576#0#HTML" expanded="false" />
-                <element signature="e#21581#25447#0#HTML" expanded="false" />
-                <element signature="e#26519#28172#0#HTML" expanded="false" />
-                <element signature="e#28229#29563#0#HTML" expanded="false" />
-                <element signature="e#29635#29899#0#HTML" expanded="false" />
-                <element signature="e#30229#30794#0#HTML" expanded="false" />
-                <element signature="e#30840#32421#0#HTML" expanded="false" />
-                <element signature="e#32467#33040#0#HTML" expanded="false" />
-                <element signature="e#32488#33028#0#HTML" expanded="false" />
-                <element signature="e#33087#34707#0#HTML" expanded="false" />
-                <element signature="e#34749#40967#0#HTML" expanded="false" />
-                <element signature="e#41011#42603#0#HTML" expanded="false" />
+                <element signature="e#3245#6657#0#HTML" expanded="false" />
+                <element signature="e#7081#8763#0#HTML" expanded="false" />
+                <element signature="e#8832#9282#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="volume_data.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/partinfo/volume_data.html">
+      <file leaf-file-name="part_detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/partinfo/part_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="125" column="36" lean-forward="false" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
+            <state relative-caret-position="1903">
+              <caret line="656" column="36" lean-forward="false" selection-start-line="656" selection-start-column="36" selection-end-line="656" selection-end-column="36" />
               <folding>
-                <element signature="e#9124#9471#0#HTML" expanded="false" />
-                <element signature="e#9746#10485#0#HTML" expanded="false" />
-                <element signature="e#10546#16491#0#HTML" expanded="false" />
-                <element signature="e#16535#18124#0#HTML" expanded="false" />
-                <element signature="e#18167#18670#0#HTML" expanded="false" />
-                <element signature="e#18704#20677#0#HTML" expanded="false" />
+                <element signature="e#7373#10468#0#HTML" expanded="false" />
+                <element signature="e#7923#7948#0#HTML" expanded="true" />
+                <element signature="e#10477#12949#0#HTML" expanded="false" />
+                <element signature="e#12958#15478#0#HTML" expanded="false" />
+                <element signature="e#15548#15570#0#HTML" expanded="true" />
+                <element signature="e#15495#18541#0#HTML" expanded="false" />
+                <element signature="e#18546#21596#0#HTML" expanded="false" />
+                <element signature="e#21601#25467#0#HTML" expanded="false" />
+                <element signature="e#26541#28194#0#HTML" expanded="false" />
+                <element signature="e#29656#29920#0#HTML" expanded="false" />
+                <element signature="e#29976#36180#0#HTML" expanded="false" />
+                <element signature="e#36229#37822#0#HTML" expanded="false" />
+                <element signature="e#37868#40094#0#HTML" expanded="false" />
+                <element signature="e#40150#41242#0#HTML" expanded="false" />
+                <element signature="e#41287#41852#0#HTML" expanded="false" />
+                <element signature="e#41898#43479#0#HTML" expanded="false" />
+                <element signature="e#43525#44098#0#HTML" expanded="false" />
+                <element signature="e#44145#45765#0#HTML" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shared.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/partsInfo/static/js/shared.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2220">
+              <caret line="196" column="2" lean-forward="false" selection-start-line="196" selection-start-column="2" selection-end-line="196" selection-end-column="2" />
+              <folding>
+                <element signature="e#1736#2470#0" expanded="false" />
+                <element signature="e#2526#4115#0" expanded="false" />
+                <element signature="e#3320#4105#0" expanded="false" />
+                <element signature="e#4186#4921#0" expanded="false" />
+                <element signature="e#5012#5090#0" expanded="false" />
+                <element signature="e#5180#5401#0" expanded="false" />
+                <element signature="e#5489#5566#0" expanded="false" />
+                <element signature="e#5654#5874#0" expanded="false" />
+                <element signature="n#!!block;n#check_file_name_img#0" expanded="false" />
+                <element signature="n#!!block;n#initPageBar#0" expanded="false" />
+                <element signature="n#!!block;n#deleteFactoryPriceInfo#0" expanded="false" />
+                <element signature="n#!!block;n#updateFactoryPriceInfo#0" expanded="false" />
+                <element signature="e#8878#11058#0" expanded="false" />
+                <element signature="n#!!block;n#deleteCustomerPriceInfo#0" expanded="false" />
+                <element signature="n#!!block;n#updateCustomerPriceInfo#0" expanded="false" />
+                <element signature="e#13201#14622#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -210,6 +269,7 @@
       <find>CustomerPartsPrice</find>
       <find>search_factory_key_word</find>
       <find>search_customer_key_word</find>
+      <find>detaikl</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -238,7 +298,6 @@
         <option value="$PROJECT_DIR$/OCEAN/settings.py" />
         <option value="$PROJECT_DIR$/partsInfo/models.py" />
         <option value="$PROJECT_DIR$/templates/partinfo/base.html" />
-        <option value="$PROJECT_DIR$/partsInfo/urls.py" />
         <option value="$PROJECT_DIR$/partsInfo/static/js/parts_factory_customer_model_select2.js" />
         <option value="$PROJECT_DIR$/templates/partinfo/factory_list.html" />
         <option value="$PROJECT_DIR$/templates/partinfo/customer_list.html" />
@@ -246,14 +305,15 @@
         <option value="$PROJECT_DIR$/templates/partinfo/volume_data.html" />
         <option value="$PROJECT_DIR$/partsInfo/static/js/shared.js" />
         <option value="$PROJECT_DIR$/templates/partinfo/customer_detail.html" />
-        <option value="$PROJECT_DIR$/templates/partinfo/parts_list.html" />
-        <option value="$PROJECT_DIR$/templates/partinfo/factory_detail.html" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6bf14d21-b86c-4a37-ade4-b20b47cc23d4/console.sql" />
         <option value="$PROJECT_DIR$/templates/partinfo/factory_price_list.html" />
-        <option value="$PROJECT_DIR$/partsInfo/sql_utils.py" />
         <option value="$PROJECT_DIR$/templates/partinfo/page_bar.html" />
-        <option value="$PROJECT_DIR$/partsInfo/views.py" />
+        <option value="$PROJECT_DIR$/templates/partinfo/factory_detail.html" />
+        <option value="$PROJECT_DIR$/partsInfo/sql_utils.py" />
+        <option value="$PROJECT_DIR$/partsInfo/urls.py" />
         <option value="$PROJECT_DIR$/templates/partinfo/part_detail.html" />
+        <option value="$PROJECT_DIR$/templates/partinfo/parts_list.html" />
+        <option value="$PROJECT_DIR$/partsInfo/views.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6bf14d21-b86c-4a37-ade4-b20b47cc23d4/console.sql" />
       </list>
     </option>
   </component>
@@ -347,7 +407,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="D:/gitfiles/LibraryManagement" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rest-framework-tutorial" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -476,19 +536,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33295837" sideWeight="0.15396996" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7637795" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.65691787" sideWeight="0.7993562" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.023622047" sideWeight="0.7993562" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.49785408" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16760404" sideWeight="0.84603006" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5095613" sideWeight="0.8991416" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1276824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6254218" sideWeight="0.84603006" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.01912261" sideWeight="0.8991416" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21781115" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.02306867" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10193133" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5286839" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -533,48 +592,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Python36/Lib/site-packages/django/core/paginator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="28" column="38" lean-forward="false" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/static/css/jquery-confirm.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="8" column="2912" lean-forward="true" selection-start-line="8" selection-start-column="2912" selection-end-line="8" selection-end-column="2912" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Python36/Lib/site-packages/django/contrib/auth/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="134" column="4" lean-forward="false" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/bb6921a/435d10f8-5b32-4ba6-a1b3-a20698cf9082/ocean_build.public.auth_group_permissions">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -751,25 +773,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/bb6921a/6bf14d21-b86c-4a37-ade4-b20b47cc23d4/ocean_test.public.partsInfo_parts">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/bb6921a/6bf14d21-b86c-4a37-ade4-b20b47cc23d4/ocean_test.public.partsInfo_volumeweightdata">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/django_manage_code">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -797,25 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/static/js/parts_factory_customer_model_select2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding>
-            <element signature="e#63#1276#0" expanded="false" />
-            <element signature="e#100#1267#0" expanded="false" />
-            <element signature="e#1311#2531#0" expanded="false" />
-            <element signature="e#2567#3795#0" expanded="false" />
-            <element signature="n#!!block;n#formatParts#0" expanded="false" />
-            <element signature="n#!!block;n#formatPartsSelection#0" expanded="false" />
-            <element signature="n#!!block;n#formatFactory#0" expanded="false" />
-            <element signature="n#!!block;n#formatFactorySelection#0" expanded="false" />
-            <element signature="n#!!block;n#formatCustomer#0" expanded="false" />
-            <element signature="n#!!block;n#formatCustomerSelection#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/partinfo/customer_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -824,14 +812,6 @@
             <element signature="e#5239#6932#0#HTML" expanded="false" />
             <element signature="e#7005#7558#0#HTML" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -857,23 +837,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="21" column="57" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="57" />
-          <folding>
-            <element signature="e#602#642#0#HTML" expanded="false" />
-            <element signature="e#713#773#0#HTML" expanded="false" />
-            <element signature="e#1120#1180#0#HTML" expanded="false" />
-            <element signature="e#1465#1525#0#HTML" expanded="false" />
-            <element signature="e#1803#1863#0#HTML" expanded="false" />
-            <element signature="e#2130#2190#0#HTML" expanded="false" />
-            <element signature="e#13607#15261#0#HTML" expanded="false" />
-            <element signature="e#15319#17389#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/partinfo/customer_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -882,30 +845,6 @@
             <element signature="e#11479#13135#0#HTML" expanded="false" />
             <element signature="e#13660#15314#0#HTML" expanded="false" />
             <element signature="e#15390#15946#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6bf14d21-b86c-4a37-ade4-b20b47cc23d4/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="48" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/sql_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="68" column="55" lean-forward="false" selection-start-line="68" selection-start-column="55" selection-end-line="68" selection-end-column="55" />
-          <folding>
-            <marker date="1541468442004" expanded="true" signature="212:218" ph="SELECT * FRO... partsInfo_customer" />
-            <marker date="1541468442004" expanded="true" signature="212:506" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
-            <marker date="1541468442004" expanded="true" signature="212:603" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
-            <marker date="1541468442004" expanded="true" signature="212:704" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
-            <marker date="1541468442004" expanded="true" signature="212:802" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
-            <marker date="1541468442004" expanded="true" signature="1979:2635" ph="SELECT &quot;part... partsInfo_customerpartsprice" />
-            <marker date="1541468442004" expanded="true" signature="1979:2726" ph="SELECT &quot;part... partsInfo_customerpartsprice" />
           </folding>
         </state>
       </provider>
@@ -933,12 +872,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/volume_data.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="125" column="36" lean-forward="false" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
+          <folding>
+            <element signature="e#9124#9471#0#HTML" expanded="false" />
+            <element signature="e#9746#10485#0#HTML" expanded="false" />
+            <element signature="e#10546#16491#0#HTML" expanded="false" />
+            <element signature="e#16535#18124#0#HTML" expanded="false" />
+            <element signature="e#18167#18670#0#HTML" expanded="false" />
+            <element signature="e#18704#20677#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partsInfo/sql_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+          <folding>
+            <marker date="1541468442004" expanded="true" signature="212:218" ph="SELECT * FRO... partsInfo_customer" />
+            <marker date="1541468442004" expanded="true" signature="212:506" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
+            <marker date="1541468442004" expanded="true" signature="212:603" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
+            <marker date="1541468442004" expanded="true" signature="212:704" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
+            <marker date="1541468442004" expanded="true" signature="212:802" ph="SELECT &quot;part... partsInfo_factorypartsprice" />
+            <marker date="1541468442004" expanded="true" signature="1979:2635" ph="SELECT &quot;part... partsInfo_customerpartsprice" />
+            <marker date="1541468442004" expanded="true" signature="1979:2726" ph="SELECT &quot;part... partsInfo_customerpartsprice" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/factory_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partsInfo/static/js/parts_factory_customer_model_select2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="86" column="11" lean-forward="true" selection-start-line="47" selection-start-column="28" selection-end-line="86" selection-end-column="11" />
+          <folding>
+            <element signature="e#63#1276#0" expanded="false" />
+            <element signature="e#100#1267#0" expanded="false" />
+            <element signature="e#1376#1486#0" expanded="false" />
+            <element signature="e#1506#2173#0" expanded="false" />
+            <element signature="e#2609#3786#0" expanded="false" />
+            <element signature="n#!!block;n#formatParts#0" expanded="false" />
+            <element signature="n#!!block;n#formatPartsSelection#0" expanded="false" />
+            <element signature="n#!!block;n#formatFactory#0" expanded="false" />
+            <element signature="n#!!block;n#formatFactorySelection#0" expanded="false" />
+            <element signature="n#!!block;n#formatCustomer#0" expanded="false" />
+            <element signature="n#!!block;n#formatCustomerSelection#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/partsInfo/static/js/shared.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="169" column="0" lean-forward="true" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+        <state relative-caret-position="2220">
+          <caret line="196" column="2" lean-forward="false" selection-start-line="196" selection-start-column="2" selection-end-line="196" selection-end-column="2" />
           <folding>
-            <element signature="e#83#1666#0" expanded="false" />
             <element signature="e#1736#2470#0" expanded="false" />
             <element signature="e#2526#4115#0" expanded="false" />
             <element signature="e#3320#4105#0" expanded="false" />
@@ -959,93 +956,155 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/parts_list.html">
+    <entry file="file://$PROJECT_DIR$/partsInfo/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3840">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="601">
+          <caret line="43" column="32" lean-forward="false" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partinfo/volume_data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="125" column="36" lean-forward="false" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
-          <folding>
-            <element signature="e#9124#9471#0#HTML" expanded="false" />
-            <element signature="e#9746#10485#0#HTML" expanded="false" />
-            <element signature="e#10546#16491#0#HTML" expanded="false" />
-            <element signature="e#16535#18124#0#HTML" expanded="false" />
-            <element signature="e#18167#18670#0#HTML" expanded="false" />
-            <element signature="e#18704#20677#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/partsInfo/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1236">
-          <caret line="835" column="91" lean-forward="false" selection-start-line="835" selection-start-column="91" selection-end-line="835" selection-end-column="91" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#624#1202#0" expanded="false" />
-            <element signature="e#1230#1311#0" expanded="false" />
-            <element signature="e#1479#3968#0" expanded="false" />
-            <element signature="e#2038#2560#0" expanded="false" />
-            <element signature="e#2601#2735#0" expanded="false" />
-            <element signature="e#2774#2908#0" expanded="false" />
-            <element signature="e#2947#3119#0" expanded="false" />
-            <element signature="e#4020#5033#0" expanded="false" />
-            <element signature="e#5088#5419#0" expanded="false" />
-            <element signature="e#5474#6419#0" expanded="false" />
-            <element signature="e#6469#8906#0" expanded="false" />
-            <element signature="e#7231#7753#0" expanded="false" />
-            <element signature="e#8960#9998#0" expanded="false" />
-            <element signature="e#10055#10389#0" expanded="false" />
-            <element signature="e#10446#11450#0" expanded="false" />
-            <element signature="e#11501#13594#0" expanded="false" />
-            <element signature="e#13649#14571#0" expanded="false" />
-            <element signature="e#14629#14965#0" expanded="false" />
-            <element signature="e#15023#16061#0" expanded="false" />
-            <element signature="e#16181#18566#0" expanded="false" />
-            <element signature="e#18621#19631#0" expanded="false" />
-            <element signature="e#19755#20121#0" expanded="false" />
-            <element signature="e#20245#20917#0" expanded="false" />
-            <element signature="e#21038#23466#0" expanded="false" />
-            <element signature="e#23522#24544#0" expanded="false" />
-            <element signature="e#24603#25276#0" expanded="false" />
-            <element signature="e#25335#25702#0" expanded="false" />
-            <element signature="e#26186#26587#0" expanded="false" />
-            <element signature="e#26644#27051#0" expanded="false" />
-            <element signature="e#27100#29150#0" expanded="false" />
-            <element signature="e#27509#28031#0" expanded="false" />
-            <element signature="e#30211#30504#0" expanded="false" />
-            <element signature="e#30560#31487#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/partinfo/part_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="162" column="36" lean-forward="false" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="36" />
+        <state relative-caret-position="1903">
+          <caret line="656" column="36" lean-forward="false" selection-start-line="656" selection-start-column="36" selection-end-line="656" selection-end-column="36" />
           <folding>
-            <element signature="e#7903#7928#0#HTML" expanded="true" />
-            <element signature="e#12938#15458#0#HTML" expanded="false" />
-            <element signature="e#15475#18521#0#HTML" expanded="false" />
-            <element signature="e#18526#21576#0#HTML" expanded="false" />
-            <element signature="e#21581#25447#0#HTML" expanded="false" />
-            <element signature="e#26519#28172#0#HTML" expanded="false" />
-            <element signature="e#28229#29563#0#HTML" expanded="false" />
-            <element signature="e#29635#29899#0#HTML" expanded="false" />
-            <element signature="e#30229#30794#0#HTML" expanded="false" />
-            <element signature="e#30840#32421#0#HTML" expanded="false" />
-            <element signature="e#32467#33040#0#HTML" expanded="false" />
-            <element signature="e#32488#33028#0#HTML" expanded="false" />
-            <element signature="e#33087#34707#0#HTML" expanded="false" />
-            <element signature="e#34749#40967#0#HTML" expanded="false" />
-            <element signature="e#41011#42603#0#HTML" expanded="false" />
+            <element signature="e#7373#10468#0#HTML" expanded="false" />
+            <element signature="e#7923#7948#0#HTML" expanded="true" />
+            <element signature="e#10477#12949#0#HTML" expanded="false" />
+            <element signature="e#12958#15478#0#HTML" expanded="false" />
+            <element signature="e#15548#15570#0#HTML" expanded="true" />
+            <element signature="e#15495#18541#0#HTML" expanded="false" />
+            <element signature="e#18546#21596#0#HTML" expanded="false" />
+            <element signature="e#21601#25467#0#HTML" expanded="false" />
+            <element signature="e#26541#28194#0#HTML" expanded="false" />
+            <element signature="e#29656#29920#0#HTML" expanded="false" />
+            <element signature="e#29976#36180#0#HTML" expanded="false" />
+            <element signature="e#36229#37822#0#HTML" expanded="false" />
+            <element signature="e#37868#40094#0#HTML" expanded="false" />
+            <element signature="e#40150#41242#0#HTML" expanded="false" />
+            <element signature="e#41287#41852#0#HTML" expanded="false" />
+            <element signature="e#41898#43479#0#HTML" expanded="false" />
+            <element signature="e#43525#44098#0#HTML" expanded="false" />
+            <element signature="e#44145#45765#0#HTML" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Python36/Lib/site-packages/django/db/models/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-127">
+          <caret line="929" column="8" lean-forward="false" selection-start-line="929" selection-start-column="8" selection-end-line="929" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partinfo/parts_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="239" column="36" lean-forward="false" selection-start-line="239" selection-start-column="36" selection-end-line="239" selection-end-column="36" />
+          <folding>
+            <element signature="e#3245#6657#0#HTML" expanded="false" />
+            <element signature="e#7081#8763#0#HTML" expanded="false" />
+            <element signature="e#8832#9282#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/bb6921a/6bf14d21-b86c-4a37-ade4-b20b47cc23d4/ocean_test.public.auth_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6bf14d21-b86c-4a37-ade4-b20b47cc23d4/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/bb6921a/6bf14d21-b86c-4a37-ade4-b20b47cc23d4/ocean_test.public.partsInfo_parts">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/bb6921a/6bf14d21-b86c-4a37-ade4-b20b47cc23d4/ocean_test.public.partsInfo_factory">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/bb6921a/6bf14d21-b86c-4a37-ade4-b20b47cc23d4/ocean_test.public.partsInfo_factorypartsprice">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Python36/Lib/site-packages/django/core/serializers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3732">
+          <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/partsInfo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding>
+            <element signature="e#636#1214#0" expanded="false" />
+            <element signature="e#1242#1323#0" expanded="false" />
+            <element signature="e#1366#1443#0" expanded="false" />
+            <element signature="e#1491#3984#0" expanded="false" />
+            <element signature="e#2050#2572#0" expanded="false" />
+            <element signature="e#2613#2747#0" expanded="false" />
+            <element signature="e#2786#2920#0" expanded="false" />
+            <element signature="e#2959#3131#0" expanded="false" />
+            <element signature="e#4036#5049#0" expanded="false" />
+            <element signature="e#5104#5435#0" expanded="false" />
+            <element signature="e#5490#6435#0" expanded="false" />
+            <element signature="e#6485#8922#0" expanded="false" />
+            <element signature="e#7247#7769#0" expanded="false" />
+            <element signature="e#8976#10014#0" expanded="false" />
+            <element signature="e#10071#10405#0" expanded="false" />
+            <element signature="e#10462#11466#0" expanded="false" />
+            <element signature="e#11517#13610#0" expanded="false" />
+            <element signature="e#13665#14587#0" expanded="false" />
+            <element signature="e#14645#14981#0" expanded="false" />
+            <element signature="e#15039#16077#0" expanded="false" />
+            <element signature="e#16197#18811#0" expanded="false" />
+            <element signature="e#18866#19876#0" expanded="false" />
+            <element signature="e#20000#20366#0" expanded="false" />
+            <element signature="e#20490#21162#0" expanded="false" />
+            <element signature="e#21283#23711#0" expanded="false" />
+            <element signature="e#23767#24789#0" expanded="false" />
+            <element signature="e#24848#25521#0" expanded="false" />
+            <element signature="e#25580#25947#0" expanded="false" />
+            <element signature="e#26002#26389#0" expanded="false" />
+            <element signature="e#26445#26846#0" expanded="false" />
+            <element signature="e#26903#27310#0" expanded="false" />
+            <element signature="e#27768#28290#0" expanded="false" />
+            <element signature="e#29462#30414#0" expanded="false" />
+            <element signature="e#30470#30763#0" expanded="false" />
+            <element signature="e#30819#31746#0" expanded="false" />
+            <element signature="e#31794#32430#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_manage_code">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

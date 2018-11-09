@@ -39,5 +39,7 @@ urlpatterns = [
     path('volume_data/', views.volume_data, name='volume_data'),
     path('add_volume_data/', views.add_volume_data, name='add_volume_data'),
     path('delete_volume_data/', views.delete_volume_data, name='delete_volume_data'),
-    path('update_volume_data/', views.update_volume_data, name='update_volume_data')
+    path('update_volume_data/', views.update_volume_data, name='update_volume_data'),
+
+    path('add_ex_ome/',views.add_ex_ome,name='add_ex_ome'),
 ]

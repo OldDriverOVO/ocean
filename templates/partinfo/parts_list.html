@@ -69,7 +69,7 @@
         <!-- /.col -->
     </div>
 
-    <div class="modal fade" id="model_parts_add" style="display: none;">
+    <div class="modal" id="model_parts_add" style="display: none;">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -237,6 +237,7 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
+                    console.log(data)
                     showPartInfo(data.parts_list);
                     initPageBar(data.page_info, "part_list_bar", 'getPageInfo');
 

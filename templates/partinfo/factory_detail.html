@@ -15,36 +15,40 @@
 
                 <div class="box-body" style="padding-left: 0;padding-right: 0">
 
+                    <div class="col-md-12 col-xs-12 col-xs-12"
+                         style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
+                        <strong><i class="fa fa-user-circle-o margin-r-5"></i> 联系人</strong>
+                        <p class="text-muted pull-right">{{ factory.Contact }}</p>
 
-                        <div class="col-md-12 col-xs-12 col-xs-12" style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
-                            <strong><i class="fa fa-file-text-o margin-r-5"></i> 备注</strong>
-                            <p class="text-muted pull-right">
-                                {{ factory.description }}
-                            </p>
+                    </div>
+                    <div class="col-md-12 col-xs-12 col-xs-12"
+                         style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
+                        <strong><i class="fa fa-map-marker margin-r-5"></i> 地址</strong>
+                        <p class="text-muted pull-right">{{ factory.address }}</p>
 
-                        </div>
-                        <div class="col-md-12 col-xs-12 col-xs-12" style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px" >
-                            <strong><i class="fa fa-user-circle-o margin-r-5"></i> 联系人</strong>
-                            <p class="text-muted pull-right">{{ factory.Contact }}</p>
+                    </div>
 
-                        </div>
-                        <div class="col-md-12 col-xs-12 col-xs-12" style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px" >
-                            <strong><i class="fa fa-phone margin-r-5"></i> 电话</strong>
-                            <p class="text-muted pull-right">{{ factory.phone_num }}</p>
+                    <div class="col-md-12 col-xs-12 col-xs-12"
+                         style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
+                        <strong><i class="fa fa-phone margin-r-5"></i> 电话</strong>
+                        <p class="text-muted pull-right">{{ factory.phone_num }}</p>
 
-                        </div>
-                        <div class="col-md-12 col-xs-12 col-xs-12" style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
-                            <strong><i class="fa fa-qq margin-r-5"></i> QQ</strong>
-                            <p class="text-muted pull-right">{{ factory.qq }}</p>
+                    </div>
+                    <div class="col-md-12 col-xs-12 col-xs-12"
+                         style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
+                        <strong><i class="fa fa-qq margin-r-5"></i> QQ</strong>
+                        <p class="text-muted pull-right">{{ factory.qq }}</p>
 
-                        </div>
-                        <div class="col-md-12 col-xs-12 col-xs-12" style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px" >
-                            <strong><i class="fa fa-map-marker margin-r-5"></i> 地址</strong>
-                            <p class="text-muted pull-right">{{ factory.address }}</p>
+                    </div>
 
-                        </div>
+                    <div class="col-md-12 col-xs-12 col-xs-12"
+                         style="border-bottom: 1px solid #f4f4f4;margin-bottom: 10px">
+                        <strong><i class="fa fa-file-text-o margin-r-5"></i> 备注</strong>
+                        <p class="text-muted pull-right">
+                            {{ factory.description }}
+                        </p>
 
-
+                    </div>
 
 
                 </div>
@@ -407,14 +411,14 @@
             $.ajax({
                 type: "GET",
 
-                url: "{% url 'partsinfo:factory_price_list' %}?page=" + page + "&factory_id=" +{{ factory.id }} + "&parts_q=" + $('#search_parts_key_word').val(),
+                url: "{% url 'partsinfo:factory_price_list' %}?page=" + page + "&factory_id=" + {{ factory.id }} +"&parts_q=" + $('#search_parts_key_word').val(),
 
                 async: false,
                 contentType: false,
                 processData: false,
                 success: function (data) {
                     showFactoryPriceList(data.factory_price_list);
-                    initPageBar(data.page_info, "factory_price_list_bar",'getFactoryPriceInfo');
+                    initPageBar(data.page_info, "factory_price_list_bar", 'getFactoryPriceInfo');
 
                 }
 

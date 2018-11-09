@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
-from .models import VolumeWeightData, Parts, Factory, Customer, FactoryPartsPrice, CustomerPartsPrice
+from .models import OemExchange,VolumeWeightData, Parts, Factory, Customer, FactoryPartsPrice, CustomerPartsPrice
 import win32timezone
 import json
 from django.urls import reverse
@@ -100,7 +100,7 @@ def parts_list(request):
             }, safe=False
 
         )
-    # for i in range(31, 1500):
+    # for i in range(1500, 100000):
     #     new = Parts(oem='909612' + str(i), cn_name='测试数据' + str(i), en_name='Test Data',car_model='MATIZ',
     #                 last_change_date=win32timezone.now(), last_change_user_id=1)
     #     new.save()
@@ -459,6 +459,16 @@ def update_customer_info(request):
 @login_required
 # @permission_required(perm='partsInfo.view_factorypartsprice')
 def factory_price_list(request):
+    # for i in range(100000):
+    #     new = FactoryPartsPrice(
+    #         oem_id=90961231,
+    #         factory_id_id=4,
+    #         price=0.3,
+    #         last_change_user_id=1,
+    #
+    #     )
+    #     new.save()
+
     if request.is_ajax():
 
         contact_list = SqlUtils.get_factory_parts_price(oem=request.GET.get("oem"),
@@ -731,11 +741,14 @@ def delete_customer_price(request):
 
 @login_required
 def part_detail(request, pk):
-    target = Parts.objects.get(oem=pk)
+
+
+    target = Parts.objects.filter(oem=pk)
+
 
     if target:
         return render(request, 'partinfo/part_detail.html', context={'user': request.user,
-                                                                     'part': target
+                                                                     'part': target.first()
                                                                      })
     else:
         return HttpResponseRedirect(reverse("partsinfo:part_list"))
@@ -886,3 +899,25 @@ def update_volume_data(request):
 
     else:
         return HttpResponse('')
+
+
+@login_required
+def add_ex_ome(request):
+    if request.is_ajax():
+
+        target = OemExchange.objects.filter(ex_oem=request.POST.get('ex_oem')).first()
+        if target:
+            return JsonResponse({'state':'ex_info_exist','oem':target.oem_id,'ex_oem':request.POST.get('ex_oem')})
+        oem_target = Parts.objects.filter(oem=request.POST.get('ex_oem')).first()
+        if oem_target:
+            return JsonResponse({'state':'info_exist'})
+
+        new = OemExchange()
+        new.oem_id = request.POST.get('oem')
+        new.ex_oem = request.POST.get('ex_oem')
+        new.save()
+        return JsonResponse({'state':'success'})
+    else:
+        return HttpResponse("")
+
+
